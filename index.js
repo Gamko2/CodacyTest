@@ -1,6 +1,1 @@
-<head></head>
-<body>
-
-Hello World
-
-</body>
+var test;
