@@ -1,0 +1,3 @@
+test:
+  script:
+    - tidy index.html
