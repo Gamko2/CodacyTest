@@ -12,6 +12,7 @@ install_dependencies:
   stage: build
   script:
     - npm install
+    - ls
   artifacts:
     paths:
       - node_modules/
