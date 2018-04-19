@@ -1,23 +1,34 @@
 image: node:latest
 
-stages:
-  - build
-  - test
-
 cache:
   paths:
     - node_modules/
 
-install_dependencies:
-  stage: build
+before_script:
+ - apt-get update -qq && apt-get install -y -qq sshpass
+
+deploy_stage:
+  stage: deploy
+  environment: Staging
+  only:
+    - master
   script:
+    - rm ./package-lock.json
     - npm install
     - ls
-  artifacts:
-    paths:
-      - node_modules/
+    - sshpass -V
+    - export SSHPASS=$USER_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r . username@host.com:/var/www/html
 
-test_with_lab:
-  stage: test
+deploy_production:
+  stage: deploy
+  environment: Production
+  only:
+    - tags
   script:
-  - npm test
+    - rm ./package-lock.json
+    - npm install
+    - ls
+    - sshpass -V
+    - export SSHPASS=$USER_PASS 
+    - sshpass -e scp -o stricthostkeychecking=no -r . username@host.com:/var/www/html
