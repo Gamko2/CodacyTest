@@ -18,7 +18,7 @@ deploy_stage:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r . username@host.com:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r . root@host.com:/var/www/html
 
 deploy_production:
   stage: deploy
@@ -31,4 +31,4 @@ deploy_production:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r . username@host.com:/var/www/html
+    - sshpass -e scp -o stricthostkeychecking=no -r . root@host.com:/var/www/html
