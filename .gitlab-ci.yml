@@ -16,7 +16,7 @@ job_deploy:
     - ssh-keygen -t rsa -b 4096 -C '' -f ~/.ssh/deploy_rsa
     - ssh-keyscan -H 138.68.70.61 >> ~/.ssh/known_hosts
     - ssh-copy-id -i ~/.ssh/deploy_rsa.pub $root@138.68.70.61
-    rsync -avuz -e 'ssh -i ~/.ssh/deploy_rsa' $. $root@138.68.70.61:/App
+    - rsync -avuz -e 'ssh -i ~/.ssh/deploy_rsa' $. $root@138.68.70.61:/App
 
   only:
     - master
