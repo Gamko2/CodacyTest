@@ -4,19 +4,31 @@ cache:
   paths:
     - node_modules/
 
-stages:
-  - deploy
-
 before_script:
-    - npm install
+ - apt-get update -qq && apt-get install -y -qq sshpass
 
-job_deploy:
+deploy_stage:
   stage: deploy
-  script:
-    - ssh-keygen -t rsa -b 4096 -C '' -f ~/.ssh/deploy_rsa
-    - ssh-keyscan -H 138.68.70.61 >> ~/.ssh/known_hosts
-    - ssh-copy-id -i ~/.ssh/deploy_rsa.pub $root@138.68.70.61
-    - rsync -avuz -e 'ssh -i ~/.ssh/deploy_rsa' $. $root@138.68.70.61:/App
-
+  environment: Staging
   only:
     - master
+  script:
+    - rm ./package-lock.json
+    - npm install
+    - ls
+    - sshpass -V
+    - export SSHPASS=$USER_PASS 
+    - sshpass -e scp -o stricthostkeychecking=yes -r . root@138.68.70.61:/App
+
+deploy_production:
+  stage: deploy
+  environment: Production
+  only:
+    - tags
+  script:
+    - rm ./package-lock.json
+    - npm install
+    - ls
+    - sshpass -V
+    - export SSHPASS=$USER_PASS 
+    - sshpass -e scp -o stricthostkeychecking=yes -r . root@138.68.70.61:/App
