@@ -17,7 +17,6 @@ deploy_stage:
     - npm install
     - ls
     - sshpass -V
-    - ssh -o StrictHostKeyChecking=no root@138.68.70.61
     - export SSHPASS=$USER_PASS 
     - sshpass -e scp -o stricthostkeychecking=yes -r ./ root@138.68.70.61:/App
 
@@ -31,6 +30,5 @@ deploy_production:
     - npm install
     - ls
     - sshpass -V
-    - ssh -o StrictHostKeyChecking=no root@138.68.70.61
     - export SSHPASS=$USER_PASS 
     - sshpass -e scp -o stricthostkeychecking=yes -r ./ root@138.68.70.61:/App
