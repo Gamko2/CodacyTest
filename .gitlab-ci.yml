@@ -18,7 +18,7 @@ deploy_stage:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r . root@138.68.70.61
+    - sshpass -e scp -o stricthostkeychecking=no -r . root@138.68.70.61:/App
 
 deploy_production:
   stage: deploy
@@ -31,4 +31,4 @@ deploy_production:
     - ls
     - sshpass -V
     - export SSHPASS=$USER_PASS 
-    - sshpass -e scp -o stricthostkeychecking=no -r . root@138.68.70.61
+    - sshpass -e scp -o stricthostkeychecking=no -r . root@138.68.70.61:/App
