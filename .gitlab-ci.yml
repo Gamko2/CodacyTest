@@ -1,0 +1,5 @@
+image: node:6
+
+test:
+  script:
+  - cd Alekulator && npm test
