@@ -1,13 +1,13 @@
-###### Alekalculator
+# Alekalculator
 
 Ein Taschenrechner als Hybride App
 
-# Setup
+### Setup
 
 Lade das Projekt mit einer Software deiner Wahl runter. In Sourcetree einfach den Repository link einfügen und auf PULL drücken.
 
 
-# Entwickeln eines Features
+### Entwickeln eines Features
 
 Wenn du etwas zu dem Projekt beitragen möchtest dann musst du zunächst einen neuen Branch erstellen. Klicke dazu in Sourcetree oben auf "Branch". Lasse alle Einstellungen
 so wie sie sind und gebe dem Branch einen Namen. Nach einem klick auf OK sollte der Branch erstellt worden sein und du müsstest einen Punkt neben deinem ausgewählten Branch in der Branchliste sehen.
@@ -16,7 +16,7 @@ Entwickel dein Feature, vergiss aber nicht regelmäßig lokal zu committen. Soll
 In GitLab musst du danach einen Mergerequest starten. Wir werden diesen annehmen und das Projekt sollte nach  ~ 5 Minuten dann auf dem Webserver zu finden sein.
 
 
-# Wie starte/teste ich das Projekt
+### Wie starte/teste ich das Projekt
 
 Um das Projekt testen zu können musst du Node.JS runtergeladen und installiert haben.
 
