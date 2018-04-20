@@ -10,8 +10,6 @@ cache:
     - node_modules/
 
 before_script:
-  only:
-    master
   script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
@@ -41,7 +39,7 @@ before_script:
 
 deploy_to_website:
   only:
-    master
+  -  master
   stage: deploy
   script:
   - rm -rf node_modules/
