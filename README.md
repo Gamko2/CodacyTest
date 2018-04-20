@@ -1,4 +1,4 @@
-## Alekalculator
+###### Alekalculator
 
 Ein Taschenrechner als Hybride App
 
