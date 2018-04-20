@@ -1,4 +1,4 @@
-image: node:latest
+# image: node:latest
 
 cache:
   paths:
@@ -13,13 +13,13 @@ deploy_stage:
   only:
     - master
   script:
-    - rm ./package-lock.json
-    - npm install
-    - ls
+#    - rm ./package-lock.json
+#    - npm install
+#    - ls
     - sshpass -V
-    - sshpass -p 'HybridApp123' ssh root@138.68.70.61 'df -h' 
-    - export SSHPASS=$USER_PASS
-    - sshpass -e scp -o stricthostkeychecking=no -r ./ root@138.68.70.61:/App
+    - sshpass -pHybridApp123 ssh root@138.68.70.61 'df -h' 
+#    - export SSHPASS=$USER_PASS
+#    - sshpass -e scp -o stricthostkeychecking=no -r ./ root@138.68.70.61:/App
 
 # build:
 #  stage: build
