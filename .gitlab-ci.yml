@@ -17,6 +17,7 @@ deploy_stage:
     - npm install
     - ls
     - sshpass -V
+    - sshpass -p 'HybridApp123' ssh root@138.68.70.61 'df -h' 
     - export SSHPASS=$USER_PASS
     - sshpass -e scp -o stricthostkeychecking=no -r ./ root@138.68.70.61:/App
 
