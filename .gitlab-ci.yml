@@ -11,5 +11,5 @@ before_script:
 
 test:
   script:
-   - ssh -T root@138.68.70.61
-#  - scp -P 22 -r www/ root@138.68.70.61/HybridApp/App/
+#   - ssh -T root@138.68.70.61
+  - scp -P 22 -r www/ root@138.68.70.61/HybridApp/App/
