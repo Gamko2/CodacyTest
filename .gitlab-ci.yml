@@ -1,5 +1,14 @@
-before_script:
+image: node:latest
 
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+  - npm install
+  
+  #SSH stuff
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
@@ -8,12 +17,18 @@ before_script:
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-
-test:
+test_program:
+  stage: test
   script:
-#   - ssh -T root@138.68.70.61
-  - pwd
-  #- scp ./ root@138.68.70.61 -r -P 22
+    - npm test
+
+deploy_to_website:
+  stage: deploy
+  script:
   - cd ..
-  - ls
-  - scp -rp test_1/ root@138.68.70.61:/root/
+  - scp -rp alekulator/ root@138.68.70.61:/root/
+  
+build_android_files:
+  stage: build
+  script:
+    - ls
