@@ -13,4 +13,4 @@ test:
   script:
 #   - ssh -T root@138.68.70.61
   - ls
-  - scp -P 22 -r www/ root@138.68.70.61
+  - scp -P 22 -r ./ root@138.68.70.61
