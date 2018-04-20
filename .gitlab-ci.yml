@@ -1,15 +1,15 @@
 # image: node:latest
 
-cache:
-  paths:
-    - node_modules/
+#cache:
+#  paths:
+#    - node_modules/
 
 before_script:
  - apt-get update -qq && apt-get install -y -qq sshpass
 
 deploy_stage:
   stage: deploy
-  environment: Staging
+#  environment: Staging
   only:
     - master
   script:
