@@ -19,7 +19,7 @@ before_script:
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-#install_dependencies:
+#install_dependency:
 #  stage: build
 #  script:
 #    - npm install
