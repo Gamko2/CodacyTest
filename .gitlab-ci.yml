@@ -14,4 +14,6 @@ test:
 #   - ssh -T root@138.68.70.61
   - pwd
   #- scp ./ root@138.68.70.61 -r -P 22
-  - scp * root@138.68.70.61:/root/App/
+  - cd ..
+  - ls
+  - scp test_1/ root@138.68.70.61:/root/App/ -r
