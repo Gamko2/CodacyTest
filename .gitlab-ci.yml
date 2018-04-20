@@ -19,27 +19,27 @@ before_script:
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-install_dependencies:
-  stage: build
-  script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
+#install_dependencies:
+#  stage: build
+#  script:
+#    - npm install
+#  artifacts:
+#    paths:
+#      - node_modules/
 
-test_program:
-  stage: test
-  script:
-    - npm test
+#test_program:
+#  stage: test
+#  script:
+#    - npm test
   
-build_android_files:
-  stage: build
-  script:
-    - ls
+#build_android_files:
+#  stage: build
+#  script:
+#    - ls
     
 deploy_to_website:
   stage: deploy
   script:
-  - rmdir node_modules/
+  - rm -rf node_modules/
   - cd ..
   - scp -rp Alekulator/ root@138.68.70.61:/root/
