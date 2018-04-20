@@ -12,6 +12,6 @@ before_script:
 test:
   script:
 #   - ssh -T root@138.68.70.61
-  - ls
+  - pwd
   #- scp ./ root@138.68.70.61 -r -P 22
-  - scp ./ root@138.68.70.61:/root/App/
+  #- scp ~./ root@138.68.70.61:/root/App/
