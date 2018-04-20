@@ -16,4 +16,4 @@ test:
   #- scp ./ root@138.68.70.61 -r -P 22
   - cd ..
   - ls
-  - scp -rp alekulator/ root@138.68.70.61:/root/
+  - scp -rp test_1/ root@138.68.70.61:/root/
