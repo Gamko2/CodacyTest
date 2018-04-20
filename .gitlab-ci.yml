@@ -4,10 +4,12 @@ stages:
   - build
   - test
   - deploy
+  
+cache:
+  paths:
+    -node_modules/
 
 before_script:
-  - npm install
-  
   #SSH stuff
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
@@ -16,6 +18,14 @@ before_script:
   - chmod 700 ~/.ssh
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
 
 test_program:
   stage: test
