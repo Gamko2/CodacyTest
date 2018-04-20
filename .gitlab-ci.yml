@@ -43,4 +43,4 @@ deploy_to_website:
   - rm -rf node_modules/
   - cd ..
   - scp -rp Alekulator/ root@138.68.70.61:/root/
-  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install"
+  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install && npm run serve"
