@@ -31,14 +31,15 @@ test_program:
   stage: test
   script:
     - npm test
-
-deploy_to_website:
-  stage: deploy
-  script:
-  - cd ..
-  - scp -rp Alekulator/ root@138.68.70.61:/root/
   
 build_android_files:
   stage: build
   script:
     - ls
+    
+deploy_to_website:
+  stage: deploy
+  script:
+  - rmdir node_modules/
+  - cd ..
+  - scp -rp Alekulator/ root@138.68.70.61:/root/
