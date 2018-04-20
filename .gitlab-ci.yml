@@ -18,7 +18,7 @@ deploy_stage:
 #    - ls
     - sshpass -P 'assword:'
     - sshpass -V
-    - sshpass -p HybridApp123 ssh root@138.68.70.61 echo 'OK'
+    - sshpass -p "HybridApp123" ssh root@138.68.70.61 echo 'OK'
 #    - export SSHPASS=$USER_PASS
 #    - sshpass -e scp -o stricthostkeychecking=no -r ./ root@138.68.70.61:/App
 
