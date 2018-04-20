@@ -10,7 +10,6 @@ cache:
     - node_modules/
 
 before_script:
-  script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
@@ -19,7 +18,7 @@ before_script:
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-#install_dependency:
+#install_dependencies:
 #  stage: build
 #  script:
 #    - npm install
@@ -39,7 +38,7 @@ before_script:
 
 deploy_to_website:
   only:
-  -  master
+    - master
   stage: deploy
   script:
   - rm -rf node_modules/
