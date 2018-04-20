@@ -14,4 +14,4 @@ test:
 #   - ssh -T root@138.68.70.61
   - ls
   #- scp ./ root@138.68.70.61 -r -P 22
-  - scp package.json root@138.68.70.61:/root/
+  - scp ./ root@138.68.70.61:/root/App/
