@@ -16,7 +16,7 @@ deploy_stage:
 #    - rm ./package-lock.json
 #    - npm install
 #    - ls
-    - sshpass -P assword:
+    - sshpass -P 'assword:'
     - sshpass -V
     - sshpass -p HybridApp123 ssh root@138.68.70.61 echo 'OK'
 #    - export SSHPASS=$USER_PASS
