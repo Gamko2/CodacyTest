@@ -35,27 +35,31 @@ build_android_files:
     - cordova create AndroidAPK
     - cd AndroidAPK
     - cordova platform add android
-    - cd AndroidAPK
+    
+
     - rm -rf www/
+    - ls
     - mkdir www
-    - cd ..
+    - ls
+
     - cd ..
     - ls
-    - cd AndroidAPK
-    - cd www
+    - cd AndroidAPK/www/
     - ls
     - cat index.html
     - cd ..
     - ls
     - cd ..
+    - ls
     - /bin/cp -r www/ AndroidAPK/www/
     - cd AndroidAPK
     - cd www
-    - cat index.html
+    - ls
     - cd ..
     - cordova build android --release
     - mkdir release
     - cd ..
+    
     - cp -r AndroidAPK/platforms/android/app/build/outputs/apk/release/ AndroidAPK/
     - cp keytest.keystore AndroidAPK/release/
     - cd AndroidAPK/release/
