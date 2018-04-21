@@ -26,7 +26,7 @@ Um das Projekt testen zu können musst du Node.JS runtergeladen und installiert 
 
 3. Danach müssen zunächst alle Dependencies runtergeladen werden. Gebe dazu in die Kommandozeile _**npm install**_ ein.
 
-4. Ändere mit einem Textprogramm die Datei package.json. Ändere den Eintrag _**"serve": "http-server ./www/ -o -c 1 -a"**_ in _"serve": "http-server ./www/ -o -c 1 -a **localhost**"_
+4. Ändere mit einem Textprogramm die Datei package.json. Ändere den Eintrag _**"serve": "http-server ./www/ -o -c 1 -a"**_ in _**"serve": "http-server ./www/ -o -c 1 -a localhost"**_
 
 5. Danach führe _**npm run serve**_ in der Kommandozeile aus.
 
