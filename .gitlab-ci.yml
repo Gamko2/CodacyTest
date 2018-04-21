@@ -29,7 +29,6 @@ build_android_files:
   stage: build
   artifacts:
     paths:
-    - AndroidAPK/platforms/android/app/build/outputs/apk/release/
     - AndroidAPK/release/
     
   script:
@@ -47,7 +46,8 @@ build_android_files:
     - cd AndroidAPK
     - cordova build android --release
     - mkdir release
-    - cp -r platforms/android/app/build/outputs/apk/release/ release/
+    - cd ..
+    - cp -r AndroidAPK/platforms/android/app/build/outputs/apk/release/ AndroidAPK/
 
 #deploy_to_website:
 #  only:
