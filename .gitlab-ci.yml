@@ -35,8 +35,10 @@ build_android_files:
     - cordova create AndroidAPK
     - cd AndroidAPK
     - cordova platform add android
+    - cd AndroidAPK
     - rm -rf www/
     - mkdir www
+    - cd ..
     - cd ..
     - ls
     - cd AndroidAPK
