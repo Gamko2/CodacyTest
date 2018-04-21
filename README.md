@@ -2,6 +2,7 @@
 
 Ein Taschenrechner als Hybride App
 
+
 ### Setup
 
 Lade das Projekt mit einer Software deiner Wahl runter. In Sourcetree einfach den Repository link einfügen und auf PULL drücken.
@@ -18,7 +19,7 @@ In GitLab musst du danach einen Mergerequest starten. Wir werden diesen annehmen
 
 ### Wie starte/teste ich die Website?
 
-Um das Projekt testen zu können musst du Node.JS runtergeladen und installiert haben.
+Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runtergeladen und installiert haben.
 
 1. Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein.
 
