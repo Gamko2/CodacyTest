@@ -28,10 +28,13 @@ build_android_files:
     - master
   stage: build
   script:
-    - ls
     - cordova create AndroidAPK
+    - cd AndroidAPK
     - cordova platform add android
-    - cp -r /Alekulator/www/ /AndroidAPK/www/
+    - cd ..
+    - cp -r /www/ /AndroidAPK/www/
+    - cd AndroidAPK
+    - cordova build android
 
 #deploy_to_website:
 #  only:
