@@ -29,7 +29,7 @@ build_android_files:
   stage: build
   artifacts:
     path:
-    - \AndroidAPK\platforms\android\app\build\outputs\apk\release\
+    - /AndroidAPK/platforms/android/app/build/outputs/apk/release/
     
   script:
     - cordova create AndroidAPK
