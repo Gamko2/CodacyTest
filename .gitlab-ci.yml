@@ -28,7 +28,7 @@ build_android_files:
     - master
   stage: build
   artifacts:
-    path:
+    paths:
     - /AndroidAPK/platforms/android/app/build/outputs/apk/release/
     
   script:
