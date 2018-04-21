@@ -40,6 +40,10 @@ build_android_files:
     - cd ..
     - ls
     - cd AndroidAPK
+    - cd www
+    - ls
+    - cat index.html
+    - cd ..
     - ls
     - cd ..
     - /bin/cp -rf www/ AndroidAPK/www/
