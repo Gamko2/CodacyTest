@@ -1,13 +1,13 @@
-image: node:latest
+#image: node:latest
 
 stages:
   - build
   - test
   - deploy
 
-cache:
-  paths:
-    - node_modules/
+#cache:
+#  paths:
+#    - node_modules/
 
 install_dependencies:
   stage: build
@@ -17,10 +17,10 @@ install_dependencies:
     paths:
       - node_modules/
 
-testing:
-  stage: test
-  script:
-    - npm test
+#testing:
+#  stage: test
+#  script:
+#    - npm test
 
 build_android_files:
   only:
@@ -28,20 +28,23 @@ build_android_files:
   stage: build
   script:
     - ls
+    - cordova create AndroidAPK
+    - cordova platform add android
+    - cp -r /Alekulator/www/ /AndroidAPK/www/
 
-deploy_to_website:
-  only:
-    - master
-  stage: deploy
-  script:
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-  - eval $(ssh-agent -s)
-  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-  - mkdir -p ~/.ssh
-  - chmod 700 ~/.ssh
-  - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
-  - rm -rf node_modules/
-  - cd ..
-  - scp -rp Alekulator/ root@138.68.70.61:/root/
-  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install"
+#deploy_to_website:
+#  only:
+#    - master
+#  stage: deploy
+#  script:
+#  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+#  - eval $(ssh-agent -s)
+#  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+#  - mkdir -p ~/.ssh
+#  - chmod 700 ~/.ssh
+#  - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
+#  - chmod 644 ~/.ssh/known_hosts
+#  - rm -rf node_modules/
+#  - cd ..
+#  - scp -rp Alekulator/ root@138.68.70.61:/root/
+#  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install"
