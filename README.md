@@ -16,13 +16,13 @@ Entwickel dein Feature, vergiss aber nicht regelmäßig lokal zu committen. Soll
 In GitLab musst du danach einen Mergerequest starten. Wir werden diesen annehmen und das Projekt sollte nach  ~ 5 Minuten dann auf dem Webserver zu finden sein.
 
 
-### Wie starte/teste ich das Projekt
+### Wie starte/teste ich die Website?
 
 Um das Projekt testen zu können musst du Node.JS runtergeladen und installiert haben.
 
-1. Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein. 
+1. Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein.
 
-2. Wenn du _**ls**_ eingibst solltest du package.json, einen WWW-Ordner und anderes sehen. 
+2. Wenn du _**ls**_ eingibst solltest du package.json, einen WWW-Ordner und anderes sehen.
 
 3. Danach müssen zunächst alle Dependencies runtergeladen werden. Gebe dazu in die Kommandozeile _**npm install**_ ein.
 

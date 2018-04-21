@@ -5,24 +5,24 @@ stages:
   - test
   - deploy
 
-#cache:
-#  paths:
-#    - node_modules/
+cache:
+  paths:
+    - node_modules/
 
-#install_dependencies:
-#  stage: build
-#  script:
-#    - npm install
-#  artifacts:
-#    paths:
-#      - node_modules/
+install_Dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
 
-#testing:
-#  stage: test
-#  script:
-#    - npm test
+testing:
+  stage: test
+  script:
+    - npm test
 
-build_android_files:
+Android_build:
   image: beevelop/cordova:latest
   only:
     - master
@@ -30,7 +30,7 @@ build_android_files:
   artifacts:
     paths:
     - AndroidAPK/release/
-    
+
   script:
     - cordova create AndroidAPK
     - cd AndroidAPK
@@ -49,19 +49,19 @@ build_android_files:
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore keytest.keystore -storepass 123456 app-release-unsigned.apk -signedjar app-release.apk Marc
 
 
-#deploy_to_website:
-#  only:
-#    - master
-#  stage: deploy
-#  script:
-#  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-#  - eval $(ssh-agent -s)
-#  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-#  - mkdir -p ~/.ssh
-#  - chmod 700 ~/.ssh
-#  - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
-#  - chmod 644 ~/.ssh/known_hosts
-#  - rm -rf node_modules/
-#  - cd ..
-#  - scp -rp Alekulator/ root@138.68.70.61:/root/
-#  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install"
+Website_Deploy:
+  only:
+    - master
+  stage: deploy
+  script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+  - rm -rf node_modules/
+  - cd ..
+  - scp -rp Alekulator/ root@138.68.70.61:/root/
+  - ssh 138.68.70.61 -p 22 -l root -t "cd Alekulator && npm install"
