@@ -51,7 +51,7 @@ build_android_files:
     - cp keytest.keystore AndroidAPK/release/
     - cd AndroidAPK/release/
     - ls
-    - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore keytest.keystore app-release-unsigned.apk -signedjar app-release.apk Marc
+    - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore keytest.keystore -storepass 123456 app-release-unsigned.apk -signedjar app-release.apk Marc
 
 
 #deploy_to_website:
