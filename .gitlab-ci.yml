@@ -27,12 +27,15 @@ build_android_files:
   only:
     - master
   stage: build
+  artifacts:
+    path:
+    - \AndroidAPK\platforms\android\app\build\outputs\apk\release
+    
   script:
     - cordova create AndroidAPK
     - cd AndroidAPK
     - cordova platform add android
     - rm -rf www/
-    - mkdir www
     - cd ..
     - ls
     - cp -r www/ /AndroidAPK/www/
