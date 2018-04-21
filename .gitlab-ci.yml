@@ -9,7 +9,31 @@ cache:
   paths:
     - node_modules/
 
-before_script:
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+testing:
+  stage: test
+  script:
+    - npm test
+
+build_android_files:
+  only:
+    - master
+  stage: build
+  script:
+    - ls
+
+deploy_to_website:
+  only:
+    - master
+  stage: deploy
+  script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
@@ -17,30 +41,6 @@ before_script:
   - chmod 700 ~/.ssh
   - ssh-keyscan 138.68.70.61 >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
-
-#install_dependencies:
-#  stage: build
-#  script:
-#    - npm install
-#  artifacts:
-#    paths:
-#      - node_modules/
-
-#test_program:
-#  stage: test
-#  script:
-#    - npm test
-
-#build_android_files:
-#  stage: build
-#  script:
-#    - ls
-
-deploy_to_website:
-  only:
-    - master
-  stage: deploy
-  script:
   - rm -rf node_modules/
   - cd ..
   - scp -rp Alekulator/ root@138.68.70.61:/root/
