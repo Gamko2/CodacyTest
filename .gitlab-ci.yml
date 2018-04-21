@@ -50,7 +50,7 @@ build_android_files:
     - ls
     - cd ..
     - ls
-    - /bin/cp -r www/ AndroidAPK/www/
+    - /bin/cp -r www/ AndroidAPK/
     - cd AndroidAPK
     - cd www
     - ls
