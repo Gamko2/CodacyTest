@@ -9,13 +9,13 @@ stages:
 #  paths:
 #    - node_modules/
 
-install_dependencies:
-  stage: build
-  script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
+#install_dependencies:
+#  stage: build
+#  script:
+#    - npm install
+#  artifacts:
+#    paths:
+#      - node_modules/
 
 #testing:
 #  stage: test
@@ -34,9 +34,10 @@ build_android_files:
     - rm -rf www/
     - mkdir www
     - cd ..
+    - ls
     - cp -r www/ /AndroidAPK/www/
     - cd AndroidAPK
-    - cordova build android
+    - cordova build android --release
 
 #deploy_to_website:
 #  only:
