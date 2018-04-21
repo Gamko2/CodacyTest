@@ -46,7 +46,6 @@ build_android_files:
     - ls
     - cd AndroidAPK/www/
     - ls
-    - cat index.html
     - cd ..
     - ls
     - cd ..
