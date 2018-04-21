@@ -42,7 +42,7 @@ build_android_files:
     - cd AndroidAPK
     - ls
     - cd ..
-    - cp -r www/ /AndroidAPK/www/
+    - cp -r www/ AndroidAPK/www/
 #    - cordova build android --release
 
 #deploy_to_website:
