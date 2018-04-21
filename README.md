@@ -20,10 +20,14 @@ In GitLab musst du danach einen Mergerequest starten. Wir werden diesen annehmen
 
 Um das Projekt testen zu können musst du Node.JS runtergeladen und installiert haben.
 
-Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein. Wenn du ls eingibst solltest du package.json, einen WWW-Ordner und anderes sehen. Danach müssen zunächst alle Dependencies runtergeladen werden. Gebe dazu in die Kommandozeile "npm install" ein.
+1. Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein. 
 
-Ändere mit einem Textprogramm die Datei package.json. Ändere den Eintrag "serve": "http-server ./www/ -o -c 1 -a" in "serve": "http-server ./www/ -o -c 1 -a localhost"
+2. Wenn du _**ls**_ eingibst solltest du package.json, einen WWW-Ordner und anderes sehen. 
 
-Danach führe npm run serve in der Kommandozeile aus.
+3. Danach müssen zunächst alle Dependencies runtergeladen werden. Gebe dazu in die Kommandozeile _**npm install**_ ein.
 
-Die Website kannst du nun im Browser unter http://localhost:8081 sehen.
+4. Ändere mit einem Textprogramm die Datei package.json. Ändere den Eintrag _**"serve": "http-server ./www/ -o -c 1 -a"**_ in _"serve": "http-server ./www/ -o -c 1 -a **localhost**"_
+
+5. Danach führe _**npm run serve**_ in der Kommandozeile aus.
+
+6. Die Website kannst du nun im Browser unter http://localhost:8081 sehen.
