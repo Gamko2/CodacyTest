@@ -23,6 +23,7 @@ install_dependencies:
 #    - npm test
 
 build_android_files:
+  image: beevelop/cordova:latest
   only:
     - master
   stage: build
