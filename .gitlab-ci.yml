@@ -18,12 +18,12 @@ Dependencies:
 #testing:
 #  stage: test
 #  script:
-#    - ls
 #    - npm install --save-dev jest
 #    - cd www
 #    - npm test
 
 Build_Electron:
+  image: node-windows
   only:
     - master
   stage: build
