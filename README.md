@@ -7,7 +7,6 @@ Ein Taschenrechner als Hybride App
 
 Lade das Projekt mit einer Software deiner Wahl runter. In Sourcetree einfach den Repository link einfügen und auf PULL drücken.
 
-
 ### Entwickeln eines Features
 
 Wenn du etwas zu dem Projekt beitragen möchtest dann musst du zunächst einen neuen Branch erstellen. Klicke dazu in Sourcetree oben auf "Branch". Lasse alle Einstellungen
@@ -30,7 +29,11 @@ Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runt
 4. Danach führe _**npm run local**_ in der Kommandozeile aus.
 
 5. Die Website kannst du nun im Browser unter http://localhost:8081 sehen.
-6. 
+
+### Wie teste ich die Electronanwendung?
+
+Führe _**npm run electron**_ aus und Electron sollte sich öffnen
+
 
 ### Wie Schreibe ich die Tests?
 
@@ -40,3 +43,7 @@ Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runt
 4. Es werden IMMER zuerst die Tests geschrieben, bevor das Feature selber implementiert wird (Test Driven Development)
 5. Sobald ihr euren Test fertig geschrieben habt geht in das Root Verzeichnis des Projekts und schreibt $ npm test  
 6. Falls eure Tests erfolgreich waren könnt ihr eure Ergebnisse pushen.
+
+### Wie builde ich eine .exe Dateien für Windows?
+
+Führe _**npm run exe**_ aus und ein Ordner mit dem Namen "Alekulator-win32-x64" sollte erstellt worden sein. In diesem Ordner ist eine .exe Datei die du ausführen kannst.
