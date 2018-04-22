@@ -18,7 +18,7 @@ Dependencies:
 testing:
   stage: test
   script:
-    - npm install -g --save-dev jest
+    - npm install --save-dev jest
     - cd www
     - npm test
 
