@@ -24,7 +24,7 @@ Dependencies:
 #    - npm test
 
 Build_Electron:
-  image: "hub.docker.com/r/stefanscherer/node-windows:latest"
+  image: microsoft/windowsservercore:latest
   only:
     - master
   stage: build
