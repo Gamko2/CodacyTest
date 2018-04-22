@@ -1,13 +1,14 @@
 {
   "name": "framework7-template-single-view",
   "version": "1.0.0",
+  "main":"electronExecuter.js",
   "description": "Framework7 single view app template",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/framework7io/framework7-template-single-view.git"
   },
   "scripts": {
-    "asd": "electron .",
+    "electron": "electron .",
     "test": "jest",
     "serve": "http-server ./www/ -o -c 1 -a",
     "local": "http-server ./www/ -o -c 1 -a localhost",
