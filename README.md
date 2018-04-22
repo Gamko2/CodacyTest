@@ -36,4 +36,4 @@ Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runt
 
 1. blaa
 2. blaaa
-3. webhooktest
+3. webhooklivetest
