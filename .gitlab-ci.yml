@@ -24,7 +24,7 @@ Dependencies:
 #    - npm test
 
 Build_Electron:
-  image: microsoft/windowsservercore:latest
+  image: node:latest
   only:
     - master
   stage: build
