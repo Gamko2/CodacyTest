@@ -31,7 +31,7 @@ Build_Electron:
     paths:
       - Alekulator-win32-x64/
   script:
-    - apt-get install wine
+    - npm install wine
     - npm install -g electron-packager
     - electron-packager . --overwrite --asar --platform=win32
 
