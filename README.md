@@ -41,7 +41,7 @@ Führe _**npm run electron**_ aus und Electron sollte sich öffnen
 2. Falls ihr noch kein $ npm install ausgeführt habt solltet ihr dies nun tun, um die benötigen Dependencies zu installieren
 3. Eure Tests werdet ihr in der app.test.js Datei schreiben, welche sich im Root Verzeichnis des Projekts befindet.
 4. Es werden IMMER zuerst die Tests geschrieben, bevor das Feature selber implementiert wird (Test Driven Development)
-5. Sobald ihr euren Test fertig geschrieben habt geht in das Root Verzeichnis des Projekts und schreibt $ npm test  
+5. Sobald ihr euren Test fertig geschrieben habt geht in den "WWW" Ordner des Projekts und schreibt $ npm test  
 6. So sieht dann z.B. ein erfolgreicher Test aus: https://imgur.com/a/oyhRX2B
 7. Falls eure Tests erfolgreich waren könnt ihr eure Ergebnisse pushen.
 
