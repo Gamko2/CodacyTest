@@ -24,7 +24,6 @@ Dependencies:
 #    - npm test
 
 Build_Electron:
-  image: node:latest
   only:
     - master
   stage: build
@@ -32,6 +31,7 @@ Build_Electron:
     paths:
       - Alekulator-win32-x64/
   script:
+    - apt-get install wine
     - npm install -g electron-packager
     - electron-packager . --overwrite --asar --platform=win32
 
