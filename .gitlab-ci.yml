@@ -15,6 +15,7 @@ Dependencies:
   script:
     - npm install
 
+
 #testing:
 #  stage: test
 #  script:
@@ -42,7 +43,6 @@ Build_Android:
   artifacts:
     paths:
     - AndroidAPK/release/
-
   script:
     - cordova create AndroidAPK
     - cd AndroidAPK
