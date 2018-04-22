@@ -34,6 +34,9 @@ Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runt
 
 ### Wie Schreibe ich die Tests?
 
-1. blaa
-2. blaaa
-3. webhooklivetest
+1. Werdet vertraut mit unserem Testing Framework Jest: https://facebook.github.io/jest/docs/en/getting-started.html
+2. Falls ihr noch kein $ npm install ausgeführt habt solltet ihr dies nun tun, um die benötigen Dependencies zu installieren
+3. Eure Tests werdet ihr in der app.test.js Datei schreiben, welche sich im Root Verzeichnis des Projekts befindet.
+4. Es werden IMMER zuerst die Tests geschrieben, bevor das Feature selber implementiert wird (Test Driven Development)
+5. Sobald ihr euren Test fertig geschrieben habt geht in das Root Verzeichnis des Projekts und schreibt $ npm test  
+6. Falls eure Tests erfolgreich waren könnt ihr eure Ergebnisse pushen.
