@@ -1,8 +1,8 @@
 {
-  "name": "framework7-template-single-view",
+  "name": "Alekulator",
   "version": "1.0.0",
-  "main":"electronExecuter.js",
-  "description": "Framework7 single view app template",
+  "main": "electronExecuter.js",
+  "description": "A Hybrid Calculator",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/framework7io/framework7-template-single-view.git"
@@ -25,7 +25,7 @@
     "cordova",
     "phonegap"
   ],
-  "author": "Vladimir Kharlampidi",
+  "author": "Projekt",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/framework7io/framework7-template-single-view/issues"
@@ -41,6 +41,7 @@
     "material-design-icons": "^3.0.1"
   },
   "dependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-packager": "^12.0.1"
   }
 }
