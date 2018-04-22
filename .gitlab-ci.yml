@@ -15,10 +15,10 @@ Dependencies:
   script:
     - npm install
 
+
 #testing:
 #  stage: test
 #  script:
-#    - ls
 #    - npm install --save-dev jest
 #    - cd www
 #    - npm test
@@ -31,6 +31,7 @@ Build_Electron:
     paths:
       - Alekulator-win32-x64/
   script:
+    - npm install wine
     - npm install -g electron-packager
     - electron-packager . --overwrite --asar --platform=win32
 
@@ -42,7 +43,6 @@ Build_Android:
   artifacts:
     paths:
     - AndroidAPK/release/
-
   script:
     - cordova create AndroidAPK
     - cd AndroidAPK
