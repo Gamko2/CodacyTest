@@ -8,6 +8,7 @@
     "url": "git+https://github.com/framework7io/framework7-template-single-view.git"
   },
   "scripts": {
+    "exe":"electron-packager .",
     "electron": "electron .",
     "test": "jest",
     "serve": "http-server ./www/ -o -c 1 -a",
