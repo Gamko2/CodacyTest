@@ -2,6 +2,7 @@ image: node:latest
 
 stages:
   - test
+  - dependencies
   - build
   - deploy
 
@@ -10,17 +11,17 @@ cache:
     - node_modules/
 
 Dependencies:
-  stage: build
+  stage: dependencies
   script:
     - npm install
 
-testing:
-  stage: test
-  script:
-    - ls
-    - npm install --save-dev jest
-    - cd www
-    - npm test
+#testing:
+#  stage: test
+#  script:
+#    - ls
+#    - npm install --save-dev jest
+#    - cd www
+#    - npm test
 
 Build_Electron:
   only:
@@ -30,6 +31,7 @@ Build_Electron:
     paths:
       - Alekulator-win32-x64/
   script:
+#    - npm install -g electron-packager
     - electron-packager . --overwrite --asar --platform=win32
 
 Build_Android:
