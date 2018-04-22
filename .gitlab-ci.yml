@@ -24,7 +24,7 @@ Dependencies:
 #    - npm test
 
 Build_Electron:
-  image: node-windows
+  image: stefanscherer/node-windows:latest
   only:
     - master
   stage: build
