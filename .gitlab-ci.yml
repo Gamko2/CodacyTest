@@ -9,7 +9,7 @@ cache:
   paths:
     - node_modules/
 
-install_Dependencies:
+dependencies:
   stage: build
   script:
     - npm install
@@ -17,9 +17,11 @@ install_Dependencies:
 testing:
   stage: test
   script:
+    - ls
+    - cd www
     - npm test
 
-Android_build:
+Build_Android:
   image: beevelop/cordova:latest
   only:
     - master
@@ -46,7 +48,7 @@ Android_build:
     - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore keytest.keystore -storepass 123456 app-release-unsigned.apk -signedjar app-release.apk Marc
 
 
-Website_Deploy:
+Deploy_Website:
   only:
     - master
   stage: deploy
