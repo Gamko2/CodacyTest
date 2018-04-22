@@ -21,7 +21,13 @@ testing:
     - npm install --save-dev jest
     - cd www
     - npm test
-    
+
+Build_Electron:
+  only:
+    - master
+  stage: build
+  script:
+    - electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName="Electron Tutorial App"
 
 Build_Android:
   image: beevelop/cordova:latest
