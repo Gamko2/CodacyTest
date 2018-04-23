@@ -7,6 +7,11 @@ Ein Taschenrechner als Hybride App
 
 Lade das Projekt mit einer Software deiner Wahl runter. In Sourcetree einfach den Repository link einfügen und auf PULL drücken.
 
+Außerdem musst du [Node.JS](https://nodejs.org/en/) runtergeladen und installiert haben.
+
+Danach musst du alle Dependencies runterladen. Gehe dazu mit der Kommandozeile in den Projektordner und gebe  _**npm install**_ ein. 
+
+
 ### Entwickeln eines Features
 
 Wenn du etwas zu dem Projekt beitragen möchtest dann musst du zunächst einen neuen Branch erstellen. Klicke dazu in Sourcetree oben auf "Branch". Lasse alle Einstellungen
@@ -18,17 +23,10 @@ In GitLab musst du danach einen Mergerequest starten. Wir werden diesen annehmen
 
 ### Wie starte/teste ich die Website?
 
-Um das Projekt testen zu können musst du [Node.JS](https://nodejs.org/en/) runtergeladen und installiert haben.
+1. Danach führe _**npm run local**_ in der Kommandozeile aus.
 
-1. Zunächst einmal solltest du alle Projekt-Dateien runtergeladen haben. Gehe dann mit Hilfe der Kommandozeile in diesen Ordner rein.
+2. Die Website kannst du nun im Browser unter http://localhost:8081 sehen.
 
-2. Wenn du _**ls**_ eingibst solltest du package.json, einen WWW-Ordner und anderes sehen.
-
-3. Danach müssen zunächst alle Dependencies runtergeladen werden. Gebe dazu in die Kommandozeile _**npm install**_ ein.
-
-4. Danach führe _**npm run local**_ in der Kommandozeile aus.
-
-5. Die Website kannst du nun im Browser unter http://localhost:8081 sehen.
 
 ### Wie teste ich die Electronanwendung?
 
@@ -38,12 +36,17 @@ Führe _**npm run electron**_ aus und Electron sollte sich öffnen
 ### Wie Schreibe ich die Tests?
 
 1. Werdet vertraut mit unserem Testing Framework [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) 
-2. Falls ihr noch kein $ npm install ausgeführt habt solltet ihr dies nun tun, um die benötigen Dependencies zu installieren
-3. Eure Tests werdet ihr in der app.test.js Datei schreiben, welche sich im Root Verzeichnis des Projekts befindet.
-4. Es werden IMMER zuerst die Tests geschrieben, bevor das Feature selber implementiert wird (Test Driven Development)
-5. Sobald ihr euren Test fertig geschrieben habt geht in den "WWW" Ordner des Projekts und schreibt $ npm test  
-6. [So sieht dann z.B. ein erfolgreicher Test aus](https://imgur.com/a/oyhRX2B)
-7. Falls eure Tests erfolgreich waren könnt ihr eure Ergebnisse committen und pushen.
+
+2. Eure Tests werdet ihr in der app.test.js Datei schreiben, welche sich im Root Verzeichnis des Projekts befindet.
+
+3. Es werden IMMER zuerst die Tests geschrieben, bevor das Feature selber implementiert wird (Test Driven Development)
+
+4. Sobald ihr euren Test fertig geschrieben habt geht in den "WWW" Ordner des Projekts und schreibt $ npm test  
+
+5. [So sieht dann z.B. ein erfolgreicher Test aus](https://imgur.com/a/oyhRX2B)
+
+6. Falls eure Tests erfolgreich waren könnt ihr eure Ergebnisse committen und pushen.
+
 
 ### Wie builde ich eine .exe Dateien für Windows?
 
