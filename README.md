@@ -51,3 +51,7 @@ Führe _**npm run electron**_ aus und Electron sollte sich öffnen
 ### Wie builde ich eine .exe Dateien für Windows?
 
 Führe _**npm run exe**_ aus und ein Ordner mit dem Namen "Alekulator-win32-x64" sollte erstellt worden sein. In diesem Ordner ist eine .exe Datei die du ausführen kannst.
+
+TEAM MITGLIED:
+
+Bich Duyen Diep
