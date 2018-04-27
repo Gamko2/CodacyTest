@@ -54,4 +54,5 @@ Führe _**npm run exe**_ aus und ein Ordner mit dem Namen "Alekulator-win32-x64"
 
 Team Mitglieder:
 
-Bich Duyen
+Bich Duyen Diep
+Hengameh Renner
