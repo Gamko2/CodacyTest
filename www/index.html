@@ -1,236 +1,329 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <!--
-  Customize this policy to fit your own app's needs. For more guidance, see:
-      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-  Some notes:
-      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-          * Enable inline JS: add 'unsafe-inline' to default-src
-  -->
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="theme-color" content="#2196f3">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <title>My App</title>
-
-  <link rel="stylesheet" href="framework7/css/framework7.min.css">
-  <link rel="stylesheet" href="css/icons.css">
-  <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
-  <div id="app">
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar"></div>
-    <!-- Left panel with cover effect-->
-    <div class="panel panel-left panel-cover theme-dark">
-      <div class="view">
-        <div class="page">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="title">Left Panel</div>
-            </div>
-          </div>
-          <div class="page-content">
-            <div class="block">Left panel content goes here</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Right panel with reveal effect-->
-    <div class="panel panel-right panel-reveal theme-dark">
-      <div class="view">
-        <div class="page">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="title">Right Panel</div>
-            </div>
-          </div>
-          <div class="page-content">
-            <div class="block">Right panel content goes here</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Your main view, should have "view-main" class -->
-    <div class="view view-main ios-edges">
-      <!-- Page, data-name contains page name which can be used in callbacks -->
-      <div class="page" data-name="home">
-        <!-- Top Navbar -->
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left">
-              <a href="#" class="link icon-only panel-open" data-panel="left">
-                <i class="icon f7-icons ios-only">menu</i>
-                <i class="icon material-icons md-only">menu</i>
-              </a>
-            </div>
-            <div class="title sliding">continuous Integration Test</div>
-            <div class="right">
-              <a href="#" class="link icon-only panel-open" data-panel="right">
-                <i class="icon f7-icons ios-only">menu</i>
-                <i class="icon material-icons md-only">menu</i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Toolbar-->
-        <div class="toolbar">
-          <div class="toolbar-inner">
-            <a href="#" class="link">Left Link</a>
-            <a href="#" class="link">Right Link</a>
-          </div>
-        </div>
-        <!-- Scrollable page content-->
-        <div class="page-content">
-          <div class="block block-strong">
-            <p>Here is your blank Framework7 app. Let's see what we have here.</p>
-          </div>
-
-          <div class="block-title">Navigation</div>
-          <div class="list">
-            <ul>
-              <li>
-                <a href="/about/" class="item-content item-link">
-                  <div class="item-inner">
-                    <div class="item-title">About</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="/form/" class="item-content item-link">
-                  <div class="item-inner">
-                    <div class="item-title">Form</div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="block-title">Modals</div>
-          <div class="block block-strong">
-            <div class="row">
-              <div class="col-50">
-                <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">Popup</a>
-              </div>
-              <div class="col-50">
-                <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">Login Screen</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-title">Panels</div>
-          <div class="block block-strong">
-            <div class="row">
-              <div class="col-50">
-                <a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left Panel</a>
-              </div>
-              <div class="col-50">
-                <a href="#" class="button button-raised button-fill panel-open" data-panel="right">Right Panel</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-title searchbar-hide-on-search">Page Loaders & Router</div>
-          <div class="list links-list searchbar-hide-on-search">
-            <ul>
-              <li>
-                <a href="/page-loader-template7/vladimir/123/about-me/1/?start=0&end=30#top">Template7 Page</a>
-              </li>
-              <li>
-                <a href="/page-loader-component/vladimir/123/about-me/1/?start=0&end=30#top">Component Page</a>
-              </li>
-              <li>
-                <a href="/load-something-that-doesnt-exist/">Default Route (404)</a>
-              </li>
-              <li>
-                <a href="/request-and-load/user/123456/">Request Data & Load</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Popup -->
-    <div class="popup" id="my-popup">
-      <div class="view">
-        <div class="page">
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="title">Popup</div>
-              <div class="right">
-                <a href="#" class="link popup-close">Close</a>
-              </div>
-            </div>
-          </div>
-          <div class="page-content">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Alekulator</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+	<!-- Path to Framework7 icons -->
+	<link rel="stylesheet" href="css/icons.css">
+  </head>
+  <body>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- Top Navbar. In Material theme it should be inside of the page-->
+	          <div class="navbar">
+	          	<div class="navbar-inner">
+		           	<div class="left">Alekulator</div>
+		          </div>
+	          </div>
+	      		<!-- Toolbar. In Material theme it should be inside of the page-->
+           <div class="toolbar toolbar-bottom">
+		      		<div class="toolbar-inner">
+			    	   	<a href="about.html" class="link"><i class="f7-icons size-22">info</i>About</a>
+				    	  <a href="email.html" class="link"><i class="f7-icons size-22">email</i>Email</a>
+				      </div>
+			    </div>
+          <!-- Scrollable page content -->
+          <div class = "page-content">
+             <form id = "my-form" class = "list-block" name = "Alekulator">
+                <ul>
+                   <li>
+                      <div class = "item-content">
+                         <div class = "item-inner">
+                            <div class = "item-input">
+                               <input id="input" type = "text" name = "name" placeholder = "0" onpaste="return false" onkeypress="return inputVal.validate(event)">
+                            </div>
+                         </div>
+                      </div>
+                   </li>
+                </ul>
+             </form>
+          <div class="content-block">
+          <!--Rows-->
             <div class="block">
-              <p>Popup content goes here.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              <div class="row">
+                <button  id="dec" class="col-25 button button-fill color-gray">Dec</button>
+                <button  id="hex" class="col-25 button button-fill color-gray">Hex</button>
+                <button  id="empty" class="col-25 button button-fill color-gray">CE</button>
+                <button  id="clear" class="col-25 button button-fill color-gray" onclick="Clear()">Clear</button>
+              </div>
 
-    <!-- Login Screen -->
-    <div class="login-screen" id="my-login-screen">
-      <div class="view">
-        <div class="page">
-          <div class="page-content login-screen-content">
-            <div class="login-screen-title">Login</div>
-            <div class="list">
-              <ul>
-                <li class="item-content item-input">
-                  <div class="item-inner">
-                    <div class="item-title item-label">Username</div>
-                    <div class="item-input-wrap">
-                      <input type="text" name="username" placeholder="Your username">
-                    </div>
-                  </div>
-                </li>
-                <li class="item-content item-input">
-                  <div class="item-inner">
-                    <div class="item-title item-label">Password</div>
-                    <div class="item-input-wrap">
-                      <input type="password" name="password" placeholder="Your password">
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <br>
+            <div class="block">
+              <div class="row">
+                <button id="bin" class="col-25 button button-fill color-gray" >Bin</button>
+                <button id="leftparantheses" class="col-25 button button-fill color-orange " value="(" onclick = "document.Alekulator.name.value += '('">(</button>
+                <button id="rightparantheses" class="col-25 button button-fill color-orange" value=")" onclick = "document.Alekulator.name.value += ')'">)</button>
+                <button id="divid" class="col-25 button button-fill color-orange" value="/" onclick = "document.Alekulator.name.value += '/'">/</button>
+              </div>
+           </div>
+                <br>
+                <div class="block">
+                <div class="row">
+                  <button class="col-25 button button-fill color-indigo" value="1" onclick = "document.Alekulator.name.value += '1'">1</button>
+                  <button class="col-25 button button-fill color-indigo" value="2" onclick = "document.Alekulator.name.value += '2'">2</button>
+                  <button class="col-25 button button-fill color-indigo" value="3" onclick = "document.Alekulator.name.value += '3'">3</button>
+                  <button id="multiplication" class="col-25 button button-fill color-orange" value="*" onclick = "document.Alekulator.name.value += '*'">*</button>
+                </div>
+              </div>
             </div>
-            <div class="list">
-              <ul>
-                <li>
-                  <a href="#" class="item-link list-button login-button">Sign In</a>
-                </li>
-              </ul>
-              <div class="block-footer">Some text about login information.<br>Click "Sign In" to close Login Screen</div>
+            <br>
+            <div class="block">
+              <div class="row">
+                <button class="col-25 button button-fill color-indigo" value="4" onclick = "document.Alekulator.name.value += '4'">4</button>
+                <button class="col-25 button button-fill color-indigo" value="5" onclick = "document.Alekulator.name.value += '5'">5</button>
+                <button class="col-25 button button-fill color-indigo" value="8" onclick = "document.Alekulator.name.value += '6'">6</button>
+                <button id="subtract" class="col-25 button button-fill color-orange" value="-" onclick = "document.Alekulator.name.value += '-'">-</button>
+              </div>
             </div>
-          </div>
+            <br>
+            <div class="block">
+              <div class="row">
+                <button class="col-25 button button-fill color-indigo" value="7" onclick = "document.Alekulator.name.value += '7'">7</button>
+                <button class="col-25 button button-fill color-indigo" value="8" onclick = "document.Alekulator.name.value += '8'">8</button>
+                <button class="col-25 button button-fill color-indigo" value="9" onclick = "document.Alekulator.name.value += '9'">9</button>
+                <button id="add" class="col-25 button button-fill color-orange" value="+" onclick = "document.Alekulator.name.value += '+'">+</button>
+              </div>
+            </div>
+            <br>
+            <div class="block">
+              <div class="row">
+                 <button class="col-50 button button-fill color-indigo" value="0" onclick = "document.Alekulator.name.value += '0'">0</button>
+                 <button id="floatkomma" class="col-25 button button-fill color-indigo" value=".">,</button>
+                 <button id="equal" class="col-25 button button-fill color-orange" value="=" onclick = "display.validate(document.getElementById('input').value)">=</button>
+              </div>
+            </div>
+            <br>
+            <div class="block">
+              <div class="row">
+                 <button class="col-50 button button-fill color-gray" value="0">m+</button>
+                 <button class="col-50 button button-fill color-gray" value="0">m-</button>
+              </div>
+            </div>
+           </div>
+         </div>
         </div>
+       </div>
       </div>
-    </div>
+   </div>
+   </div>
   </div>
-  <!-- Cordova -->
-  <!--
-  <script src="cordova.js"></script>
-  -->
+  <!-- REFERENCE SCRIPTS-->
+  <!-- Path to Framework7 Library JS-->
+  <script type="text/javascript" src="js/framework7.min.js"></script>
+  <!-- Path to your app js-->
+  <!-- Path to your cordova js-->
+  <script type="text/javascript" src="js/index.js"></script>
 
-  <!-- Framework7 library -->
-  <script src="framework7/js/framework7.min.js"></script>
+  <script>
+    function Clear() {
+      document.getElementById('input').value = '';
+    }
 
-  <!-- App routes -->
-  <script src="js/routes.js"></script>
+    /*function readInput() {
+      var equation = document.getElementById('input').value;
+      return equation;
+    }
 
-  <!-- Your custom app scripts -->
-  <script src="js/app.js"></script>
-</body>
+    function writeOutput(x) {
+      document.getElementById('input').value = eval(x);
+    }
+
+    function reduce() {
+
+    }*/
+
+    //Abstract class of Validator
+    var Validator = function() {
+      if(this.constructor === Validator) {
+        throw new Error("Keine Instanz kann von der abstrakten Klasse erstellt werden!");
+      }
+    };
+
+    Validator.prototype.validate = function() {
+      throw new Error("Abstrakte Methode kann nicht aufgerufen werden!");
+    }
+
+    //Class DisplayValidator
+    var DisplayValidator = function() {
+      Validator.apply(this, arguments);
+    };
+
+    DisplayValidator.prototype = Object.create(Validator.prototype);
+    DisplayValidator.prototype.constructor = DisplayValidator;
+
+    //Class InputValidator
+    var InputValidator = function() {
+      Validator.apply(this, arguments);
+    };
+
+    InputValidator.prototype = Object.create(Validator.prototype);
+    InputValidator.prototype.constructor = InputValidator;
+
+    InputValidator.prototype.validate = function(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode;
+      if ((charCode > 39 && charCode < 58) || (charCode == 8))
+      {
+        //alert(charCode);
+         return true;
+      }
+       //alert(charCode);
+       return false;
+    }
+
+    DisplayValidator.prototype.validate = function(x) {
+      var input = x;
+      var i = 0;
+      var bracketsOpen = 0;
+      var bracketsClose = 0;
+
+      for(i = 0; i < input.length; i++) {
+        if(input.charAt(i) == '(') {
+          bracketsOpen++;
+        }
+
+        if(input.charAt(i) == ')') {
+          bracketsClose++;
+        }
+      }
+
+      var missed = 0;
+      if(bracketsOpen > bracketsClose) {
+        missed = bracketsOpen - bracketsClose;
+        alert("Invalid, du hast " + missed + " geschlossene Klammern vergessen!");
+        return false;
+      } else if (bracketsOpen < bracketsClose) {
+        missed = bracketsClose - bracketsOpen;
+        alert("Invalid, du hast " + missed + " geöffnete Klammern vergessen!");
+        return false;
+      } else {
+        /*document.getElementById('input').value = eval(input);
+        if(document.getElementById('input').value == "Infinity") {
+          document.getElementById('input').value = "Division durch 0 ist nicht möglich";
+          return false;
+        }*/
+        var invalidOperator = 0;
+        for(i = 0; i < input.length-1; i++) {
+          if((input.charAt(i) == '+' || input.charAt(i) == '/' || input.charAt(i) == '*' || input.charAt(i) == '-')
+            && (input.charAt(i+1) == '+' || input.charAt(i+1) == '/' || input.charAt(i+1) == '*' || input.charAt(i+1) == '-')) {
+            invalidOperator++;
+            //break;
+          }
+        }
+
+        //Multiplkator zwischen klammern------------------------------------------------
+       String.prototype.insert = function (index, string) {
+          if (index > 0){
+           return this.substring(0, index) + string + this.substring(index, this.length);
+          }else {
+              return string + this;
+             }
+        }
+
+            var temp2 = '';
+            for(i = 0; i <input.length-1; i++){
+              if(input.charAt(i) == ')' && input.charAt(i+1) =='('){
+                var temp = document.getElementById('input').value;
+                temp2 = temp.insert(i+1, '*');
+            }
+          }
+
+
+        if(temp2 !== ''){
+          document.getElementById('input').value = temp2;
+        }
+
+        //------------------------------------------------------------------------------------*/
+
+        if(invalidOperator != 0) {
+          alert("Du hast " + (invalidOperator+1) + " Operatoren hintereinander!");
+          return false;
+        } else {
+            var bracketsAfterBrackets = 0;
+            for(i = 0; i <input.length-1; i++) {
+              if(input.charAt(i) == '(' && input.charAt(i+1) == ')') {
+                bracketsAfterBrackets++;
+                break;
+              }
+            }
+
+            if(bracketsAfterBrackets != 0) {
+              alert("Die Klammern sind leer!");
+              return false;
+            } else {
+              var invalidBegin = 0;
+              if((input.charAt(0) == '+') || (input.charAt(0) == '-') || (input.charAt(0) == '(') || (input.charAt(0) >= '0' && input.charAt(0) <= '9')) {
+                invalidBegin++;
+              }
+
+              if(invalidBegin == 0) {
+                alert("Zu Beginn dürfen nur Zahlen oder +, -, ( stehen!");
+                return false;
+              } else {
+                  var noNumberAfterOperator = 0;
+                  if(input.charAt(input.length-1) == '+' || input.charAt(input.length-1) == '-' || input.charAt(input.length-1) == '*'
+                    || input.charAt(input.length-1) == '/' || input.charAt(input.length-1) == '('){
+                      noNumberAfterOperator++;
+                    }
+
+                    if(noNumberAfterOperator != 0) {
+                      alert("Nach einem Operator muss eine Zahl oder eine geöffnete Klammer folgen!");
+                      return false;
+                    } else {
+                      var pushMultiplicationSignNumber = 0;
+                      var saveInput = document.getElementById('input').value;
+                      var newString = " ";
+                      for(i = 0; i < input.length; i++) {
+                        if((input.charAt(i) >= '0' && input.charAt(i) <= '9') && input.charAt(i+1) == '(') {
+                          pushMultiplicationSignNumber++;
+                          newString = saveInput.slice(0, i+1) + "*" + saveInput.slice(i+1, input.length);
+                        }
+                      }
+
+                      //console.log(newString);
+                        if(pushMultiplicationSignNumber != 0) {
+                          if(eval(newString == "Infinity")) {
+                            alert("Division durch 0 ist nicht möglich!");
+                            return false;
+                          }
+
+                          document.getElementById('input').value = eval(newString);
+                        } else {
+                        if(eval(document.getElementById('input').value) == "Infinity") {
+                          alert("Division durch 0 ist nicht möglich!");
+                          return false;
+                        } else {
+                          document.getElementById('input').value = eval(document.getElementById('input').value);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+      //}
+
+    var display = new DisplayValidator();
+    var inputVal = new InputValidator();
+
+  </script>
+  </body>
 </html>
