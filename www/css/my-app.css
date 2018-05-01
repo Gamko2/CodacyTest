@@ -1,0 +1,17 @@
+.f7-icons, .framework7-icons {
+    padding-right: 3px;
+	font-size: 20px
+}
+.popover{width:200px;}
+
+#input{
+    text-align: right;
+    font-size: 40px;
+    background-color: gray;
+    height: 60px;
+}
+	
+.card-header{
+    color: blue;
+    font-weight: bold;
+	}
