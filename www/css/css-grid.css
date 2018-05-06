@@ -1,0 +1,83 @@
+.grid-button {
+    font: 100% Roboto, sans-serif;
+    font-size: 8vw;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: #2196F3;
+    border: none;
+    color: white;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .span2{
+    grid-column: 3 / -1;
+  }
+  .invis{
+    visibility: hidden;
+    display:none;
+    display: block
+  }
+
+  .button-maxed{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-width:5px;  
+    border-style:groove
+  }
+  
+  .grid-button:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+  
+  .grid-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
+  
+  .grid-button:focus {
+    outline: 0;
+  }
+  
+  .display {
+    font: 100% Roboto, sans-serif;
+    font-size: 8vw;
+    text-align: right;
+  }
+  
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 56px 20vh auto 50px;
+    height: 100vh;
+  }
+  
+  .decimal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+  }
+  
+  
+  /*# sourceMappingURL=build/css/styles.css.map */
