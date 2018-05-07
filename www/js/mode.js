@@ -1,6 +1,7 @@
-function displayValidator(evt) {
+//Binärer DisplayValidator
+function binDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
-  if ((charCode > 39 && charCode < 58) || (charCode == 8))
+  if ((charCode >= 40 && charCode <= 47) || charCode == 48 || charCode == 49 || (charCode == 8))
   {
     //alert(charCode);
      return true;
@@ -9,7 +10,8 @@ function displayValidator(evt) {
    return false;
 }
 
-function inputValidator(x) {
+//Binärer InputValidator
+function binInputValidator(x) {
   var input = x;
   var i = 0;
   var bracketsOpen = 0;
@@ -90,7 +92,7 @@ function inputValidator(x) {
           return false;
         } else {
           var invalidBegin = 0;
-          if((input.charAt(0) == '+') || (input.charAt(0) == '-') || (input.charAt(0) == '(') || (input.charAt(0) >= '0' && input.charAt(0) <= '9')) {
+          if((input.charAt(0) == '+') || (input.charAt(0) == '-') || (input.charAt(0) == '(') || (input.charAt(0) >= '0' && input.charAt(0) <= '1')) {
             invalidBegin++;
           }
 
@@ -104,28 +106,15 @@ function inputValidator(x) {
                   noNumberAfterOperator++;
                 }
 
-                if(input.charAt(input.length-1) == ')' && (input.charAt(input.length-2) == '+' || input.charAt(input.length-2) == '-'
-                  || input.charAt(input.length-2) == '*' || input.charAt(input.length-2) == '/')) {
-                  alert("Nach einem Operator muss eine Zahl oder Klammer auf stehen");
-                  return false;
-                }
-
                 if(noNumberAfterOperator != 0) {
                   alert("Nach einem Operator muss eine Zahl oder eine geöffnete Klammer folgen!");
                   return false;
                 } else {
-                  var patt = /([0-9]+[.]+[0-9]+[.]+)/;
-                  var c = patt.test(readInput());
-
-                  if(c == true) {
-                      alert("Es darf pro Zahl nur ein Komma vorkommen");
-                      return 0;
-                  }
                   var pushMultiplicationSignNumber = 0;
                   var saveInput = document.getElementById('input').value;
                   var newString = " ";
                   for(i = 0; i < input.length; i++) {
-                    if((input.charAt(i) >= '0' && input.charAt(i) <= '9') && input.charAt(i+1) == '(') {
+                    if((input.charAt(i) >= '0' && input.charAt(i) <= '1') && input.charAt(i+1) == '(') {
                       pushMultiplicationSignNumber++;
                       newString = saveInput.slice(0, i+1) + "*" + saveInput.slice(i+1, input.length);
                     }
@@ -144,7 +133,7 @@ function inputValidator(x) {
                       alert("Division durch 0 ist nicht möglich!");
                       return false;
                     } else {
-                      document.getElementById('input').value = eval(document.getElementById('input').value);
+                      document.getElementById('input').value = eval('0b1101 / 0b1111');
                     }
                   }
                 }
@@ -152,5 +141,4 @@ function inputValidator(x) {
             }
           }
         }
-      }
-  //}
+}

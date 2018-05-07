@@ -18,7 +18,7 @@
 	<!-- Path to Framework7 icons -->
 	<link rel="stylesheet" href="css/icons.css">
   </head>
-  <body>
+  <body onload="init()">
     <!-- Views -->
     <div class="views">
       <!-- Your main view, should have "view-main" class -->
@@ -48,7 +48,7 @@
                       <div class = "item-content">
                          <div class = "item-inner">
                             <div class = "item-input">
-                               <input id="input" type = "text" name = "name" placeholder = "0" onpaste="return false" onkeypress="return inputValidator(event)">
+                               <input id="input" type = "text" name = "name" placeholder = "0" onpaste="return false" onkeypress="return binDisplayValidator(event)">
                             </div>
                          </div>
                       </div>
@@ -59,8 +59,8 @@
           <!--Rows-->
             <div class="block">
               <div class="row">
-                <button  id="dec" class="col-25 button button-fill color-gray">Dec</button>
-                <button  id="hex" class="col-25 button button-fill color-gray">Hex</button>
+                <button  id="dec" class="col-25 button button-fill color-gray" onclick="setValidator("dec")">Dec</button>
+                <button  id="hex" class="col-25 button button-fill color-gray" onclick="setValidator("hex")">Hex</button>
                 <button  id="empty" class="col-25 button button-fill color-gray">CE</button>
                 <button  id="clear" class="col-25 button button-fill color-gray" onclick="Clear()">Clear</button>
               </div>
@@ -107,7 +107,7 @@
               <div class="row">
                  <button class="col-50 button button-fill color-indigo" value="0" onclick = "document.Alekulator.name.value += '0'">0</button>
                  <button id="floatkomma" class="col-25 button button-fill color-indigo" value=".">,</button>
-                 <button id="equal" class="col-25 button button-fill color-orange" value="=" onclick = "displayValidator(document.getElementById('input').value)">=</button>
+                 <button id="equal" class="col-25 button button-fill color-orange" value="=" onclick = "inputValidator(document.getElementById('input').value)">=</button>
               </div>
             </div>
             <br>
@@ -133,6 +133,10 @@
   <script type="text/javascript" src="js/index.js"></script>
 
   <script type="text/javascript" src="js/calculator.js"></script>
+
+  <script type="text/javascript" src="js/display.js"></script>
+
+  <script type="text/javascript" src="js/mode.js"></script>
 
   </body>
 </html>
