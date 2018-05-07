@@ -19,11 +19,11 @@
   <!-- Path to Framework7 icons -->
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/css-grid.css">
- 
+
 </head>
 
 <body>
-    <script src="js/calculator.js"></script>
+  <script src="js/calculator.js"></script>
   <!-- Views -->
   <div class="calculator-grid">
     <div class="navbar">
@@ -49,44 +49,44 @@
       </ul>
     </form>
     <div id="grid-mode" class="hexadecimal-grid">
-      <button id="dec" class="col-25 button button-fill color-gray button-maxed ten" onclick="decimal()">Dec</button>
-      <button id="hex" class="col-25 button button-fill color-gray button-maxed eleven"onclick ="hexadecimal()">Hex</button>
-      <button id="empty" class="col-25 button button-fill color-gray button-maxed twelve">CE</button>
-      <button id="clear" class="col-25 button button-fill color-gray button-maxed thirteen" onclick="Clear()">Clear</button>
+      <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" onclick="decimal()">Dec</button>
+      <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" onclick="hexadecimal()">Hex</button>
+      <button id="empty" class="col-25 button button-fill color-gray button-maxed ce">CE</button>
+      <button id="clear" class="col-25 button button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
 
 
-      <button id="bin" class="col-25 button button-fill color-gray button-maxed fourteen">Bin</button>
-      <button id="leftparantheses" class="col-25 button button-fill color-orange button-maxed fifteen" value="(" onclick="document.Alekulator.name.value += '('">(</button>
-      <button id="rightparantheses" class="col-25 button button-fill color-orange button-maxed sixteen" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
-      <button id="divid" class="col-25 button button-fill color-orange button-maxed seventeen" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
+      <button id="bin" class="col-25 button button-fill color-gray button-maxed bin" onclick="binary()">Bin</button>
+      <button id="leftparantheses" class="col-25 button button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
+      <button id="rightparantheses" class="col-25 button button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
+      <button id="divid" class="col-25 button button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
 
-      <button class="col-25 button button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
-      <button class="col-25 button button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
-      <button class="col-25 button button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
-      <button id="multiplication" class="col-25 button button-fill color-orange button-maxed twentyseven" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
+      <button id="1" class="col-25 button button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
+      <button id="2" class="col-25 button button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
+      <button id="3" class="col-25 button button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
+      <button id="multiplication" class="col-25 button button-fill color-orange button-maxed multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
 
-      <button class="col-25 button button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-      <button class="col-25 button button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-      <button class="col-25 button button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-      <button id="subtract" class="col-25 button button-fill button-maxed color-orange twentyeight" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+      <button id="4" class="col-25 button button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
+      <button id="5" class="col-25 button button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
+      <button id="6" class="col-25 button button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
+      <button id="subtract" class="col-25 button button-fill button-maxed color-orange minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
 
-      <button class="col-25 button button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
-      <button class="col-25 button button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
-      <button class="col-25 button button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
-      <button id="add" class="col-25 button button-fill color-orange button-maxed eighteen" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
+      <button id="7" class="col-25 button button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
+      <button id="8" class="col-25 button button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
+      <button id="9" class="col-25 button button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
+      <button id="add" class="col-25 button button-fill color-orange button-maxed plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
 
 
       <button class="col-50 button button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
-      <button id="floatkomma" class="col-25 button button-fill color-indigo button-maxed nineteen" value="." onclick="document.Alekulator.name.value += '.'">.</button>
+      <button id="floatkomma" class="col-25 button button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
 
-      <button id="equal" class="col-25 button button-fill color-orange button-maxed twenty" value="=" onclick="displayValidator(document.getElementById('input').value)">=</button>
+      <button id="equal" class="col-25 button button-fill color-orange button-maxed equal" value="=" onclick="displayValidator(document.getElementById('input').value)">=</button>
 
-      <button id="A" class=" col-25 button button-fill color-indigo button-maxed twentyone" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-      <button id="B" class=" col-25 button button-fill color-indigo button-maxed twentytwo" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-      <button id="C" class=" col-25 button button-fill color-indigo button-maxed twentythree" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-      <button id="D" class=" col-25 button button-fill color-indigo button-maxed twentyfour" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-      <button id="E" class=" col-25 button button-fill color-indigo button-maxed  twentyfive" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-      <button id="F" class=" col-25 button button-fill color-indigo button-maxed  twentysix" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+      <button id="A" class=" col-25 button button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
+      <button id="B" class=" col-25 button button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
+      <button id="C" class=" col-25 button button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
+      <button id="D" class=" col-25 button button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
+      <button id="E" class=" col-25 button button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+      <button id="F" class=" col-25 button button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
 
 
     </div>

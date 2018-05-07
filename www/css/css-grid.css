@@ -1,3 +1,4 @@
+/*Placeholder buttton not used anymore */
 .grid-button {
     font: 100% Roboto, sans-serif;
     font-size: 8vw;
@@ -15,6 +16,7 @@
     cursor: pointer;
   }
 
+ /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
 .zero{
   grid-area: zero;
 }
@@ -45,62 +47,62 @@ grid-area: one;
 .nine {
   grid-area: nine;
 }
-.ten {
-grid-area: ten;
+.decimal {
+grid-area: decimal;
 }
-.eleven {
-  grid-area: eleven;
+.hex {
+  grid-area: hex;
 }
-.twelve {
-  grid-area: twelve;
+.ce {
+  grid-area: ce;
 }
 .thirteeen {
-  grid-area: thirteen;
+  grid-area: clear;
 }
-.fourteen {
-  grid-area: fourteen;
+.bin {
+  grid-area: bin;
 }
-.fifteen {
-  grid-area: fifteen;
+.openbracket {
+  grid-area: openbracket;
 }
-.sixteen {
-  grid-area: sixteen;
+.closebracket {
+  grid-area: closebracket;
 }
-.seventeen {
-  grid-area: seventeen;
+.divide {
+  grid-area: divide;
 }
-.eighteen {
-  grid-area: eighteen;
+.plus {
+  grid-area: plus;
 }
-.nineteen {
-  grid-area: nineteen;
+.komma {
+  grid-area: komma;
 }
-.twenty {
-  grid-area: twenty;
+.equal {
+  grid-area: equal;
 }
-.twentyone {
-  grid-area: twentyone;
+.A {
+  grid-area: A;
 }
-.twentytwo {
-  grid-area: twentytwo;
+.B {
+  grid-area: B;
 }
-.twentythree {
-  grid-area: twentythree;
+.C {
+  grid-area: C;
 }
-.twentyfour {
-  grid-area: twentyfour;
+.D {
+  grid-area: D;
 }
-.twentyfive {
-  grid-area: twentyfive;
+.E {
+  grid-area: E;
 }
-.twentysix {
-  grid-area: twentysix;
+.F {
+  grid-area: F;
 }
-.twentyseven {
-  grid-area: twentyseven;
+.multiply {
+  grid-area: multiply;
 }
 .twentyeigth {
-  grid-area: twentyeight;
+  grid-area: minus;
 }
 .twentynine {
   grid-area: twentynine;
@@ -112,11 +114,13 @@ grid-area: ten;
   .span2{
     grid-column: 3 / -1;
   }
+  /*Makes the button invisible and removes it completely (not rendered and a fixed position on top left of the current html element*/
   .invis{
     visibility: hidden;
     position: fixed;
   }
 
+  /*Maxes the button size and gives it a nice border*/
   .button-maxed{
     display: inline-block;
     height: 100%;
@@ -128,8 +132,9 @@ grid-area: ten;
     border-style:groove
   }
   
+  /*Not used anymore*/
   .grid-button:after {
-    content: "";
+    condecimalt: "";
     background: #f1f1f1;
     display: block;
     position: absolute;
@@ -140,24 +145,24 @@ grid-area: ten;
     opacity: 0;
     transition: all 0.8s;
   }
-  
+  /*Not used anymore*/
   .grid-button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s;
   }
-  
+  /*Not used anymore*/
   .grid-button:focus {
     outline: 0;
   }
-  
+  /*Not used anymore*/
   .display {
     font: 100% Roboto, sans-serif;
     font-size: 8vw;
     text-align: right;
   }
-  
+  /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -166,34 +171,49 @@ grid-area: ten;
     grid-gap: 5px;
   }
   
+  /*The grid for the decimal mode*/
   .decimal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: "ten eleven twelve thirteen"
-                          "fourteen fifteen sixteen seventeen"
-                          "one two three twentyseven"
-                          "four five six twentyeight"
-                          "seven eight nine eighteen"
-                          "zero nineteen twenty twenty"
+    grid-template-areas: "decimal hex ce clear"
+                          "bin openbracket closebracket divide"
+                          "one two three multiply"
+                          "four five six minus"
+                          "seven eight nine plus"
+                          "zero komma equal equal"
   }
-
+/*The grid for the hexadecimal mode*/
   .hexadecimal-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
     grid-template-areas: 
-    "ten eleven twelve thirteen"
-    "fourteen fifteen sixteen seventeen"
-    "seven eight nine twentyseven"
-    "four five six twentyeight"
-    "one two three eighteen"
-    "zero nineteen twentyone twentytwo"
-    "twentythree twentyfour twentyfive twentysix"
-    "twenty twenty twenty twenty"
+    "decimal hex ce clear"
+    "bin openbracket closebracket divide"
+    "seven eight nine multiply"
+    "four five six minus"
+    "one two three plus"
+    "zero komma A B"
+    "C D E F"
+    "equal equal equal equal"
 
+  }
+
+  /*The grid for the binary mode*/
+  .binary-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+    grid-template-areas: 
+    "decimal hex ce clear"
+    "bin openbracket closebracket divide"
+    "plus multiply komma minus"
+    "zero zero one one"
+    "equal equal equal equal"
   }
 
 
