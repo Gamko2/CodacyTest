@@ -1,13 +1,40 @@
+//Ließt das Eingabefeld
+function readInput() {
+  var inp = document.getElementById('input').value;
+  return inp;
+}
+
+//Schreibt in das Eingabefeld und ersetzt es
+function writeOutput(x) {
+  document.getElementById('input').value = x;
+}
+
+//Leert das Eingabefeld
 function Clear() {
   document.getElementById('input').value = '';
 }
 
-function readInput() {
-  var equation = document.getElementById('input').value;
-  return equation;
+//Löscht Zeichen in Abhängigkeit von Amount
+function reduce(amount) {
+  var text = readInput();
+  document.getElementById("input").value = text.substring(0,text.length-amount);
 }
 
-function setValidator(x) {
+//Setzt den Validator
+function setValidator(validator) {
+  this.validator = validator;
+}
+
+//Initialisiert den Validator fürs Inputfeld
+function init() {
+  document.getElementById("input").addEventListener("input", onInputChange);
+}
+
+function onInputChange() {
+
+}
+
+/*function setValidator(x) {
   var mode = x;
 
   if(mode == "bin") {
@@ -56,4 +83,4 @@ function admire() {
 
 function fun() {
     alert("Hex2");
-}
+}*/
