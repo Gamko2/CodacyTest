@@ -24,6 +24,7 @@
 
 <body>
   <script src="js/calculator.js"></script>
+
   <!-- Views -->
   <div class="calculator-grid">
     <div class="navbar">
@@ -42,6 +43,7 @@
             <div class="item-inner">
               <div class="item-input">
                 <input id="input" type="text" name="name" placeholder="0" onpaste="return false" onkeypress="return inputValidator(event)">
+                <button class="btn col-25 button button-fill button-maxed" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
               </div>
             </div>
           </div>
@@ -109,6 +111,20 @@
   <script type="text/javascript" src="js/index.js"></script>
 
   <script type="text/javascript" src="js/calculator.js"></script>
+  <script src="../node_modules/clipboard/dist/clipboard.min.js"></script>
+
+  <script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function (e) {
+      alert("Successfully copied to Clipboard");
+
+    });
+
+    clipboard.on('error', function (e) {
+      alert("Copy to Clipboard failed");
+    });
+  </script>
 
 </body>
 
