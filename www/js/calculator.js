@@ -31,6 +31,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /*This function makes all elements visible. First you grab all childs from a certain moudel and then we check whether its a button or not and if it is we remove the
 invis class*/
+
+
+
 function allVisible() {
   let childs = document.getElementById("grid-mode").childNodes;
   for (let i = 0; i < childs.length; i++) {
