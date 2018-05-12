@@ -1,5 +1,20 @@
+/*var mode = {
+  binary: "bin",
+  hexadecimal: "hex",
+  decimal: "dec"
+};
+
+function calculate() {
+  var test;
+
+  test = mode.decimal;
+  setValidator(test);
+  console.log(test);
+}*/
+
+
 //Binärer DisplayValidator
-function binDisplayValidator(evt) {
+/*function binDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
   if ((charCode >= 40 && charCode <= 47) || charCode == 48 || charCode == 49 || (charCode == 8))
   {
@@ -42,7 +57,7 @@ function binInputValidator(x) {
       document.getElementById('input').value = "Division durch 0 ist nicht möglich";
       return false;
     }*/
-    var invalidOperator = 0;
+    /*var invalidOperator = 0;
     for(i = 0; i < input.length-1; i++) {
       if((input.charAt(i) == '+' || input.charAt(i) == '/' || input.charAt(i) == '*' || input.charAt(i) == '-')
         && (input.charAt(i+1) == '+' || input.charAt(i+1) == '/' || input.charAt(i+1) == '*' || input.charAt(i+1) == '-')) {
@@ -75,7 +90,7 @@ function binInputValidator(x) {
 
     //------------------------------------------------------------------------------------*/
 
-    if(invalidOperator != 0) {
+    /*if(invalidOperator != 0) {
       alert("Du hast " + (invalidOperator+1) + " Operatoren hintereinander!");
       return false;
     } else {
@@ -141,4 +156,4 @@ function binInputValidator(x) {
             }
           }
         }
-}
+}*/

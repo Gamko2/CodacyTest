@@ -20,67 +20,23 @@ function reduce(amount) {
   document.getElementById("input").value = text.substring(0,text.length-amount);
 }
 
-//Setzt den Validator
-function setValidator(validator) {
-  this.validator = validator;
-}
-
-//Initialisiert den Validator fürs Inputfeld
 function init() {
-  document.getElementById("input").addEventListener("input", onInputChange);
-}
-
-function onInputChange() {
-
-}
-
-/*function setValidator(x) {
-  var mode = x;
-
-  if(mode == "bin") {
-    //binInputValidator(readInput()) -> Bisher nicht programmiert
-    //binDisplayValidator(readInput()) -> Bisher nicht programmiert
-  }
-
-  else if(mode == "hex") {
-
-    document.getElementById("").
-
-    document.getElementById("equal").addEventListener("click", admire);
-    document.getElementById("input").addEventListener("input", fun);
-  }
-
-  else if(mode == "dec") {
-    document.getElementById("equal").addEventListener("click", inputValidator);
-    document.getElementById("input").addEventListener("input", displayValidator);
-
-
-  }
-}
-
-function init() {
-    alert("Astral");
   document.getElementById("equal").addEventListener("click", inputValidator);
   document.getElementById("input").addEventListener("input", displayValidator);
 }
 
-function onInputChange() {
-  var x = readInput();
-  displayValidator(x);
-}
+function setValidator(x) {
+  var mode = x;
+  var oldMode = mode;
 
-function haben() {
-    alert("Dez1");
-}
+  if(mode == "dec") {
+    document.getElementById("equal").addEventListener("click", inputValidator);
+    document.getElementById("input").addEventListener("input", displayValidator);
+    console.log("Validator Decimal!");
+  }
 
-function yohannes() {
-    alert("Dez2");
+  if(oldMode == mode) {
+    document.getElementById("equal").removeEventListener("click", inputValidator);
+    document.getElementById("input").removeEventListener("input", displayValidator);
+  }
 }
-
-function admire() {
-    alert("Hex1");
-}
-
-function fun() {
-    alert("Hex2");
-}*/
