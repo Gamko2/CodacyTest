@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body onload="init()">
   <script src="js/interface.js"></script>
   <!-- Views -->
   <div class="calculator-grid">
@@ -41,7 +41,7 @@
           <div class="item-content">
             <div class="item-inner">
               <div class="item-input">
-                <input id="input" type="text" name="name" placeholder="0" onkeypress="return displayValidator(event)">
+                <input id="input" type="text" name="name" placeholder="0" value = "">
               </div>
             </div>
           </div>
@@ -49,12 +49,12 @@
       </ul>
     </form>
     <div id="grid-mode" class="hexadecimal-grid">
-      <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" onclick="decimal()">Dec</button>
-      <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" onclick="hexadecimal()">Hex</button>
+      <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
+      <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
       <button id="empty" class="col-25 button button-fill color-gray button-maxed ce" onclick="reduce(1)">CE</button>
       <button id="clear" class="col-25 button button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
 
-      <button id="bin" class="col-25 button button-fill color-gray button-maxed bin" onclick="binary()">Bin</button>
+      <button id="bin" class="col-25 button button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
       <button id="leftparantheses" class="col-25 button button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
       <button id="rightparantheses" class="col-25 button button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
       <button id="divid" class="col-25 button button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
@@ -78,7 +78,7 @@
       <button class="col-50 button button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
       <button id="floatkomma" class="col-25 button button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
 
-      <button id="equal" class="col-25 button button-fill color-orange button-maxed equal" value="=" onclick="inputValidator(document.getElementById('input').value)">=</button>
+      <button id="equal" class="col-25 button button-fill color-orange button-maxed equal" value="=">=</button>
 
       <button id="A" class=" col-25 button button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
       <button id="B" class=" col-25 button button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
@@ -110,6 +110,10 @@
   <script type="text/javascript" src="js/display.js"></script>
 
   <script type="text/javascript" src="js/mode.js"></script>
+
+  <script type="text/javascript" src="js/hex.js"></script>
+
+  <script type="text/javascript" src="js/bin.js"></script>
 </body>
 
 </html>
