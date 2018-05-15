@@ -1,10 +1,12 @@
 function hexDisplayValidator(evt) {
+  //console.log("DisplayHex");
   var charCode = (evt.which) ? evt.which : event.keyCode;
-  if (charCode == 37 || charCode == 39 || (charCode >= 45 && charCode <= 70) || (charCode == 8) || (charCode == 88) || (charCode >= 106 && charCode <= 109) || charCode == 111)
+  if ((charCode >= 40 && charCode <= 43) || charCode == 45 || (charCode >= 47 && charCode <= 57) || (charCode >= 65 && charCode <= 70) || (charCode >= 97 && charCode <= 102) || charCode == 8)
   {
      return true;
   }
-   return false;
+
+  evt.preventDefault();
 }
 
 function hexInputValidator() {

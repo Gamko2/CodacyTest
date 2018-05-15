@@ -99,7 +99,13 @@ function binDisplayValidator(evt) {
   var patt = /[0, 1, B, ., +, -, *, /]/;
   var c = patt.test(charCode);
 
-  return c;
+  if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
+    c = false;
+  }
+
+  if(c === false) {
+    evt.preventDefault();
+  }
 }
 
 function korrigieren(string) {

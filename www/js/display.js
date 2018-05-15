@@ -21,51 +21,50 @@ function reduce(amount) {
 }
 
 function init() {
-  console.log("init() activated");
+  //console.log("init() activated");
   setMode("hex");
 }
 
 function setValidator(x) {
   var mode = x;
-  var oldMode = mode;
+  //var oldMode = mode;
 
 //Löschen des alten Events
   //if(mode == "dec") {
-    console.log("Mode");
     document.getElementById("equal").removeEventListener("click", inputValidator);
-    document.getElementById("input").removeEventListener("input", displayValidator);
+    document.getElementById("input").removeEventListener("keypress", displayValidator);
     document.getElementById("equal").removeEventListener("click", decCheck);
-    console.log("Löschen Decimal Successful!");
+    //console.log("Löschen Decimal Successful!");
   //} else if(mode == "hex") {
     document.getElementById("equal").removeEventListener("click", hexInputValidator);
-    document.getElementById("input").removeEventListener("input", hexDisplayValidator);
+    document.getElementById("input").removeEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").removeEventListener("click", hexCheck);
-    console.log("Löschen Hexadecimal Successful!");
+    //console.log("Löschen Hexadecimal Successful!");
   //} else if(mode == "bin") {
     document.getElementById("equal").removeEventListener("click", binInputValidator);
-    document.getElementById("input").removeEventListener("input", binDisplayValidator);
+    document.getElementById("input").removeEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").removeEventListener("click", binCheck);
-    console.log("Löschen Binary Successful!");
+    //console.log("Löschen Binary Successful!");
   //}
+    Clear(); //Nachdem alle Validatoren gelöscht werden, soll auch das InputFeld geleert werden
 
 //Hinzufügen neuer Validatoren
-  if(oldMode == "dec") {
-    //console.log("Mode 2");
+  if(mode === "dec") {
     //document.getElementById("equal").addEventListener("click", inputValidator);
-    document.getElementById("input").addEventListener("input", displayValidator);
+    document.getElementById("input").addEventListener("keypress", displayValidator);
     document.getElementById("equal").addEventListener("click", decCheck);
-    console.log("Decimal Validator Successful!");
+    //console.log("Decimal Validator Successful!");
 
-  } else if(oldMode == "hex") {
+  } else if(mode === "hex") {
     //document.getElementById("equal").addEventListener("click", hexInputValidator);
-    document.getElementById("input").addEventListener("input", hexDisplayValidator);
+    document.getElementById("input").addEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").addEventListener("click", hexCheck);
-    console.log("Hexadecimal Validator Successful!");
-    
-  } else if(oldMode == "bin") {
+    //console.log("Hexadecimal Validator Successful!");
+
+  } else if(mode === "bin") {
     //document.getElementById("equal").addEventListener("click", binInputValidator);
-    document.getElementById("input").addEventListener("input", binDisplayValidator);
+    document.getElementById("input").addEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").addEventListener("click", binCheck);
-    console.log("Binary Validator Successful!");
+    //console.log("Binary Validator Successful!");
   }
 }

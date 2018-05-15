@@ -1,12 +1,14 @@
 function displayValidator(evt) {
+  //console.log("decDisplay");
   var charCode = (evt.which) ? evt.which : event.keyCode;
-  if ((charCode > 39 && charCode < 58) || (charCode == 8))
+  if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
   {
-    //alert(charCode);
+     //alert(charCode);
      return true;
   }
-  //alert(charCode);
-   return false;
+
+   evt.preventDefault();
+   //return false;
 }
 
 //Überprüfung der Eingabe per Paste
@@ -179,7 +181,7 @@ document.addEventListener('paste', function(event) {
                         return 0;
                     }
 
-                    var saveInput = document.getElementById('input').value;
+                    var saveInput = readInput();
                     var newString = " ";
                     for(i = 0; i < input.length; i++) {
                       if((input.charAt(i) >= '0' && input.charAt(i) <= '9') && input.charAt(i+1) == '(') {
@@ -187,7 +189,10 @@ document.addEventListener('paste', function(event) {
                         newString = saveInput.slice(0, i+1) + "*" + saveInput.slice(i+1, input.length);
                       }
                     }
-                        document.getElementById('input').value = eval(newString);
+
+                    if(newString !== " ") {
+                      document.getElementById('input').value = newString;
+                    }
 
                       if(eval(document.getElementById('input').value) == Infinity) {
                         alert("Division durch 0 ist nicht möglich!");
