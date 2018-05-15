@@ -33,9 +33,18 @@ function binCheck() {
   //console.log("binCheck()");
   var string = korrigieren(readInput());
   //console.log(string);
+
   var erg = 0;
   var result;
   if(binInputValidator(string) === true) {
+    var number1 = checkNumberBrackets(string);
+    var number2 = checkCloseOpenBrackets(string);
+    if(number1 == true || number2 == true) {
+      //console.log("Push");
+      string = modifizieren(string);
+      //console.log(string);
+    }
+
     var result = eval(string);
     erg = result.toString(2);
     writeOutput(erg);

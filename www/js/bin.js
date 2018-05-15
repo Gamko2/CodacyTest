@@ -38,24 +38,15 @@ function afternumber(string) {
 
 function afteroperator(string) {
 
-  var returnValue = true;
-  var endPattern = /([+]|[-]|[*]|[/]|[(])/;
-  var operatorPattern = /([+]|[-]|[*]|[/])/;
-  var binaryPattern = /([0][B][0-1]+)$/;
+ var pattern = /([+]|[\-]|[*]|[\/])([\)])/;
 
-  for(i = 0; i < string.length; i++) {
-  var c = string.charAt(i);
-  var isOperator = operatorPattern.test(c);
-  if(isOperator === true) {
-  for(ii = i + 1; ii < string.length; ii++) {
-     c = string.charAt(ii);
-     if(string.charAt(i + 1) == '(') {break;}
-     else if(endPattern.test(c) || ii == string.length - 1) {var res = string.slice(i+1, ii-1);returnValue = binaryPattern.test(res); break;}
-   }
-   if(returnValue === false){break;}
-  }
+ var c = pattern.test(string);
+
+ if(c == true) {
+   return false;
+ } else {
+   return true;
  }
- return returnValue;
 }
 
 function beginning(string) {
@@ -96,12 +87,12 @@ function binDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
   charCode = String.fromCharCode(charCode);
 
-  var patt = /[0, 1, B, ., +, -, *, /]/;
+  var patt = /[0|1|B|+|\-|*|/|(|)]/;
   var c = patt.test(charCode);
 
-  if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
+  /*if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
     c = false;
-  }
+  }*/
 
   if(c === false) {
     evt.preventDefault();
@@ -138,6 +129,40 @@ function korrigieren(string) {
   return neo;
 }
 
+function checkNumberBrackets(string) {
+  var patt = /([0-1]+)([\(])/
+
+  var c = patt.test(string);
+
+  return c;
+}
+
+function checkCloseOpenBrackets(string) {
+  var patt = /([\))([\(])/
+
+  var c = patt.test(string);
+
+  return c;
+}
+
+function modifizieren(string) {
+   var binaryPattern = /[0|1]/;
+
+   var neo = string.charAt(0);
+   var zusatz = "*";
+
+   for(i = 1; i < string.length; i++) {
+   var b = string.charAt(i);
+   var a = string.charAt(i-1);
+   if((binaryPattern.test(a) && b == "(") || (a == ")" && b == "(") ) {
+    neo = neo + zusatz + b;
+   }
+
+   else {neo = neo + b}
+   }
+   return neo;
+}
+
 function binInputValidator(string) {
  //string = korrigieren(string);
 
@@ -153,8 +178,9 @@ function binInputValidator(string) {
  var after = afteroperator(string);
  if(after == false) {alert("Fehler: Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false;}
 
- var number = afternumber(string);
+ /*var number = afternumber(string);
  if(number == false) {alert("Fehler: Nach einer Zahl muss ein Operator stehen oder eine geöffnete Klammer"); return false;}
+*/
 
  return true;
 }
