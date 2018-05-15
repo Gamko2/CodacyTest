@@ -15,8 +15,25 @@ function reduce() {
 
 }*/
 
+/* Needs to be fixed. Works but the event fires twice for some reason.
+window.addEventListener("DOMContentLoaded", () => {
+  let clipboard = new ClipboardJS('.btn');
+  clipboard.on('success', function (e) {
+    alert("Successfully copied to Clipboard");
+
+  });
+
+  clipboard.on('error', function (e) {
+    alert("Copy to Clipboard failed");
+  });
+}, false);
+*/
+
 /*This function makes all elements visible. First you grab all childs from a certain moudel and then we check whether its a button or not and if it is we remove the
 invis class*/
+
+
+
 function allVisible() {
   let childs = document.getElementById("grid-mode").childNodes;
   for (let i = 0; i < childs.length; i++) {
