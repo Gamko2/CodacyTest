@@ -7,7 +7,7 @@ var toastTop = undefined;
 function displayToastMessage(message) {
     toastTop = app.toast.create({
         text: message,
-        position: 'center',
+        position: 'top',
         closeTimeout: 2000,
         
 
