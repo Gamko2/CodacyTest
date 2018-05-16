@@ -1,7 +1,8 @@
 let clipboard = new ClipboardJS('.btn');
 
 clipboard.on('success', function (e) {
-  alert("Successfully copied to Clipboard");
+  /*alert("Successfully copied to Clipboard");*/
+  displayToastMessage("Copied to Clipboard");
 
 });
 
