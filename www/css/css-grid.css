@@ -166,7 +166,7 @@ grid-area: decimal;
   .calculator-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 56px 20vh auto 50px;
+    grid-template-rows: 56px 15vh 10vh auto 50px;
     height: 100vh;
     grid-gap: 5px;
   }

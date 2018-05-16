@@ -43,13 +43,16 @@
             <div class="item-inner">
               <div class="item-input">
                 <input id="input" type="text" name="name" placeholder="0" onkeypress="return inputValidator(event)">
-                <button class="btn col-25 button button-fill button-maxed" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+                
               </div>
             </div>
           </div>
         </li>
       </ul>
     </form>
+    <div>
+      <button class="btn col-25 button button-fill button-maxed" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+    </div>
     <div id="grid-mode" class="hexadecimal-grid">
       <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" onclick="decimal()">Dec</button>
       <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" onclick="hexadecimal()">Hex</button>
@@ -108,10 +111,12 @@
   <script type="text/javascript" src="js/framework7.min.js"></script>
   <!-- Path to your app js-->
   <!-- Path to your cordova js-->
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="js/calculator.js"></script>
+  <script src="js/clipboard.min.js"></script>
   <script src="../node_modules/clipboard/dist/clipboard.min.js"></script>
   <script src="js/clipboard.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/calculator.js"></script>
+  
 
 
 
