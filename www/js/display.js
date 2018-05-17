@@ -20,19 +20,22 @@ function reduce(amount) {
   document.getElementById("input").value = text.substring(0,text.length-amount);
 }
 
+//Mode auf HEX stellen, da wir beim User Interface im Default Mode bei HEX liegen
 function init() {
   //console.log("init() activated");
   setMode("hex");
 }
 
+/*Die Funktion setValidator() setzt den Display Validator und die sogenannten CheckMethoden.
+*/
 function setValidator(x) {
   var mode = x;
   //var oldMode = mode;
 
-//Löschen des alten Events
+//Löschen der alten Events
   //if(mode == "dec") {
-    document.getElementById("equal").removeEventListener("click", inputValidator);
-    document.getElementById("input").removeEventListener("keypress", displayValidator);
+    document.getElementById("equal").removeEventListener("click", decInputValidator);
+    document.getElementById("input").removeEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").removeEventListener("click", decCheck);
     //console.log("Löschen Decimal Successful!");
   //} else if(mode == "hex") {
@@ -51,7 +54,7 @@ function setValidator(x) {
 //Hinzufügen neuer Validatoren
   if(mode === "dec") {
     //document.getElementById("equal").addEventListener("click", inputValidator);
-    document.getElementById("input").addEventListener("keypress", displayValidator);
+    document.getElementById("input").addEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").addEventListener("click", decCheck);
     //console.log("Decimal Validator Successful!");
 

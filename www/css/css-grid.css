@@ -166,7 +166,7 @@ grid-area: decimal;
   .calculator-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 56px 20vh auto 50px;
+    grid-template-rows: 56px 15vh 10vh auto 50px;
     height: 100vh;
     grid-gap: 5px;
   }
@@ -179,9 +179,9 @@ grid-area: decimal;
     height: 100%;
     grid-template-areas: "decimal hex ce clear"
                           "bin openbracket closebracket divide"
-                          "one two three multiply"
+                          "seven eight nine multiply"
                           "four five six minus"
-                          "seven eight nine plus"
+                          "one two three plus"
                           "zero komma equal equal"
   }
 /*The grid for the hexadecimal mode*/

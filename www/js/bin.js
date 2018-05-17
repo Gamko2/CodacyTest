@@ -1,44 +1,49 @@
+/*Der binäre DisplayValidator sorgt dafür, dass im Inputfeld nur die Binärzahlen, Operatoren und die Klammern vom
+User eingetippt werden können. Alles andere wird durch evt.preventDefault() verhindert.*/
+function binDisplayValidator(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  charCode = String.fromCharCode(charCode);
+
+  var patt = /[0|1|B|+|\-|*|/|(|)]/;
+  var c = patt.test(charCode);
+
+  /*if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
+    c = false;
+  }*/
+
+  if(c === false) {
+    evt.preventDefault();
+  }
+}
+
+//Überprüft, ob mehrere Operatoren hintereinander auftauchen
 function operators(string) {
-  var pattern = /[+|-|*|\/][+|-|*|\/]/
+  var pattern = /[+|\-|*|\/][+|\-|*|\/]+/;
 
   var c = pattern.test(string);
   return c;
 }
 
-function afternumber(string) {
-  var returnValue = true;
+//Überprüft ob zu Begin ein *, / oder ) steht -> Damit nur (, +, - oder eine Zahl eingegeben werden können
+function beginning(x) {
+  var pattern = /^([*]|[\)]|[\/])/;
 
-  var endPattern = /[0|B|1]/;
-  var binaryPattern = /[0][B][0|1]+/
-  var afterBinaryPattern = /[)|+|-|*|\/]/
+  var c = pattern.test(x);
 
-  for(i = 0; i < string.length; i++) {
-
-  var c = string.charAt(i);
-
-  if(c == "0") {
-   for(ii = i; ii < string.length; ii++) {
-    var d = string.charAt(ii);
-    if(endPattern.test(d) === false) {
-      var number = string.slice(i, ii-1);
-      var afterNumber = string.charAt(ii);
-      if(binaryPattern.test(number) && afterBinaryPattern.test(d)) { i = ii; break;}
-      else {returnValue = false; break;}
-      }
-   }
-
-   if(returnValue === false) {break;}
-
-  }
-
-  }
-
-  return returnValue;
+  //console.log(c);
+  return c;
 }
 
+/*function beginning(string) {
+  if((string.charAt(0) == ')') || string.charAt(0) == '*' || string.charAt(0) == '/') {
+    return false;
+  }
+}*/
+
+//Überprüft wenn nach einem Operator eine ) oder ein . steht -> Damit nach dem Operator eine Klammer auf oder eine Zahl stehen kann
 function afteroperator(string) {
 
- var pattern = /([+]|[\-]|[*]|[\/])([\)])/;
+ var pattern = /([+|\-|*|\/])(([\)]|[.])|$)/;
 
  var c = pattern.test(string);
 
@@ -49,15 +54,7 @@ function afteroperator(string) {
  }
 }
 
-function beginning(string) {
-
-  var patt = /^([+, (]|[0][B][1][0-1]*|[0][B][0][0-1]*|[-])/;
-  var c = patt.test(string);
-
-
- return c;
-}
-
+//Überprüft, ob die Klammern leer sind
 function emptyBrackets(string) {
 
   var patt = /[(][)]/;
@@ -66,6 +63,7 @@ function emptyBrackets(string) {
   return c;
 }
 
+//Überprüft, ob die Klammeranzahl stimmt
 function bracketsCheck(string) {
 
   var brackets = 0;
@@ -83,22 +81,31 @@ function bracketsCheck(string) {
    else {return false}
 }
 
-function binDisplayValidator(evt) {
-  var charCode = (evt.which) ? evt.which : event.keyCode;
-  charCode = String.fromCharCode(charCode);
+//Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
+function afterBracketsNoMulDiv(x) {
+  var pattern = /([\(])([*]|[\/])/;
 
-  var patt = /[0|1|B|+|\-|*|/|(|)]/;
-  var c = patt.test(charCode);
+  var c = pattern.test(x);
 
-  /*if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
-    c = false;
-  }*/
-
-  if(c === false) {
-    evt.preventDefault();
-  }
+  return c;
 }
 
+//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
+function checkCloseOpenBrackets(string) {
+  var patt = /([\))([\(])/
+
+  var c = patt.test(string);
+
+  return c;
+}
+
+/*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
+Funktion diese berechnen kann.Solange binary.test(c) true zurückgibt und number false ist, handelt es sich
+um eine Hexadezimalzahl von 0 oder 1 und ein 0B wird drangehängt = 0B[0-1]. Ist das eingetreten wird, wenn
+wieder eine Binärzahl von 0-1 eingetippt wird an 0B[0-1] nochmals [0-1] drangehängt = 0B[0-1][0-1]...
+Wenn binary.test(c) false returned und number true returned, bedeutet dass nach 0B[0-1]... ein Operator oder Klammern folgt und an
+0B[0-1]... drangehängt wird = 0B[0-1][+/-/* und geteilt oder ()].
+*/
 function korrigieren(string) {
    var extra = "0B";
    var binary = /[0|1|B]/;
@@ -129,7 +136,9 @@ function korrigieren(string) {
   return neo;
 }
 
-function checkNumberBrackets(string) {
+/*Überprüft, ob nach einer Zahl eine geöffnete Klammer folgt, ist später dafür zuständig, dass zwischen einer Zahl und einer Klammer
+ein Multiplikationszeichen folgt*/
+function checkBinBrackets(string) {
   var patt = /([0-1]+)([\(])/
 
   var c = patt.test(string);
@@ -137,15 +146,10 @@ function checkNumberBrackets(string) {
   return c;
 }
 
-function checkCloseOpenBrackets(string) {
-  var patt = /([\))([\(])/
-
-  var c = patt.test(string);
-
-  return c;
-}
-
-function modifizieren(string) {
+/*Der Modifizierer ist dafür zuständig ein Malzeichen zwischen einer Binärzahl und einer geöffneten Klammer oder sich schließenden und
+öffnenden Klammer hinzuzufügen.
+*/
+function binModifizieren(string) {
    var binaryPattern = /[0|1]/;
 
    var neo = string.charAt(0);
@@ -163,24 +167,26 @@ function modifizieren(string) {
    return neo;
 }
 
+//Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben und eine Fehlermeldung ausgegeben
 function binInputValidator(string) {
  //string = korrigieren(string);
-
  var brackets = bracketsCheck(string);
- if(brackets == false) {alert("Fehler: Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {alert("Klammern sind nicht korrekt"); return false;}
 
  var empty = emptyBrackets(string);
- if(empty == true) {alert("Fehler: Leeres Klammernpaar"); return false;}
+ if(empty == true) {alert("Leeres Klammernpaar"); return false;}
 
  var operator = operators(string);
- if(operator == true) {alert("Fehler: Zwei hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {alert("Mehrere hintereinander folgende Operatoren"); return false;}
 
  var after = afteroperator(string);
- if(after == false) {alert("Fehler: Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {alert("Nach einem Operator muss eine Binärzahl oder eine sich öffnende Klammer stehen"); return false;}
 
- /*var number = afternumber(string);
- if(number == false) {alert("Fehler: Nach einer Zahl muss ein Operator stehen oder eine geöffnete Klammer"); return false;}
-*/
+ var beg = beginning(string);
+ if(beg == true) {alert("Am Anfang dürfen nur +, -, ( oder eine Binärzahl stehen!"); return false;}
+
+ var aBNMD = afterBracketsNoMulDiv(string);
+ if(aBNMD == true) {alert("Nach einer Klammer darf nur +, -, ( oder eine Binärzahl stehen!"); return false;}
 
  return true;
 }

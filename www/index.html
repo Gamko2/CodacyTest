@@ -24,6 +24,7 @@
 
 <body onload="init()">
   <script src="js/interface.js"></script>
+
   <!-- Views -->
   <div class="calculator-grid">
     <div class="navbar">
@@ -41,18 +42,23 @@
           <div class="item-content">
             <div class="item-inner">
               <div class="item-input">
-                <input id="input" type="text" name="name" placeholder="0" value = "">
+                <input id="input" type="text" name="name" placeholder="0">
+
               </div>
             </div>
           </div>
         </li>
       </ul>
     </form>
+    <div>
+      <button class="btn col-25 button button-fill button-maxed" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+    </div>
     <div id="grid-mode" class="hexadecimal-grid">
       <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
       <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
       <button id="empty" class="col-25 button button-fill color-gray button-maxed ce" onclick="reduce(1)">CE</button>
       <button id="clear" class="col-25 button button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
+
 
       <button id="bin" class="col-25 button button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
       <button id="leftparantheses" class="col-25 button button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
@@ -84,8 +90,9 @@
       <button id="B" class=" col-25 button button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
       <button id="C" class=" col-25 button button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
       <button id="D" class=" col-25 button button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-      <button id="E" class=" col-25 button button-fill color-indigo button-maxed E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-      <button id="F" class=" col-25 button button-fill color-indigo button-maxed F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+      <button id="E" class=" col-25 button button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+      <button id="F" class=" col-25 button button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+
 
     </div>
     <div class="toolbar toolbar-bottom">
@@ -104,16 +111,15 @@
   <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
   <!-- Path to your app js-->
   <!-- Path to your cordova js-->
-  <!--script type="text/javascript" src="js/index.js"></script-->
-  <script type="text/javascript" src="js/calculator.js"></script>
-
+  <script src="js/clipboard.min.js"></script>
+  <script src="js/clipboard.js"></script>
+  <script type="text/javascript" src="js/interface.js"></script>
+  <!--script type="text/javascript" src="js/universal.js"></script-->
+  <script type="text/javascript" src="js/dec.js"></script>
   <script type="text/javascript" src="js/display.js"></script>
-
-  <script type="text/javascript" src="js/mode.js"></script>
-
   <script type="text/javascript" src="js/hex.js"></script>
-
   <script type="text/javascript" src="js/bin.js"></script>
+  <script type="text/javascript" src="js/mode.js"></script>
 </body>
 
 </html>
