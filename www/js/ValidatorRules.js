@@ -74,9 +74,19 @@ function afterBracketsNoMulDiv(x) {
 
 //Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
 function checkCloseOpenBrackets(string) {
-  var patt = /([\))([\(])/
+  var patt = /([\)])([\(])/
 
   var c = patt.test(string);
 
   return c;
+}
+
+module.exports = {
+  operators: operators,
+  beginning: beginning,
+  afteroperator: afteroperator,
+  emptyBrackets: emptyBrackets,
+  bracketsCheck: bracketsCheck,
+  afterBracketsNoMulDiv: afterBracketsNoMulDiv,
+  checkCloseOpenBrackets: checkCloseOpenBrackets
 }
