@@ -12,88 +12,6 @@ function hexDisplayValidator(evt) {
   }
 }
 
-//Überprüft, ob mehrere Operatoren hintereinander auftauchen
-function operators(string) {
-  var pattern = /[+|\-|*|\/][+|\-|*|\/]+/;
-
-  var c = pattern.test(string);
-  return c;
-}
-
-//Überprüft ob zu Begin ein *, / oder ) steht -> Damit nur (, +, - oder eine Zahl eingegeben werden können
-function beginning(x) {
-  var pattern = /^([*]|[\)]|[\/])/;
-
-  var c = pattern.test(x);
-
-  //console.log(c);
-  return c;
-}
-
-/*function beginning(string) {
-  if((string.charAt(0) == ')') || string.charAt(0) == '*' || string.charAt(0) == '/') {
-    return false;
-  }
-}*/
-
-//Überprüft wenn nach einem Operator eine ) oder ein . steht -> Damit nach dem Operator eine Klammer auf oder eine Zahl stehen kann
-function afteroperator(string) {
-
- var pattern = /([+|\-|*|\/])(([\)]|[.])|$)/;
-
- var c = pattern.test(string);
-
- if(c == true) {
-   return false;
- } else {
-   return true;
- }
-}
-
-//Überprüft, ob die Klammern leer sind
-function emptyBrackets(string) {
-
-  var patt = /[(][)]/;
-  var c = patt.test(string);
-
-  return c;
-}
-
-//Überprüft, ob die Klammeranzahl stimmt
-function bracketsCheck(string) {
-
-  var brackets = 0;
-  var openBracketsPattern = /[(]/;
-  var closedBracketsPattern = /[)]/;
-
-  for(i = 0; i < string.length; i++) {
-      var c = string.charAt(i);
-
-      if(openBracketsPattern.test(c)) {brackets++;}
-      else if(closedBracketsPattern.test(c)) {brackets--;}
-   }
-
-   if(brackets == 0) {return true}
-   else {return false}
-}
-
-//Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
-function afterBracketsNoMulDiv(x) {
-  var pattern = /([\(])([*]|[\/])/;
-
-  var c = pattern.test(x);
-
-  return c;
-}
-
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-function checkCloseOpenBrackets(string) {
-  var patt = /([\))([\(])/
-
-  var c = patt.test(string);
-
-  return c;
-}
 
 /*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
 Funktion diese berechnen kann.Solange hex.test(c) true zurückgibt und number false ist, handelt es sich
@@ -169,22 +87,31 @@ function hexInputValidator(string) {
  //string = korrigieren(string);
 
  var brackets = bracketsCheck(string);
- if(brackets == false) {alert("Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {console.log("Klammern sind nicht korrekt"); return false;}
 
  var empty = emptyBrackets(string);
- if(empty == true) {alert("Leeres Klammernpaar"); return false;}
+ if(empty == true) {console.log("Leeres Klammernpaar"); return false;}
 
  var operator = operators(string);
- if(operator == true) {alert("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {console.log("Mehrere hintereinander folgende Operatoren"); return false;}
 
  var after = afteroperator(string);
- if(after == false) {alert("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {console.log("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
 
  var beg = beginning(string);
- if(beg == true) {alert("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(beg == true) {console.log("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {alert("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(aBNMD == true) {console.log("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
  return true;
+}
+
+//Jest Testing für Hexadezimal
+module.exports = {
+  hexaKorrigieren: hexaKorrigieren,
+  hexaCheckBrackets: hexaCheckBrackets,
+  hexaModifizieren: hexaModifizieren,
+  hexDisplayValidator: hexDisplayValidator,
+  hexInputValidator: hexInputValidator
 }
