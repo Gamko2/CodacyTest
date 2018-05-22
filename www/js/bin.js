@@ -190,3 +190,9 @@ function binInputValidator(string) {
 
  return true;
 }
+
+module.exports =  {
+korrigieren: korrigieren,
+checkBinBrackets: checkBinBrackets,
+binModifizieren: binModifizieren
+}
