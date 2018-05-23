@@ -87,22 +87,22 @@ function hexInputValidator(string) {
  //string = korrigieren(string);
 
  var brackets = bracketsCheck(string);
- if(brackets == false) {console.log("Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
 
  var empty = emptyBrackets(string);
- if(empty == true) {console.log("Leeres Klammernpaar"); return false;}
+ if(empty == true) {displayToastMessage("Leeres Klammernpaar"); return false;}
 
  var operator = operators(string);
- if(operator == true) {console.log("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
 
  var after = afteroperator(string);
- if(after == false) {console.log("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {displayToastMessage("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
 
  var beg = beginning(string);
- if(beg == true) {console.log("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {console.log("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
  return true;
 }
@@ -111,7 +111,5 @@ function hexInputValidator(string) {
 module.exports = {
   hexaKorrigieren: hexaKorrigieren,
   hexaCheckBrackets: hexaCheckBrackets,
-  hexaModifizieren: hexaModifizieren,
-  hexDisplayValidator: hexDisplayValidator,
-  hexInputValidator: hexInputValidator
+  hexaModifizieren: hexaModifizieren
 }
