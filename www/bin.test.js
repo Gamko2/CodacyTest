@@ -26,3 +26,11 @@ test('01010(01010+0101) to 01010*(01010+0101)', () => {
 test('(01010+0101)*(0101010*010100) to (no change))', () => {
   expect(bin.binModifizieren('(01010+0101)*(0101010*010100)')).toBe('(01010+0101)*(0101010*010100)');
 });
+
+test('01010*(01010+0101) equals false', () => {
+  expect(bin.checkCloseOpenBrackets('01010*(01010+0101)')).toBe(false);
+});
+
+test('(01010+0101)(0101010*010100) equals true', () => {
+  expect(bin.checkCloseOpenBrackets('(01010+0101)(0101010*010100)')).toBe(true);
+});
