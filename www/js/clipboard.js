@@ -7,5 +7,6 @@ clipboard.on('success', function (e) {
 });
 
 clipboard.on('error', function (e) {
-  alert("Copy to Clipboard failed");
+  /*alert("Copy to Clipboard failed");*/
+  displayToastMessage("Copied to Clipboard failed");
 });

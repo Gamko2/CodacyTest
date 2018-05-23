@@ -1,3 +1,4 @@
+
 // Create top toast
 
 var toastTop = undefined;
@@ -8,7 +9,7 @@ function displayToastMessage(message) {
         text: message,
         position: 'top',
         closeTimeout: 2000,
-
+        
 
     });
     toastTop.open();
