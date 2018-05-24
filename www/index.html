@@ -11,117 +11,110 @@
   <!-- Your app title -->
   <title>Alekulator</title>
   <!-- Path to Framework7 Library CSS, Material Theme -->
-  <link rel="stylesheet" href="css/framework7.material.min.css">
-  <!-- Path to Framework7 color related styles, Material Theme -->
-  <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+  <link rel="stylesheet" href="framework7/css/framework7.css">
+
   <!-- Path to your custom app styles-->
   <link rel="stylesheet" href="css/my-app.css">
   <!-- Path to Framework7 icons -->
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/css-grid.css">
 
+
 </head>
 
 <body onload="init()">
-  <script src="js/interface.js"></script>
-
-  <!-- Views -->
-  <div class="calculator-grid">
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left">Alekulator</div>
+  <div id="app">
+    <!-- Views -->
+    <div class="calculator-grid">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">Alekulator</div>
+        </div>
       </div>
-    </div>
-    <!-- Toolbar. In Material theme it should be inside of the page-->
+      <!-- Toolbar. In Material theme it should be inside of the page-->
 
-    <!-- Scrollable page content -->
+      <!-- Scrollable page content -->
 
-    <form id="my-form" class="list-block" name="Alekulator">
-      <ul>
-        <li>
-          <div class="item-content">
-            <div class="item-inner">
-              <div class="item-input">
-                <input id="input" type="text" name="name" placeholder="0">
-
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </form>
-    <div>
-       <button class="btn button-fill button-maxed open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
-    </div>
-    <div id="grid-mode" class="hexadecimal-grid">
-      <button id="dec" class="col-25 button button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
-      <button id="hex" class="col-25 button button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
-      <button id="empty" class="col-25 button button-fill color-gray button-maxed ce" onclick="reduce(1)">CE</button>
-      <button id="clear" class="col-25 button button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
+      <form id="my-form" name="Alekulator">
 
 
-      <button id="bin" class="col-25 button button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
-      <button id="leftparantheses" class="col-25 button button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
-      <button id="rightparantheses" class="col-25 button button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
-      <button id="divid" class="col-25 button button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
+                  <input id="input" type="text" name="name" placeholder="0">
 
-      <button id="1" class="col-25 button button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
-      <button id="2" class="col-25 button button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
-      <button id="3" class="col-25 button button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
-      <button id="multiplication" class="col-25 button button-fill color-orange button-maxed multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
-
-      <button id="4" class="col-25 button button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-      <button id="5" class="col-25 button button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-      <button id="6" class="col-25 button button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-      <button id="subtract" class="col-25 button button-fill button-maxed color-orange minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
-
-      <button id="7" class="col-25 button button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
-      <button id="8" class="col-25 button button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
-      <button id="9" class="col-25 button button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
-      <button id="add" class="col-25 button button-fill color-orange button-maxed plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
-
-
-      <button class="col-50 button button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
-      <button id="floatkomma" class="col-25 button button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
-
-      <button id="equal" class="col-25 button button-fill color-orange button-maxed equal" value="=">=</button>
-
-      <button id="A" class=" col-25 button button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-      <button id="B" class=" col-25 button button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-      <button id="C" class=" col-25 button button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-      <button id="D" class=" col-25 button button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-      <button id="E" class=" col-25 button button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-      <button id="F" class=" col-25 button button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
-
-
-    </div>
-    <div class="toolbar toolbar-bottom">
-      <div class="toolbar-inner">
-        <a href="about.html" class="link">
-          <i class="f7-icons size-22">info</i>About</a>
-        <a href="email.html" class="link">
-          <i class="f7-icons size-22">email</i>Email</a>
+      </form>
+      <div>
+        <button class="btn button-fill button-maxed open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
       </div>
-    </div>
+      <div id="grid-mode" class="hexadecimal-grid">
+        <button id="dec" class="button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
+        <button id="hex" class="button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
+        <button id="empty" class="button-fill color-gray button-maxed ce">CE</button>
+        <button id="clear" class="button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
 
+
+        <button id="bin" class="button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
+        <button id="leftparantheses" class="button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
+        <button id="rightparantheses" class="button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
+        <button id="divid" class="button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
+
+        <button id="1" class="button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
+        <button id="2" class="button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
+        <button id="3" class="button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
+        <button id="multiplication" class="button-fill color-orange button-maxed multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
+
+        <button id="4" class="button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
+        <button id="5" class="button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
+        <button id="6" class="button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
+        <button id="subtract" class="button-fill button-maxed color-orange minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+
+        <button id="7" class="button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
+        <button id="8" class="button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
+        <button id="9" class="button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
+        <button id="add" class="button-fill color-orange button-maxed plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
+
+
+        <button class="button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
+        <button id="floatkomma" class="button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
+
+        <button id="equal" class="button-fill color-orange button-maxed equal" value="=">=</button>
+
+        <button id="A" class="button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
+        <button id="B" class="button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
+        <button id="C" class="button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
+        <button id="D" class="button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
+        <button id="E" class="button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+        <button id="F" class="button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+
+
+      </div>
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+          <a href="about.html" class="link">
+            <i class="f7-icons size-22">info</i>About</a>
+          <a href="email.html" class="link">
+            <i class="f7-icons size-22">email</i>Email</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- REFERENCE SCRIPTS-->
   <!-- Path to Framework7 Library JS-->
   <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
+  <!--script type="text/javascript" src="../node_modules/framework7/dist/js/framework7.min.js"></script-->
   <!-- Path to your app js-->
+  <script src="js/app.js"></script>
   <!-- Path to your cordova js-->
-  <script src="js/framework7.min.js"></script>
-  <script src="js/clipboard.min.js"></script>
-  <script src="js/clipboard.js"></script>
+  <script src="js/interface.js"></script>
   <script src="js/toast.js"></script>
-  <script type="text/javascript" src="js/interface.js"></script>
-  <!--script type="text/javascript" src="js/ValidatorRules.js"></script-->
-  <script type="text/javascript" src="js/dec.js"></script>
-  <script type="text/javascript" src="js/display.js"></script>
-  <script type="text/javascript" src="js/hex.js"></script>
-  <script type="text/javascript" src="js/bin.js"></script>
-  <script type="text/javascript" src="js/mode.js"></script>
+  <script src="js/clipboard.min.js"></script>
+  <!--script src="../node_modules/clipboard/dist/clipboard.min.js"></script-->
+  <script src="js/clipboard.js"></script>
+  <script src="js/bin.js"></script>
+  <script src="js/dec.js"></script>
+  <script src="js/display.js"></script>
+  <script src="js/hex.js"></script>
+  <script src="js/mode.js"></script>
 </body>
 
 </html>

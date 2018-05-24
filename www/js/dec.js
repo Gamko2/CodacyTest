@@ -6,7 +6,7 @@ function decDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
   if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
   {
-     //alert(charCode);
+     //displayToastMessage(charCode);
      return true;
   }
 
@@ -33,7 +33,7 @@ document.addEventListener('paste', function(event) {
 
     //console.log(correct);
     if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
-      alert("Es dürfen per Paste nur Zahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
+      displayToastMessage("Es dürfen per Paste nur Zahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
       event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
       return false;
     } else {
@@ -166,25 +166,25 @@ und eine Fehlermeldung ausgegeben*/
   function decInputValidator(string) {
 
     var b = bracketsCheck(string);
-    if(b == false) {alert("Die Klammern sind nicht richtig gesetzt!"); return false;}
+    if(b == false) {displayToastMessage("Die Klammern sind nicht richtig gesetzt!"); return false;}
 
     var e = emptyBrackets(string);
-    if(e == true) {alert("Die Klammer sind leer!"); return false;}
+    if(e == true) {displayToastMessage("Die Klammer sind leer!"); return false;}
 
     var o = operators(string);
-    if(o == true) {alert("Operatoren hintereinander"); return false;}
+    if(o == true) {displayToastMessage("Operatoren hintereinander"); return false;}
 
     var a = afteroperator(string);
-    if(a == false) {alert("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false;}
+    if(a == false) {displayToastMessage("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false;}
 
     var aBNMD = afterBracketsNoMulDiv(string);
-    if(aBNMD == true) {alert("Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"); return false;}
+    if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"); return false;}
 
     var kc = kommaCheck(string);
-    if(kc == true) {alert("Es darf pro Zahl nur ein Komma vorkommen"); return false;}
+    if(kc == true) {displayToastMessage("Es darf pro Zahl nur ein Komma vorkommen"); return false;}
 
     var beg = beginning(string);
-    if(beg == true) {alert("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"); return false;}
+    if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"); return false;}
 
     return true;
   }
