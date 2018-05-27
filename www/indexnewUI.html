@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Alekulator</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+	<!-- Path to Framework7 icons -->
+	<link rel="stylesheet" href="css/icons.css">
+<!--  <link rel="stylesheet" href="css/css-grid.css">-->
+  </head>
+  <body onload="init()">
+  <script src="js/interface.js"></script>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- navbar left center:title right:info icon -->
+            <div class="navbar">
+	          	<div class="navbar-inner">
+                <div class="left"></div>
+		           	<div class="center sliding">Alekulator</div>
+                <div class="right"><a href="#" class="link create-about"><i class="material-icons size-22">info</i></a></div>
+		         </div>
+	         </div>
+             <!-- toolbar left:copy button center:dec,hex,bin buttons right:email button -->
+            <div class="toolbar toolbar-bottom">
+		      		<div class="toolbar-inner">
+                <div class = "left">
+                <!--  <button  id="copy" class="button">Copy</button>-->
+                 <button class="button open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+                </div>
+                <div class = "center">
+                   <div class = "buttons-row">
+                      <a href = "#Dec" class = "tab-link active button" value="dec" onclick="decimal()">Dec</a>
+                      <a href = "#Hex" class = "tab-link button" value="hex" onclick="hexadecimal()">Hex</a>
+                      <a href = "#Bin" class = "tab-link button" value="bin" onclick="binary()">Bin</a>
+                   </div>
+                </div>
+                <div class = "right">
+                  <button  id="email" class="button" onclick="sendemail()">Email</button>
+                </div>
+				      </div>
+			    </div>
+          <!-- Scrollable page content -->
+          <div class = "tabs-animated-wrap">
+             <div class = "tabs">
+                <div id = "Dec" class = "tab active">
+                  <div class = "content-block">
+                    <form id = "my-form" class = "list-block" name="Alekulatordec">
+                      <ul>
+                        <li>
+                         <div class = "item-content">
+                           <div class = "item-inner">
+                             <div class = "item-input">
+                               <input id="input" type = "text" name = "namedec" placeholder = "0">
+                            </div>
+                           </div>
+                          </div>
+                         </li>
+                        </ul>
+                     </form>
+                <div class="block">
+                   <div class="row">
+                     <button id="empty" class="button-round-gray ce" onclick="reduce(1)">CE</button>
+                     <button id="clear" class="button-round-gray clear" onclick="Clear()">CLEAR</button>
+                     <button id="leftparantheses" class="button-round-orange" value="(" onclick="document.Alekulatordec.namedec.value += '('">(</button>
+                     <button id="rightparantheses" class="button-round-orange" value=")" onclick="document.Alekulatordec.namedec.value += ')'">)</button>
+                   </div>
+                   <div class="row">
+                     <button id="7" class="button-round" value="7" onclick="document.Alekulatordec.namedec.value += '7'">7</button>
+                     <button id="8" class="button-round" value="8" onclick="document.Alekulatordec.namedec.value += '8'">8</button>
+                     <button id="9" class="button-round" value="9" onclick="document.Alekulatordec.namedec.value += '9'">9</button>
+                     <button id="divid" class="button-round-orange" value="/" onclick="document.Alekulatordec.namedec.value += '/'">/</button>
+                   </div>
+                   <div class="row">
+                     <button id="4" class="button-round" value="4" onclick="document.Alekulatordec.namedec.value += '4'">4</button>
+                     <button id="5" class="button-round" value="5" onclick="document.Alekulatordec.namedec.value += '5'">5</button>
+                     <button id="6" class="button-round" value="6" onclick="document.Alekulatordec.namedec.value += '6'">6</button>
+                     <button id="multiplication" class="button-round-orange" value="*" onclick="document.Alekulatordec.namedec.value += '*'">*</button>
+                 </div>
+                 <div class="row">
+                   <button id="1" class="button-round" value="1" onclick="document.Alekulatordec.namedec.value += '1'">1</button>
+                   <button id="2" class="button-round" value="2" onclick="document.Alekulatordec.namedec.value += '2'">2</button>
+                   <button id="3" class="button-round" value="3" onclick="document.Alekulatordec.namedec.value += '3'">3</button>
+                   <button id="subtract" class="button-round-orange" value="-" onclick="document.Alekulatordec.namedec.value += '-'">-</button>
+                 </div>
+                 <div class="row">
+                   <button id="0" class="button-round" value="0" onclick="document.Alekulatordec.namedec.value += '0'">0</button>
+                   <button id="floatkomma" class="button-round" value="." onclick="document.Alekulatordec.namedec.value += '.'">.</button>
+                   <button id="add" class="button-round-orange" value="+" onclick="document.Alekulatordec.namedec.value += '+'">+</button>
+                   <button id="equal" class="button-round-orange" value="=">=</button>
+                 </div>
+              </div>
+              </div>
+              <!--div zu dec tab-->
+            </div>
+       <div id = "Hex" class = "tab" value="hex">
+         <div class = "content-block">
+           <form id = "my-form" class = "list-block" name="Alekulatorhex">
+             <ul>
+               <li>
+                 <div class = "item-content">
+                   <div class = "item-inner">
+                     <div class = "item-input">
+                       <input id="input" type = "text" name = "namehex" placeholder = "0">
+                     </div>
+                   </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+          <div class="block">
+            <div class="row">
+              <button id="emptyhex" class="button-round-gray ce" onclick="reduce(1)">CE</button>
+              <button id="clearhex" class="button-round-gray clear" onclick="Clear()">CLEAR</button>
+              <button id="leftparantheseshex" class="button-round-orange" value="(" onclick="document.Alekulatorhex.namehex.value += '('">(</button>
+              <button id="rightparantheseshex" class="button-round-orange" value=")" onclick="document.Alekulatorhex.namehex.value += ')'">)</button>
+            </div>
+            <div class="row">
+              <button id="7hex" class="button-round" value="7" onclick="document.Alekulatorhex.namehex.value += '7'">7</button>
+              <button id="8hex" class="button-round" value="8" onclick="document.Alekulatorhex.namehex.value += '8'">8</button>
+              <button id="9hex" class="button-round" value="9" onclick="document.Alekulatorhex.namehex.value += '9'">9</button>
+              <button id="dividhex" class="button-round-orange" value="/" onclick="document.Alekulatorhex.namehex.value += '/'">/</button>
+            </div>
+            <div class="row">
+              <button id="4hex" class="button-round" value="4" onclick="document.Alekulatorhex.namehex.value += '4'">4</button>
+              <button id="5hex" class="button-round" value="5" onclick="document.Alekulatorhex.namehex.value += '5'">5</button>
+              <button id="6hex" class="button-round" value="6" onclick="document.Alekulatorhex.namehex.value += '6'">6</button>
+              <button id="multiplicationhex" class="button-round-orange" value="*" onclick="document.Alekulatorhex.namehex.value += '*'">*</button>
+          </div>
+          <div class="row">
+            <button id="1hex" class="button-round" value="1" onclick="document.Alekulatorhex.namehex.value += '1'">1</button>
+            <button id="2hex" class="button-round" value="2" onclick="document.Alekulatorhex.namehex.value += '2'">2</button>
+            <button id="3hex" class="button-round" value="3" onclick="document.Alekulatorhex.namehex.value += '3'">3</button>
+            <button id="subtracthex" class="button-round-orange" value="-" onclick="document.Alekulatorhex.namehex.value += '-'">-</button>
+          </div>
+          <div class="row">
+            <button id="0hex" class="button-round" value="0" onclick="document.Alekulatorhex.namedec.value += '0'">0</button>
+            <button id="floatkommahex" class="button-round" value="." onclick="document.Alekulatorhex.namehex.value += '.'">.</button>
+            <button id="addhex" class="button-round-orange" value="+" onclick="document.Alekulatorhex.namehex.value += '+'">+</button>
+            <button id="equalhex" class="button-round-orange" value="=">=</button>
+          </div>
+          <div class="row">
+            <button id="A" class="button-round-gray" value="A" onclick="document.Alekulatorhex.namehex.value += 'A'">A</button>
+            <button id="B" class="button-round-gray" value="B" onclick="document.Alekulatorhex.namehex.value += 'B'">B</button>
+            <button id="C" class="button-round-gray" value="C" onclick="document.Alekulatorhex.namehex.value += 'C'">C</button>
+            <button id="D" class="button-round-gray" value="D" onclick="document.Alekulatorhex.namehex.value += 'D'">D</button>
+            <button id="E" class="button-round-gray" value="E" onclick="document.Alekulatorhex.namehex.value += 'E'">E</button>
+            <button id="F" class="button-round-gray" value="F" onclick="document.Alekulatorhex.namehex.value += 'F'">F</button>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div id = "Bin" class = "tab">
+         <div class = "content-block">
+           <form id = "my-form" class = "list-block" name="Alekulatorbin">
+             <ul>
+               <li>
+                <div class = "item-content">
+                  <div class = "item-inner">
+                    <div class = "item-input">
+                      <input id="input" type = "text" name = "namebin" placeholder = "0">
+                   </div>
+                  </div>
+                 </div>
+                </li>
+               </ul>
+            </form>
+        <div class="block">
+          <div class="row">
+            <button id="emptybin" class="button-round-gray" onclick="reduce(1)">CE</button>
+            <button id="clearbin" class="button-round-gray" onclick="Clear()">CLEAR</button>
+            <button id="leftparanthesesbin" class="button-round-orange" value="(" onclick="document.Alekulatorbin.namebin.value += '('">(</button>
+            <button id="rightparanthesesbin" class="button-round-orange" value=")" onclick="document.Alekulatorbin.namebin.value += ')'">)</button>
+          </div>
+          <div class="row">
+            <button id="1bin" class="button-round" value="1" onclick="document.Alekulatorbin.namebin.value += '1'">1</button>
+            <button id="dividbin" class="button-round-orange" value="/" onclick="document.Alekulatorbin.namebin.value += '/'">/</button>
+            <button id="multiplicationbin" class="button-round-orange" value="*" onclick="document.Alekulatorbin.namebin.value += '*'">*</button>
+            <button id="subtractbin" class="button-round-orange" value="-" onclick="document.Alekulatorbin.namebin.value += '-'">-</button>
+          </div>
+          <div class="row">
+            <button id="0bin" class="button-round" value="0" onclick="document.Alekulatorbin.namebin.value += '0'" >0</button>
+            <button id="floatkommabin" class="button-round" value="." onclick="document.Alekulatorbin.namebin.value += '.'">.</button>
+            <button id="addbin" class="button-round-orange" value="+" onclick="document.Alekulatorbin.namebin.value += '+'">+</button>
+            <button id="equalbin" class="button-round-orange" value="=">=</button>
+         </div>
+        </div>
+       </div>
+      </div>
+    </div>
+   </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- REFERENCE SCRIPTS-->
+  <!-- Path to Framework7 Library JS-->
+  <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
+  <!-- Path to your app js-->
+  <!-- Path to your cordova js-->
+  <style>.popover{width:300px;}</style>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+  <script>
+    var myApp = new Framework7();
+    var $$ = Dom7;
+    $$('.create-about').on('click', function () {
+    var clickedLink = this;
+    var popoverHTML = '<div class="popover">'+
+                      '<div class="popover-inner">'+
+                      '<div class="content-block">'+
+                      '<p>Alekulator Version: 1.0</p>'+
+                      '<p> Alekulator ist ein Hybridapp.</p>'+
+                      '<p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>'+
+                      '<p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>'+
+                      '</div>'+
+                      '</div>'+
+                      '</div>'
+             myApp.popover(popoverHTML, clickedLink);
+           });
+   </script>
+
+    <!-- REFERENCE SCRIPTS-->
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <!-- Path to your cordova js-->
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/toast.js"></script>
+    <script type="text/javascript" src="js/interface.js"></script>
+    <script type="text/javascript" src="js/email.js"></script>
+    <!--script type="text/javascript" src="js/ValidatorRules.js"></script-->
+    <script type="text/javascript" src="js/dec.js"></script>
+    <script type="text/javascript" src="js/display.js"></script>
+    <script type="text/javascript" src="js/hex.js"></script>
+    <script type="text/javascript" src="js/bin.js"></script>
+    <script type="text/javascript" src="js/mode.js"></script>
+  </body>
+</html>
