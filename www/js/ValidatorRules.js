@@ -16,12 +16,6 @@ function beginning(x) {
   return c;
 }
 
-/*function beginning(string) {
-  if((string.charAt(0) == ')') || string.charAt(0) == '*' || string.charAt(0) == '/') {
-    return false;
-  }
-}*/
-
 //Überprüft wenn nach einem Operator eine ) oder ein . steht -> Damit nach dem Operator eine Klammer auf oder eine Zahl stehen kann
 function afteroperator(string) {
 
@@ -74,9 +68,33 @@ function afterBracketsNoMulDiv(x) {
 
 //Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
 function checkCloseOpenBrackets(string) {
-  var patt = /([\))([\(])/
+  var patt = /([\)])([\(])/
 
   var c = patt.test(string);
 
   return c;
+}
+
+//Leere Klammern löschen
+function removeEmpty(string) {
+var neoString = "";
+  for(i = 0; i < string.length; i++) {
+    var c = string.charAt(i);
+
+    if(c == '(' && string.charAt(i + 1) ==  ')') {i = i+1;}
+    else {neoString += c;}
+ }
+
+return neoString;
+}
+
+module.exports = {
+  operators: operators,
+  beginning: beginning,
+  afteroperator: afteroperator,
+  emptyBrackets: emptyBrackets,
+  bracketsCheck: bracketsCheck,
+  afterBracketsNoMulDiv: afterBracketsNoMulDiv,
+  checkCloseOpenBrackets: checkCloseOpenBrackets,
+  removeEmpty: removeEmpty
 }

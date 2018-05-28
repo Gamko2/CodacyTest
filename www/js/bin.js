@@ -16,37 +16,6 @@ function binDisplayValidator(evt) {
   }
 }
 
-//Überprüft, ob mehrere Operatoren hintereinander auftauchen
-/*function operators(string) {
-  var pattern = /[+|\-|*|\/][+|\-|*|\/]+/;
-
-  var c = pattern.test(string);
-  return c;
-}*/
-
-//Überprüft ob zu Begin ein *, / oder ) steht -> Damit nur (, +, - oder eine Zahl eingegeben werden können
-
-//Überprüft wenn nach einem Operator eine ) oder ein . steht -> Damit nach dem Operator eine Klammer auf oder eine Zahl stehen kann
-
-
-//Überprüft, ob die Klammern leer sind
-
-
-//Überprüft, ob die Klammeranzahl stimmt
-
-
-//Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
-
-
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-function checkCloseOpenBrackets(string) {
-  var patt = /[)][\(]/
-
-  var c = patt.test(string);
-
-  return c;
-}
-
 /*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
 Funktion diese berechnen kann.Solange binary.test(c) true zurückgibt und number false ist, handelt es sich
 um eine Hexadezimalzahl von 0 oder 1 und ein 0B wird drangehängt = 0B[0-1]. Ist das eingetreten wird, wenn
@@ -121,9 +90,6 @@ function binInputValidator(string) {
  var brackets = bracketsCheck(string);
  if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
 
- var empty = emptyBrackets(string);
- if(empty == true) {displayToastMessage("Leeres Klammernpaar"); return false;}
-
  var operator = operators(string);
  if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
 
@@ -142,6 +108,5 @@ function binInputValidator(string) {
 module.exports =  {
 korrigieren: korrigieren,
 checkBinBrackets: checkBinBrackets,
-binModifizieren: binModifizieren,
-checkCloseOpenBrackets: checkCloseOpenBrackets
+binModifizieren: binModifizieren
 }

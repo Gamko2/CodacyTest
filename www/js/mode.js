@@ -32,22 +32,43 @@ Funktion und wenn das Ergebnis Infinity ausgibt, soll nochmals eine Fehlermeldun
 function decCheck() {
   //console.log("decCheck()");
   var erg = 0;
-  string = readInput()
+  var number = 0;
+  string = readInput();
   if(decInputValidator(string) === true) {
     var number1 = checkDecBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
+    var number3 = emptyBrackets(string);
+
+    //Leere Klammern entfernen
+    if(number3 == true) {
+      string = removeEmpty(string);
+    }
+
     if(number1 == true || number2 == true) {
       //console.log("Push");
       string = decModifizieren(string);
       //console.log(string);
     }
 
-    erg = eval(string);
-
-    if(erg == Infinity) {
-      alert("Teilen durch 0 nicht möglich!");
+    if(string == "") {
+      displayToastMessage("Das Eingabefeld ist leer!");
     } else {
-      writeOutput(erg);
+      erg = eval(string);
+
+      if(erg == Infinity) {
+        alert("Teilen durch 0 nicht möglich!");
+      } else {
+
+        //Runden auf 3 Stellen nach dem Komma
+        /*Funktionsbeispiel: number = 1.2345 -> 1.2345 * 1000 -> 1234.5 -> durch Math.round -> 1235 und durch 1000 -> erg = 1.235
+        */
+        if(erg.toString().includes(".")) {
+          number = erg;
+          erg = (Math.round(number * 1000) / 1000);
+        }
+
+        writeOutput(erg);
+      }
     }
   }
 }
@@ -63,18 +84,29 @@ function binCheck() {
   if(binInputValidator(string) === true) {
     var number1 = checkBinBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
+    var number3 = emptyBrackets(string);
+
+    //Leere Klammern entfernen
+    if(number3 == true) {
+      string = removeEmpty(string);
+    }
+
     if(number1 == true || number2 == true) {
       //console.log("Push");
       string = binModifizieren(string);
       //console.log(string);
     }
 
-    result = eval(string);
-    erg = result.toString(2);
-    if(erg == Infinity) {
-      alert("Teilen durch 0 nicht möglich!");
+    if(string == "") {
+      displayToastMessage("Das Eingabefeld ist leer!");
     } else {
-      writeOutput(erg);
+      result = eval(string);
+      erg = result.toString(2);
+      if(erg == Infinity) {
+        alert("Teilen durch 0 nicht möglich!");
+      } else {
+        writeOutput(erg);
+      }
     }
   }
 }
@@ -88,17 +120,28 @@ function hexCheck() {
   if(hexInputValidator(string) === true) {
     var number1 = hexaCheckBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
+    var number3 = emptyBrackets(string);
+
+    //Leere Klammern entfernen
+    if(number3 == true) {
+      string = removeEmpty(string);
+    }
+
     if(number1 == true || number2 == true) {
       string = hexaModifizieren(string);
     }
 
-    var result = eval(string);
-    erg = result.toString(16).toUpperCase();
-
-    if(erg == "INFINITY") {
-      alert("Teilen durch 0 nicht möglich!");
+    if(string == "") {
+      displayToastMessage("Das Eingabefeld ist leer!");
     } else {
-      writeOutput(erg);
+      var result = eval(string);
+      erg = result.toString(16).toUpperCase();
+
+      if(erg == "INFINITY") {
+        alert("Teilen durch 0 nicht möglich!");
+      } else {
+        writeOutput(erg);
+      }
     }
   }
 }

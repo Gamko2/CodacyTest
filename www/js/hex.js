@@ -12,89 +12,6 @@ function hexDisplayValidator(evt) {
   }
 }
 
-//Überprüft, ob mehrere Operatoren hintereinander auftauchen
-function operators(string) {
-  var pattern = /[+|\-|*|\/][+|\-|*|\/]+/;
-
-  var c = pattern.test(string);
-  return c;
-}
-
-//Überprüft ob zu Begin ein *, / oder ) steht -> Damit nur (, +, - oder eine Zahl eingegeben werden können
-function beginning(x) {
-  var pattern = /^([*]|[\)]|[\/])/;
-
-  var c = pattern.test(x);
-
-  //console.log(c);
-  return c;
-}
-
-/*function beginning(string) {
-  if((string.charAt(0) == ')') || string.charAt(0) == '*' || string.charAt(0) == '/') {
-    return false;
-  }
-}*/
-
-//Überprüft wenn nach einem Operator eine ) oder ein . steht -> Damit nach dem Operator eine Klammer auf oder eine Zahl stehen kann
-function afteroperator(string) {
-
- var pattern = /([+|\-|*|\/])(([\)]|[.])|$)/;
-
- var c = pattern.test(string);
-
- if(c == true) {
-   return false;
- } else {
-   return true;
- }
-}
-
-//Überprüft, ob die Klammern leer sind
-function emptyBrackets(string) {
-
-  var patt = /[(][)]/;
-  var c = patt.test(string);
-
-  return c;
-}
-
-//Überprüft, ob die Klammeranzahl stimmt
-function bracketsCheck(string) {
-
-  var brackets = 0;
-  var openBracketsPattern = /[(]/;
-  var closedBracketsPattern = /[)]/;
-
-  for(i = 0; i < string.length; i++) {
-      var c = string.charAt(i);
-
-      if(openBracketsPattern.test(c)) {brackets++;}
-      else if(closedBracketsPattern.test(c)) {brackets--;}
-   }
-
-   if(brackets == 0) {return true}
-   else {return false}
-}
-
-//Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
-function afterBracketsNoMulDiv(x) {
-  var pattern = /([\(])([*]|[\/])/;
-
-  var c = pattern.test(x);
-
-  return c;
-}
-
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-function checkCloseOpenBrackets(string) {
-  var patt = /([\))([\(])/
-
-  var c = patt.test(string);
-
-  return c;
-}
-
 /*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
 Funktion diese berechnen kann.Solange hex.test(c) true zurückgibt und number false ist, handelt es sich
 um eine Hexadezimalzahl von 0-F und ein 0X wird drangehängt = 0X[0-F]. Ist das eingetreten wird, wenn
@@ -171,9 +88,6 @@ function hexInputValidator(string) {
  var brackets = bracketsCheck(string);
  if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
 
- var empty = emptyBrackets(string);
- if(empty == true) {displayToastMessage("Leeres Klammernpaar"); return false;}
-
  var operator = operators(string);
  if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
 
@@ -187,4 +101,10 @@ function hexInputValidator(string) {
  if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
  return true;
+}
+
+module.exports = {
+  hexaKorrigieren: hexaKorrigieren,
+  hexaCheckBrackets: hexaCheckBrackets,
+  hexaModifizieren: hexaModifizieren
 }
