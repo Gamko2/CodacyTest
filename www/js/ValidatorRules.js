@@ -12,7 +12,7 @@ function beginning(x) {
 
   var c = pattern.test(x);
 
-  console.log(c);
+  //console.log(c);
   return c;
 }
 
@@ -77,15 +77,13 @@ function checkCloseOpenBrackets(string) {
 
 //Leere Klammern löschen
 function removeEmpty(string) {
-var neoString = "";
-  for(i = 0; i < string.length; i++) {
-    var c = string.charAt(i);
+  var regex = /[(][)]/;
 
-    if(c == '(' && string.charAt(i + 1) ==  ')') {i = i+1;}
-    else {neoString += c;}
- }
+  while(regex.test(string)) {
+   string = string.replace("()", "");
+  }
 
-return neoString;
+  return string;
 }
 
 module.exports = {
