@@ -56,7 +56,7 @@ function korrigieren(string) {
 /*Überprüft, ob nach einer Zahl eine geöffnete Klammer folgt, ist später dafür zuständig, dass zwischen einer Zahl und einer Klammer
 ein Multiplikationszeichen folgt*/
 function checkBinBrackets(string) {
-  var patt = /([0-1]+)([\(])/
+  var patt = /([0-1]+[\(]|[\)][0-1]+)/
 
   var c = patt.test(string);
 
@@ -77,6 +77,10 @@ function binModifizieren(string) {
    var a = string.charAt(i-1);
    if((binaryPattern.test(a) && b == "(") || (a == ")" && b == "(") ) {
     neo = neo + zusatz + b;
+   }
+
+   else if(binaryPattern.test(b) && a == ")") {
+     neo = neo + zusatz + b;
    }
 
    else {neo = neo + b}

@@ -51,7 +51,7 @@ function hexaKorrigieren(string) {
 
 //Überprüft, ob nach Hexadezimal eine geöffnete Klammer folgt, wird für das einfügen eines Multilikationszeichen wichtig
 function hexaCheckBrackets(string) {
-  var patt = /([0-F]+)([\(])/
+  var patt = /([0-F]+[\(]|[\)][0-F]+)/
 
   var c = patt.test(string);
 
@@ -72,6 +72,10 @@ function hexaModifizieren(string) {
    var a = string.charAt(i-1);
    if((binaryPattern.test(a) && b == "(") || (a == ")" && b == "(") ) {
     neo = neo + zusatz + b;
+   }
+
+   else if(binaryPattern.test(b) && a == ")") {
+     neo = neo + zusatz + b;
    }
 
    else {neo = neo + b}
