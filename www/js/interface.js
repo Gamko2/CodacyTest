@@ -50,7 +50,7 @@ function binary(){
 /*Nimmt den Wert des Buttons entgegen und wird an setMode übergeben*/
 function valueButton(value) {
   var mode = value;
-  console.log(mode);
+  //console.log(mode);
 
   setMode(mode);
 }

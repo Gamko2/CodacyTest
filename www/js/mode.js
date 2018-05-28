@@ -33,16 +33,19 @@ function decCheck() {
   //console.log("decCheck()");
   var erg = 0;
   var number = 0;
-  string = readInput();
+  var string = readInput();
+
+  var number3 = emptyBrackets(string);
+
+  //Leere Klammern entfernen
+  if(number3 == true) {
+    string = removeEmpty(string);
+    writeOutput(string);
+  }
+
   if(decInputValidator(string) === true) {
     var number1 = checkDecBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
-    var number3 = emptyBrackets(string);
-
-    //Leere Klammern entfernen
-    if(number3 == true) {
-      string = removeEmpty(string);
-    }
 
     if(number1 == true || number2 == true) {
       //console.log("Push");
@@ -76,7 +79,16 @@ function decCheck() {
 //binCheck funktioniert ebenfalls wie decCheck
 function binCheck() {
   //console.log("binCheck()");
-  var string = korrigieren(readInput());
+  var string = readInput();
+  var number3 = emptyBrackets(string);
+
+  //Leere Klammern entfernen
+  if(number3 == true) {
+    string = removeEmpty(string);
+    writeOutput(string);
+  }
+
+  string = korrigieren(readInput());
   //console.log(string);
 
   var erg = 0;
@@ -84,12 +96,6 @@ function binCheck() {
   if(binInputValidator(string) === true) {
     var number1 = checkBinBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
-    var number3 = emptyBrackets(string);
-
-    //Leere Klammern entfernen
-    if(number3 == true) {
-      string = removeEmpty(string);
-    }
 
     if(number1 == true || number2 == true) {
       //console.log("Push");
@@ -114,18 +120,22 @@ function binCheck() {
 //hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
   //console.log("hexCheck()");
+  var string = readInput();
   var erg = 0;
   var result;
+
+  var number3 = emptyBrackets(string);
+
+  //Leere Klammern entfernen
+  if(number3 == true) {
+    string = removeEmpty(string);
+    writeOutput(string);
+  }
+
   var string = hexaKorrigieren(readInput());
   if(hexInputValidator(string) === true) {
     var number1 = hexaCheckBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
-    var number3 = emptyBrackets(string);
-
-    //Leere Klammern entfernen
-    if(number3 == true) {
-      string = removeEmpty(string);
-    }
 
     if(number1 == true || number2 == true) {
       string = hexaModifizieren(string);
