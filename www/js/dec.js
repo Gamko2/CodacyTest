@@ -20,11 +20,11 @@ function decDisplayValidator(evt) {
 }
 
 //3 Nachkommastellen dürfen nur eingegeben werden
-function checkAfterPoint(string) {
+/*function checkAfterPoint(string) {
   var pattern = /([0-9]+)([.][0-9][0-9][0-9][0-9]+)/
   var c = pattern.test(string);
   return c;
-}
+}*/
 
 //Überprüfung der Eingabe per Paste
 document.addEventListener('paste', function(event) {
@@ -114,3 +114,9 @@ und eine Fehlermeldung ausgegeben*/
 
     return true;
   }
+
+module.exports = {
+  kommaCheck: kommaCheck,
+  checkDecBrackets: checkDecBrackets,
+  decModifizieren: decModifizieren
+}
