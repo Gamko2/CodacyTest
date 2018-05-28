@@ -188,3 +188,18 @@ und eine Fehlermeldung ausgegeben*/
 
     return true;
   }
+
+  module.exports = {
+    decDisplayValidator: decDisplayValidator,
+    decInputValidator: decInputValidator,
+    operators: operators,
+    beginning: beginning,
+    emptyBrackets: emptyBrackets,
+    bracketsCheck: bracketsCheck,
+    checkCloseOpenBrackets: checkCloseOpenBrackets,
+    afteroperator: afteroperator,
+    afterBracketsNoMulDiv: afterBracketsNoMulDiv,
+    kommaCheck: kommaCheck,
+    decModifizieren: decModifizieren,
+    checkDecBrackets: checkDecBrackets
+  }
