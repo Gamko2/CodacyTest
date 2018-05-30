@@ -31,7 +31,7 @@ test('(10*A) equals false', () => {
 });
 
 test('78+a+b)10+20) equals false', () => {
-  expect(hex.hexaCheckBrackets('78+a+b)10+20)')).toBe(false);
+  expect(hex.hexaCheckBrackets('78+a+b)10+20)')).toBe(true);
 });
 
 //Füge ein Multiplikationszeichen zwischen )( und zwischen Hexadezimalzahl und (
@@ -43,8 +43,8 @@ test('9(A+C)(10+10) equals 9*(A+C)*(10+10)', () => {
   expect(hex.hexaModifizieren('9(A+C)(10+10)')).toBe('9*(A+C)*(10+10)');
 });
 
-test('(2+2)9(A+C)(10+10) equals (2+2)9*(A+C)*(10+10)', () => {
-  expect(hex.hexaModifizieren('(2+2)9(A+C)(10+10)')).toBe('(2+2)9*(A+C)*(10+10)');
+test('(2+2)9(A+C)(10+10) equals (2+2)*9*(A+C)*(10+10)', () => {
+  expect(hex.hexaModifizieren('(2+2)*9(A+C)(10+10)')).toBe('(2+2)*9*(A+C)*(10+10)');
 });
 
 test('9+(A+C) equals 9+(A+C)', () => {

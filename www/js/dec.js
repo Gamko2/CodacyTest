@@ -63,7 +63,7 @@ function kommaCheck(x) {
 
 //Überprüft, ob nach einer Zahl eine Klammer folgt, für das Einfügen eines Multiplikationszeichen notwendig
 function checkDecBrackets(x) {
-  var pattern = /([0-9]+)([\(])/;
+  var pattern = /([0-9]+[\(]|[\)][0-9]+)/;
 
   var c = pattern.test(x);
 
@@ -83,6 +83,9 @@ function decModifizieren(string) {
    var a = string.charAt(i-1);
    if((binaryPattern.test(a) && b == "(") || (a == ")" && b == "(") ) {
     neo = neo + zusatz + b;
+   }
+   else if(binaryPattern.test(b) && a == ")") {
+     neo = neo + zusatz + b;
    }
    else {neo = neo + b}
    }
