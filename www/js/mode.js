@@ -9,16 +9,16 @@ var mode = {
 /*Die Funktion setMode(m) übergibt den jeweiligen Mode an die Funktion setValidator, die
 später den richtigen display Validator und die richtigen checkMethoden auswählt.*/
 function setMode(m) {
-  //console.log("Start to setMode!");
+  //displayToastMessage("Start to setMode!");
   if(m == mode.binary) {
     setValidator(m);
-    //console.log("Binary Validator + Evaluator");
+    //displayToastMessage("Binary Validator + Evaluator");
   } else if (m == mode.hexadecimal) {
     setValidator(m);
-    //console.log("Hexadecimal Validator + Evaluator");
+    //displayToastMessage("Hexadecimal Validator + Evaluator");
   } else if(m == mode.decimal) {
     setValidator(m);
-    //console.log("Decimal Validator + Evaluator");
+    //displayToastMessage("Decimal Validator + Evaluator");
   }
 }
 
@@ -30,7 +30,7 @@ Wenn eines dieser Fälle auftritt, wird ein Malzeichen eingefügt. Danach folgt 
 Funktion und wenn das Ergebnis Infinity ausgibt, soll nochmals eine Fehlermeldung angezeigt werden.
 */
 function decCheck() {
-  //console.log("decCheck()");
+  //displayToastMessage("decCheck()");
   var erg = 0;
   var number = 0;
   var string = readInput();
@@ -48,9 +48,9 @@ function decCheck() {
     var number2 = checkCloseOpenBrackets(string);
 
     if(number1 == true || number2 == true) {
-      //console.log("Push");
+      //displayToastMessage("Push");
       string = decModifizieren(string);
-      //console.log(string);
+      //displayToastMessage(string);
     }
 
     if(string == "") {
@@ -59,7 +59,7 @@ function decCheck() {
       erg = eval(string);
 
       if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
 
         //Runden auf 3 Stellen nach dem Komma
@@ -78,7 +78,7 @@ function decCheck() {
 
 //binCheck funktioniert ebenfalls wie decCheck
 function binCheck() {
-  //console.log("binCheck()");
+  //displayToastMessage("binCheck()");
   var string = readInput();
   var number3 = emptyBrackets(string);
 
@@ -89,7 +89,7 @@ function binCheck() {
   }
 
   string = korrigieren(readInput());
-  //console.log(string);
+  //displayToastMessage(string);
 
   var erg = 0;
   var result;
@@ -98,9 +98,9 @@ function binCheck() {
     var number2 = checkCloseOpenBrackets(string);
 
     if(number1 == true || number2 == true) {
-      //console.log("Push");
+      //displayToastMessage("Push");
       string = binModifizieren(string);
-      //console.log(string);
+      //displayToastMessage(string);
     }
 
     if(string == "") {
@@ -109,7 +109,7 @@ function binCheck() {
       result = eval(string);
       erg = result.toString(2);
       if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
         writeOutput(erg);
       }
@@ -119,7 +119,7 @@ function binCheck() {
 
 //hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
-  //console.log("hexCheck()");
+  //displayToastMessage("hexCheck()");
   var string = readInput();
   var erg = 0;
   var result;
@@ -148,7 +148,7 @@ function hexCheck() {
       erg = result.toString(16).toUpperCase();
 
       if(erg == "INFINITY") {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
         writeOutput(erg);
       }
