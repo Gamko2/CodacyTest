@@ -40,20 +40,12 @@
              <!-- toolbar left:copy button center:dec,hex,bin buttons right:email button -->
             <div class="toolbar toolbar-bottom">
 		      		<div class="toolbar-inner">
-                <div class = "left">
                 <!--  <button  id="copy" class="button">Copy</button>-->
                  <button class="button open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
-                </div>
-                <div class = "center">
-                   <div class = "buttons-row">
-                      <a href = "#Dec" class = "tab-link active button" value="dec" onclick="decimal()">Dec</a>
-                      <a href = "#Hex" class = "tab-link button" value="hex" onclick="hexadecimal()">Hex</a>
-                      <a href = "#Bin" class = "tab-link button" value="bin" onclick="binary()">Bin</a>
-                   </div>
-                </div>
-                <div class = "right">
-                  <button  id="email" class="button" onclick="sendemail()">Email</button>
-                </div>
+                 <a href = "#Dec" class = "tab-link active button" value="dec" onclick="decimal()">Dec</a>
+                 <a href = "#Hex" class = "tab-link button" value="hex" onclick="hexadecimal()">Hex</a>
+                 <a href = "#Bin" class = "tab-link button" value="bin" onclick="binary()">Bin</a>
+                 <button  id="email" class="button" onclick="sendemail()">Email</button>
 				      </div>
 			    </div>
           <!-- Scrollable page content -->
@@ -76,34 +68,34 @@
                      </form>
                 <div class="block">
                    <div class="row">
-                     <button id="empty" class="button-round-gray ce" onclick="reduce(1)">CE</button>
-                     <button id="clear" class="button-round-gray clear" onclick="Clear()">CLEAR</button>
-                     <button id="leftparantheses" class="button-round-orange" value="(" onclick="document.Alekulatordec.namedec.value += '('">(</button>
-                     <button id="rightparantheses" class="button-round-orange" value=")" onclick="document.Alekulatordec.namedec.value += ')'">)</button>
+                     <button id="empty" class="col-25  button button-fill button-big color-gray ce" onclick="reduce(1)">CE</button>
+                     <button id="clear" class="col-25 button button-fill button-big color-gray clear" onclick="Clear()">CLEAR</button>
+                     <button id="leftparantheses" class="col-25 button button-fill button-big color-orange" value="(" onclick="document.Alekulatordec.namedec.value += '('">(</button>
+                     <button id="rightparantheses" class="col-25 button button-fill button-big color-orange" value=")" onclick="document.Alekulatordec.namedec.value += ')'">)</button>
                    </div>
                    <div class="row">
-                     <button id="7" class="button-round" value="7" onclick="document.Alekulatordec.namedec.value += '7'">7</button>
-                     <button id="8" class="button-round" value="8" onclick="document.Alekulatordec.namedec.value += '8'">8</button>
-                     <button id="9" class="button-round" value="9" onclick="document.Alekulatordec.namedec.value += '9'">9</button>
-                     <button id="divid" class="button-round-orange" value="/" onclick="document.Alekulatordec.namedec.value += '/'">/</button>
+                     <button id="7" class="col-25 button button-fill button-big color-blue" value="7" onclick="document.Alekulatordec.namedec.value += '7'">7</button>
+                     <button id="8" class="col-25 button button-fill button-big color-blue" value="8" onclick="document.Alekulatordec.namedec.value += '8'">8</button>
+                     <button id="9" class="col-25 button button-fill button-big color-blue" value="9" onclick="document.Alekulatordec.namedec.value += '9'">9</button>
+                     <button id="divid" class="col-25 button button-fill button-big color-orange" value="/" onclick="document.Alekulatordec.namedec.value += '/'">/</button>
                    </div>
                    <div class="row">
-                     <button id="4" class="button-round" value="4" onclick="document.Alekulatordec.namedec.value += '4'">4</button>
-                     <button id="5" class="button-round" value="5" onclick="document.Alekulatordec.namedec.value += '5'">5</button>
-                     <button id="6" class="button-round" value="6" onclick="document.Alekulatordec.namedec.value += '6'">6</button>
-                     <button id="multiplication" class="button-round-orange" value="*" onclick="document.Alekulatordec.namedec.value += '*'">*</button>
+                     <button id="4" class="col-25 button button-fill button-big color-blue" value="4" onclick="document.Alekulatordec.namedec.value += '4'">4</button>
+                     <button id="5" class="col-25 button button-fill button-big color-blue" value="5" onclick="document.Alekulatordec.namedec.value += '5'">5</button>
+                     <button id="6" class="col-25 button button-fill button-big color-blue" value="6" onclick="document.Alekulatordec.namedec.value += '6'">6</button>
+                     <button id="multiplication" class="col-25 button button-fill button-big color-orange" value="*" onclick="document.Alekulatordec.namedec.value += '*'">*</button>
                  </div>
                  <div class="row">
-                   <button id="1" class="button-round" value="1" onclick="document.Alekulatordec.namedec.value += '1'">1</button>
-                   <button id="2" class="button-round" value="2" onclick="document.Alekulatordec.namedec.value += '2'">2</button>
-                   <button id="3" class="button-round" value="3" onclick="document.Alekulatordec.namedec.value += '3'">3</button>
-                   <button id="subtract" class="button-round-orange" value="-" onclick="document.Alekulatordec.namedec.value += '-'">-</button>
+                   <button id="1" class="col-25 button button-fill button-big color-blue" value="1" onclick="document.Alekulatordec.namedec.value += '1'">1</button>
+                   <button id="2" class="col-25 button button-fill button-big color-blue" value="2" onclick="document.Alekulatordec.namedec.value += '2'">2</button>
+                   <button id="3" class="col-25 button button-fill button-big color-blue" value="3" onclick="document.Alekulatordec.namedec.value += '3'">3</button>
+                   <button id="subtract" class="col-25 button button-fill button-big color-orange" value="-" onclick="document.Alekulatordec.namedec.value += '-'">-</button>
                  </div>
                  <div class="row">
-                   <button id="0" class="button-round" value="0" onclick="document.Alekulatordec.namedec.value += '0'">0</button>
-                   <button id="floatkomma" class="button-round" value="." onclick="document.Alekulatordec.namedec.value += '.'">.</button>
-                   <button id="add" class="button-round-orange" value="+" onclick="document.Alekulatordec.namedec.value += '+'">+</button>
-                   <button id="equal" class="button-round-orange" value="=">=</button>
+                   <button id="0" class="col-25 button button-fill button-big color-blue" value="0" onclick="document.Alekulatordec.namedec.value += '0'">0</button>
+                   <button id="floatkomma" class="col-25 button button-fill button-big color-blue" value="." onclick="document.Alekulatordec.namedec.value += '.'">.</button>
+                   <button id="add" class="col-25 button button-fill button-big color-orange" value="+" onclick="document.Alekulatordec.namedec.value += '+'">+</button>
+                   <button id="equal" class="col-25 button button-fill button-big color-orange" value="=">=</button>
                  </div>
               </div>
               </div>
@@ -126,44 +118,46 @@
           </form>
           <div class="block">
             <div class="row">
-              <button id="emptyhex" class="button-round-gray ce" onclick="reduce(1)">CE</button>
-              <button id="clearhex" class="button-round-gray clear" onclick="Clear()">CLEAR</button>
-              <button id="leftparantheseshex" class="button-round-orange" value="(" onclick="document.Alekulatorhex.namehex.value += '('">(</button>
-              <button id="rightparantheseshex" class="button-round-orange" value=")" onclick="document.Alekulatorhex.namehex.value += ')'">)</button>
+              <button id="emptyhex" class="col-25 button button-fill button-big color-gray ce" onclick="reduce(1)">CE</button>
+              <button id="clearhex" class="col-25 button button-fill button-big color-gray clear" onclick="Clear()">CLEAR</button>
+              <button id="leftparantheseshex" class="col-25 button button-fill button-big color-orange" value="(" onclick="document.Alekulatorhex.namehex.value += '('">(</button>
+              <button id="rightparantheseshex" class="col-25 button button-fill button-big color-orange" value=")" onclick="document.Alekulatorhex.namehex.value += ')'">)</button>
             </div>
             <div class="row">
-              <button id="7hex" class="button-round" value="7" onclick="document.Alekulatorhex.namehex.value += '7'">7</button>
-              <button id="8hex" class="button-round" value="8" onclick="document.Alekulatorhex.namehex.value += '8'">8</button>
-              <button id="9hex" class="button-round" value="9" onclick="document.Alekulatorhex.namehex.value += '9'">9</button>
-              <button id="dividhex" class="button-round-orange" value="/" onclick="document.Alekulatorhex.namehex.value += '/'">/</button>
+              <button id="7hex" class="col-25 button button-fill button-big color-blue" value="7" onclick="document.Alekulatorhex.namehex.value += '7'">7</button>
+              <button id="8hex" class="col-25 button button-fill button-big color-blue" value="8" onclick="document.Alekulatorhex.namehex.value += '8'">8</button>
+              <button id="9hex" class="col-25 button button-fill button-big color-blue" value="9" onclick="document.Alekulatorhex.namehex.value += '9'">9</button>
+              <button id="dividhex" class="col-25 button button-fill button-big color-orange" value="/" onclick="document.Alekulatorhex.namehex.value += '/'">/</button>
             </div>
             <div class="row">
-              <button id="4hex" class="button-round" value="4" onclick="document.Alekulatorhex.namehex.value += '4'">4</button>
-              <button id="5hex" class="button-round" value="5" onclick="document.Alekulatorhex.namehex.value += '5'">5</button>
-              <button id="6hex" class="button-round" value="6" onclick="document.Alekulatorhex.namehex.value += '6'">6</button>
-              <button id="multiplicationhex" class="button-round-orange" value="*" onclick="document.Alekulatorhex.namehex.value += '*'">*</button>
+              <button id="4hex" class="col-25 button button-fill button-big color-blue" value="4" onclick="document.Alekulatorhex.namehex.value += '4'">4</button>
+              <button id="5hex" class="col-25 button button-fill button-big color-blue" value="5" onclick="document.Alekulatorhex.namehex.value += '5'">5</button>
+              <button id="6hex" class="col-25 button button-fill button-big color-blue" value="6" onclick="document.Alekulatorhex.namehex.value += '6'">6</button>
+              <button id="multiplicationhex" class="col-25 button button-fill button-big color-orange" value="*" onclick="document.Alekulatorhex.namehex.value += '*'">*</button>
           </div>
           <div class="row">
-            <button id="1hex" class="button-round" value="1" onclick="document.Alekulatorhex.namehex.value += '1'">1</button>
-            <button id="2hex" class="button-round" value="2" onclick="document.Alekulatorhex.namehex.value += '2'">2</button>
-            <button id="3hex" class="button-round" value="3" onclick="document.Alekulatorhex.namehex.value += '3'">3</button>
-            <button id="subtracthex" class="button-round-orange" value="-" onclick="document.Alekulatorhex.namehex.value += '-'">-</button>
+            <button id="1hex" class="col-25 button button-fill button-big color-blue" value="1" onclick="document.Alekulatorhex.namehex.value += '1'">1</button>
+            <button id="2hex" class="col-25 button button-fill button-big color-blue" value="2" onclick="document.Alekulatorhex.namehex.value += '2'">2</button>
+            <button id="3hex" class="col-25 button button-fill button-big color-blue" value="3" onclick="document.Alekulatorhex.namehex.value += '3'">3</button>
+            <button id="subtracthex" class="col-25 button button-fill button-big color-orange" value="-" onclick="document.Alekulatorhex.namehex.value += '-'">-</button>
           </div>
           <div class="row">
-            <button id="0hex" class="button-round" value="0" onclick="document.Alekulatorhex.namedec.value += '0'">0</button>
-            <button id="floatkommahex" class="button-round" value="." onclick="document.Alekulatorhex.namehex.value += '.'">.</button>
-            <button id="addhex" class="button-round-orange" value="+" onclick="document.Alekulatorhex.namehex.value += '+'">+</button>
-            <button id="equalhex" class="button-round-orange" value="=">=</button>
+            <button id="0hex" class="col-25 button button-fill button-big color-blue" value="0" onclick="document.Alekulatorhex.namedec.value += '0'">0</button>
+            <button id="floatkommahex" class="col-25 button button-fill button-big color-blue" value="." onclick="document.Alekulatorhex.namehex.value += '.'">.</button>
+            <button id="addhex" class="col-25 button button-fill button-big color-orange" value="+" onclick="document.Alekulatorhex.namehex.value += '+'">+</button>
+            <button id="equalhex" class="col-25 button button-fill button-big color-orange" value="=">=</button>
           </div>
           <div class="row">
-            <button id="A" class="button-round-gray" value="A" onclick="document.Alekulatorhex.namehex.value += 'A'">A</button>
-            <button id="B" class="button-round-gray" value="B" onclick="document.Alekulatorhex.namehex.value += 'B'">B</button>
-            <button id="C" class="button-round-gray" value="C" onclick="document.Alekulatorhex.namehex.value += 'C'">C</button>
-            <button id="D" class="button-round-gray" value="D" onclick="document.Alekulatorhex.namehex.value += 'D'">D</button>
-            <button id="E" class="button-round-gray" value="E" onclick="document.Alekulatorhex.namehex.value += 'E'">E</button>
-            <button id="F" class="button-round-gray" value="F" onclick="document.Alekulatorhex.namehex.value += 'F'">F</button>
+            <button id="A" class="col-33 button button-fill button-big color-gray" value="A" onclick="document.Alekulatorhex.namehex.value += 'A'">A</button>
+            <button id="B" class="col-33 button button-fill button-big color-gray" value="B" onclick="document.Alekulatorhex.namehex.value += 'B'">B</button>
+            <button id="C" class="col-33 button button-fill button-big color-gray" value="C" onclick="document.Alekulatorhex.namehex.value += 'C'">C</button>
           </div>
-         </div>
+          <div class="row">
+            <button id="D" class="col-33 button button-fill button-big color-gray" value="D" onclick="document.Alekulatorhex.namehex.value += 'D'">D</button>
+            <button id="E" class="col-33 button button-fill button-big color-gray" value="E" onclick="document.Alekulatorhex.namehex.value += 'E'">E</button>
+            <button id="F" class="col-33 button button-fill button-big color-gray" value="F" onclick="document.Alekulatorhex.namehex.value += 'F'">F</button>
+          </div>
+       </div>
         </div>
        </div>
        <div id = "Bin" class = "tab">
@@ -183,22 +177,22 @@
             </form>
         <div class="block">
           <div class="row">
-            <button id="emptybin" class="button-round-gray" onclick="reduce(1)">CE</button>
-            <button id="clearbin" class="button-round-gray" onclick="Clear()">CLEAR</button>
-            <button id="leftparanthesesbin" class="button-round-orange" value="(" onclick="document.Alekulatorbin.namebin.value += '('">(</button>
-            <button id="rightparanthesesbin" class="button-round-orange" value=")" onclick="document.Alekulatorbin.namebin.value += ')'">)</button>
+            <button id="emptybin" class="col-25 button button-fill button-big color-gray" onclick="reduce(1)">CE</button>
+            <button id="clearbin" class="col-25 button button-fill button-big color-gray" onclick="Clear()">CLEAR</button>
+            <button id="leftparanthesesbin" class="col-25 button button-fill button-big color-orange" value="(" onclick="document.Alekulatorbin.namebin.value += '('">(</button>
+            <button id="rightparanthesesbin" class="col-25 button button-fill button-big color-orange" value=")" onclick="document.Alekulatorbin.namebin.value += ')'">)</button>
           </div>
           <div class="row">
-            <button id="1bin" class="button-round" value="1" onclick="document.Alekulatorbin.namebin.value += '1'">1</button>
-            <button id="dividbin" class="button-round-orange" value="/" onclick="document.Alekulatorbin.namebin.value += '/'">/</button>
-            <button id="multiplicationbin" class="button-round-orange" value="*" onclick="document.Alekulatorbin.namebin.value += '*'">*</button>
-            <button id="subtractbin" class="button-round-orange" value="-" onclick="document.Alekulatorbin.namebin.value += '-'">-</button>
+            <button id="1bin" class="col-25 button button-fill button-big color-blue" value="1" onclick="document.Alekulatorbin.namebin.value += '1'">1</button>
+            <button id="dividbin" class="col-25 button button-fill button-big color-orange" value="/" onclick="document.Alekulatorbin.namebin.value += '/'">/</button>
+            <button id="multiplicationbin" class="col-25 button button-fill button-big color-orange" value="*" onclick="document.Alekulatorbin.namebin.value += '*'">*</button>
+            <button id="subtractbin" class="col-25 button button-fill button-big color-orange" value="-" onclick="document.Alekulatorbin.namebin.value += '-'">-</button>
           </div>
           <div class="row">
-            <button id="0bin" class="button-round" value="0" onclick="document.Alekulatorbin.namebin.value += '0'" >0</button>
-            <button id="floatkommabin" class="button-round" value="." onclick="document.Alekulatorbin.namebin.value += '.'">.</button>
-            <button id="addbin" class="button-round-orange" value="+" onclick="document.Alekulatorbin.namebin.value += '+'">+</button>
-            <button id="equalbin" class="button-round-orange" value="=">=</button>
+            <button id="0bin" class="col-25 button button-fill button-big color-blue" value="0" onclick="document.Alekulatorbin.namebin.value += '0'" >0</button>
+            <button id="floatkommabin" class="col-25 button button-fill button-big color-blue" value="." onclick="document.Alekulatorbin.namebin.value += '.'">.</button>
+            <button id="addbin" class="col-25 button button-fill button-big color-orange" value="+" onclick="document.Alekulatorbin.namebin.value += '+'">+</button>
+            <button id="equalbin" class="col-25 button button-fill button-big color-orange" value="=">=</button>
          </div>
         </div>
        </div>
@@ -212,9 +206,6 @@
   <!-- REFERENCE SCRIPTS-->
   <!-- Path to Framework7 Library JS-->
   <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
-  <!-- Path to your app js-->
-  <!-- Path to your cordova js-->
-  <style>.popover{width:300px;}</style>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
   <script>
     var myApp = new Framework7();
