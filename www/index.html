@@ -28,7 +28,9 @@
     <div class="calculator-grid">
       <div class="navbar">
         <div class="navbar-inner">
-          <div class="left">Alekulator</div>
+          <div class="left"></div>
+          <div class="center sliding">Alekulator</div>
+         <div class="right"><a href="#" class="link popup-open"href="#" data-popup=".popup-about">About</a><i class="material-icons size-22">info</i></a></div>
         </div>
       </div>
       <!-- Toolbar. In Material theme it should be inside of the page-->
@@ -38,64 +40,67 @@
       <form id="my-form" name="Alekulator">
 
 
-                  <input id="input" type="text" name="name" placeholder="0">
+                  <input id="input"  type="text" name="name" placeholder="0">
 
       </form>
       <div>
-        <button class="btn button-fill button-maxed open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+        <button class="btn button-fill grayButton copyButtonMaxed  open-toast-top " data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
       </div>
-      <div id="grid-mode" class="hexadecimal-grid">
-        <button id="dec" class="button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
-        <button id="hex" class="button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
-        <button id="empty" class="button-fill color-gray button-maxed ce" onclick="reduce(1)">CE</button>
-        <button id="clear" class="button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
+      <div id="grid-mode" class="decimal-grid">
+        <button id="empty" class="button-fill  button-maxed ce round grayButton" onclick="reduce(1)">CE</button>
+        <button id="clear" class="button-fill  button-maxed clear round grayButton" onclick="Clear()">Clear</button>
 
 
-        <button id="bin" class="button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
-        <button id="leftparantheses" class="button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
-        <button id="rightparantheses" class="button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
-        <button id="divid" class="button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
+        <button id="leftparantheses" class="button-fill  button-maxed openbracket round orangeButton" value="(" onclick="document.Alekulator.name.value += '('">(</button>
+        <button id="rightparantheses" class="button-fill  button-maxed closebracket round orangeButton" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
+        <button id="divid" class="button-fill  button-maxed divide round orangeButton" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
 
-        <button id="1" class="button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
-        <button id="2" class="button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
-        <button id="3" class="button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
-        <button id="multiplication" class="button-fill color-orange button-maxed multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
+        <button id="1" class=" whiteButton button-maxed one round" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
+        <button id="2" class=" whiteButton  button-maxed two round" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
+        <button id="3" class=" whiteButton button-maxed three round" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
+        <button id="multiplication" class="button-fill button-maxed multiply round orangeButton" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
 
-        <button id="4" class="button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-        <button id="5" class="button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-        <button id="6" class="button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-        <button id="subtract" class="button-fill button-maxed color-orange minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+        <button id="4" class=" whiteButton button-maxed four round" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
+        <button id="5" class=" whiteButton button-maxed five round" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
+        <button id="6" class=" whiteButton button-maxed six round" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
+        <button id="subtract" class=" button-maxed minus round orangeButton" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
 
-        <button id="7" class="button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
-        <button id="8" class="button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
-        <button id="9" class="button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
-        <button id="add" class="button-fill color-orange button-maxed plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
+        <button id="7" class=" whiteButton button-maxed seven round" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
+        <button id="8" class=" whiteButton button-maxed eight round" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
+        <button id="9" class=" whiteButton button-maxed nine round" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
+        <button id="add" class=" button-maxed plus round orangeButton" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
 
 
-        <button class="button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
-        <button id="floatkomma" class="button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
+        <button class="l whiteButton  button-maxed zero round" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
+        <button id="floatkomma" class="  button-maxed komma round orangeButton" value="," onclick="document.Alekulator.name.value += '.'">.</button>
 
-        <button id="equal" class="button-fill color-orange button-maxed equal" value="=">=</button>
+        <button id="equal" class=" button-maxed equal round orangeButton" value="=">=</button>
 
-        <button id="A" class="button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-        <button id="B" class="button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-        <button id="C" class="button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-        <button id="D" class="button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-        <button id="E" class="button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-        <button id="F" class="button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+        <button id="A" class="  button-maxed A invis round grayButton" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
+        <button id="B" class="  button-maxed B invis round grayButton" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
+        <button id="C" class="  button-maxed C invis round grayButton" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
+        <button id="D" class="  button-maxed D invis round grayButton" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
+        <button id="E" class="  button-maxed  E invis round grayButton" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+        <button id="F" class="  button-maxed  F invis round grayButton" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
 
 
       </div>
       <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
-          <a>
-            <i class="f7-icons size-22">info</i>
-            <span class="link popup-open"href="#" data-popup=".popup-about">About</span>
+ 
+            <div class = "center">
+                <div class = "buttons-row">
+                   <a id="dec" value="dec" class = "link" value="dec" onclick="decimal()">Dec</a>
+                   <a id="hex" value="hex" class = "link" value="hex" onclick="hexadecimal()">Hex</a>
+                   <a id="bin" value="bin" class = "link" value="bin" onclick="binary()">Bin</a>
+                </div>
+             </div>
+          
+              <a class="tab-link">
+            <span> <button  id="email" class="button" onclick="sendemail()">E-Mail</button></span>
+            <span><i class="material-icons size-22">email</i> </span>
           </a>
-          <a>
-              <i class="f7-icons size-22">email</i>
-            <span class="link popup-open" href="#" data-popup=".popup-email">E-Mail</span>
-          </a>
+          
         </div>
       </div>
 
@@ -215,6 +220,7 @@
   <script src="js/toast.js"></script>
   <script src="js/clipboard.min.js"></script>
   <!--script src="../node_modules/clipboard/dist/clipboard.min.js"></script-->
+  <script src ="js/email.js"></script>
   <script src="js/clipboard.js"></script>
   <script src="js/bin.js"></script>
   <script src="js/dec.js"></script>

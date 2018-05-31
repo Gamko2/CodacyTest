@@ -144,6 +144,7 @@ function hexCheck() {
     if(string == "") {
       displayToastMessage("Das Eingabefeld ist leer!");
     } else {
+      console.log(string);
       var result = eval(string);
       erg = result.toString(16).toUpperCase();
 
