@@ -47,21 +47,21 @@ grid-area: one;
 .nine {
   grid-area: nine;
 }
-.decimal {
+/*.decimal {
 grid-area: decimal;
 }
 .hex {
   grid-area: hex;
-}
+}*/
 .ce {
   grid-area: ce;
 }
 .thirteeen {
   grid-area: clear;
 }
-.bin {
+/*.bin {
   grid-area: bin;
-}
+}*/
 .openbracket {
   grid-area: openbracket;
 }
@@ -163,60 +163,54 @@ grid-area: decimal;
     text-align: right;
   }
   /*The grid in which everything else is placed*/
-  .calculator-grid {
+  /*.calculator-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 56px 100px 10vh auto 50px;
     height: 100vh;
     grid-gap: 5px;
-  }
+  }*/
   
   /*The grid for the decimal mode*/
   .decimal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px 50px 50px;
     height: 100%;
-    grid-template-areas: "decimal hex ce clear"
-                          "bin openbracket closebracket divide"
-                          "seven eight nine multiply"
-                          "four five six minus"
-                          "one two three plus"
-                          "zero komma equal equal"
+    grid-template-areas: "openbracket closebracket ce clear"
+                          "seven eight nine divide"
+                          "four five six multiply"
+                          "one two three minus"
+                          "zero komma plus equal"
+                          
   }
 /*The grid for the hexadecimal mode*/
   .hexadecimal-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 47px 47px 47px 47px 47px 49px 49px;
     height: 100%;
     grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "seven eight nine multiply"
-    "four five six minus"
-    "one two three plus"
-    "zero komma A B"
-    "C D E F"
-    "equal equal equal equal"
-
+    "openbracket closebracket clear ce "
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three minus"
+    "zero komma plus equal"
+    "A B C D"
+    "E E F F"
   }
 
   /*The grid for the binary mode*/
   .binary-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px 50px 50px;
     height: 100%;
     grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "plus multiply komma minus"
+    "openbracket closebracket ce clear"
     "zero zero one one"
-    "equal equal equal equal"
+    "divide multiply minus plus"
+    "komma equal equal equal"
   }
 
-
-  
-  
   /*# sourceMappingURL=build/css/styles.css.map */
