@@ -24,7 +24,7 @@ function decimal() {
   let array = new Array('A','B','C','D','E','F')
   makeInvisible(array);
   document.getElementById("grid-mode").className = "decimal-grid";
-  valueButton(document.getElementById('dec').value);
+  valueButton(document.getElementById('dec').id);
 }
 
 /*This is called when the HEX Button is pressed
@@ -32,7 +32,7 @@ We make every element visible and then load the hexadecimal-grid*/
 function hexadecimal(){
   allVisible();
   document.getElementById("grid-mode").className = "hexadecimal-grid";
-  valueButton(document.getElementById('hex').value);
+  valueButton(document.getElementById('hex').id);
 }
 /*This is called when the Bin button is pressed
 We make every element visible.
@@ -44,7 +44,8 @@ function binary(){
   let array = new Array('A','B','C','D','E','F','2','3','4','5','6','7','8','9')
   makeInvisible(array);
   document.getElementById("grid-mode").className = "binary-grid";
-  valueButton(document.getElementById('bin').value);
+  valueButton(document.getElementById('bin').id);
+
 }
 
 /*Nimmt den Wert des Buttons entgegen und wird an setMode übergeben*/
