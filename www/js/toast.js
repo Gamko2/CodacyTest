@@ -28,7 +28,7 @@ function sleep(ms) {
   
 
 
-  async function waitForToast(messageOne, messageTwo){
+  async function waitBetweenToast(messageOne, messageTwo){
       displayToastMessage(messageOne);
       await sleep(2500);
       displayToastMessage(messageTwo);

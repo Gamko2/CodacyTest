@@ -5,7 +5,7 @@ clipboard.on('success', function (e) {
   
   
  
-  waitForToast("Copied to Clipboard","Pls show later");
+  displayToastMessage("Copied to Clipboard");
   //displayToastMessage("Copied to Clipboard");
 });
 
