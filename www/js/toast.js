@@ -3,13 +3,35 @@
 var toastTop = undefined;
 
 
-function displayToastMessage(message) {
-    toastTop = app.toast.create({
-        text: message,
-        position: 'top',
-        closeTimeout: 2000,
+async function displayToastMessage(message) {
+        toastTop = app.toast.create({
+            text: message,
+            position: 'top',
+            closeTimeout: 2000,
+    
+    
+        });
+        toastTop.open();
+        //toastTop.close();
+        
+        
 
-
-    });
-    toastTop.open();
+    
+  
+   
 }
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+
+
+  async function waitForToast(messageOne, messageTwo){
+      displayToastMessage(messageOne);
+      await sleep(2500);
+      displayToastMessage(messageTwo);
+  }
+
+

@@ -58,6 +58,7 @@ function decimal() {
   let array = new Array('A','B','C','D','E','F')
   makeInvisible(array);
   document.getElementById("grid-mode").className = "decimal-grid";
+ 
 }
 
 /*This is called when the HEX Button is pressed
