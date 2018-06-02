@@ -1,9 +1,9 @@
 //Überprüft, ob mehrere Operatoren hintereinander auftauchen
 function operators(string) {
-  var pattern = /[+|\-|*|\/][+|\-|*|\/]+/;
+  var regEx = /[+|\-|*|\/][+|\-|*|\/]+/;
 
-  var c = pattern.test(string);
-  return c;
+  return string.search(regEx);
+  
 }
 
 //Überprüft ob zu Begin ein *, / oder ) steht -> Damit nur (, +, - oder eine Zahl eingegeben werden können
