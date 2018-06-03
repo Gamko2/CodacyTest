@@ -59,7 +59,7 @@ function decCheck() {
       erg = eval(string);
 
       if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
 
         //Runden auf 3 Stellen nach dem Komma
@@ -93,6 +93,7 @@ function binCheck() {
 
   var erg = 0;
   var result;
+  var index = 0;
   if(binInputValidator(string) === true) {
     var number1 = checkBinBrackets(string);
     var number2 = checkCloseOpenBrackets(string);
@@ -108,8 +109,12 @@ function binCheck() {
     } else {
       result = eval(string);
       erg = result.toString(2);
+
+      //Nach 3 Nachkommastellen abschneiden
+      erg = cutAfter3(erg, 3);
+
       if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
         writeOutput(erg);
       }
@@ -147,11 +152,24 @@ function hexCheck() {
       var result = eval(string);
       erg = result.toString(16).toUpperCase();
 
+      erg = cutAfter3(erg, 3);
+
       if(erg == "INFINITY") {
-        alert("Teilen durch 0 nicht möglich!");
+        displayToastMessage("Teilen durch 0 nicht möglich!");
       } else {
         writeOutput(erg);
       }
     }
   }
+}
+
+//3 Nachkommastellen für Bin/Hex
+function cutAfter3(erg, digit) {
+  var index = 0;
+  if(erg.includes('.')) {
+    index = erg.indexOf(".");
+    erg = erg.slice(0, index+digit+1);
+  }
+
+  return erg;
 }

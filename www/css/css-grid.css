@@ -16,124 +16,156 @@
     cursor: pointer;
   }
 
- /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
+ /* This is to predefine zones in the grid to make swapping buttons around easier.*/
 .zero{
   grid-area: zero;
 }
-.one{
-grid-area: one;
-  }
-.two{
-    grid-area: two;
-  }
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
 .three {
-    grid-area: three;
-  }
+  grid-area: three;
+}
+
 .four {
   grid-area: four;
 }
-.five{
+
+.five {
   grid-area: five;
 }
-.six{
+
+.six {
   grid-area: six;
 }
+
 .seven {
   grid-area: seven;
 }
+
 .eight {
   grid-area: eight;
 }
+
 .nine {
   grid-area: nine;
 }
+
 .decimal {
 grid-area: decimal;
 }
+
 .hex {
   grid-area: hex;
 }
+
 .ce {
   grid-area: ce;
 }
-.thirteeen {
+
+.clear {
   grid-area: clear;
 }
+
 .bin {
   grid-area: bin;
 }
+
 .openbracket {
   grid-area: openbracket;
 }
+
 .closebracket {
   grid-area: closebracket;
 }
+
 .divide {
   grid-area: divide;
 }
+
 .plus {
   grid-area: plus;
 }
-.komma {
+
+.floatkomma {
   grid-area: komma;
 }
+
 .equal {
   grid-area: equal;
 }
+
 .A {
   grid-area: A;
 }
+
 .B {
   grid-area: B;
 }
+
 .C {
   grid-area: C;
 }
+
 .D {
   grid-area: D;
 }
+
 .E {
   grid-area: E;
 }
+
 .F {
   grid-area: F;
 }
+
 .multiply {
   grid-area: multiply;
 }
-.twentyeigth {
+
+.minus {
   grid-area: minus;
 }
+
 .twentynine {
   grid-area: twentynine;
 }
+
 .thirty {
   grid-area: thirty;
 }
 
-  .span2{
-    grid-column: 3 / -1;
-  }
-  /*Makes the button invisible and removes it completely (not rendered and a fixed position on top left of the current html element*/
-  .invis{
-    visibility: hidden;
-    position: fixed;
-  }
+.span2{
+  grid-column: 3 / -1;
+}
 
-  /*Maxes the button size and gives it a nice border*/
-  .button-maxed{
+/*Makes the button invisible and removes it completely (not rendered and a fixed position on top left of the current html element*/
+.invis{
+  visibility: hidden;
+  position: fixed;
+}
+
+/*Maxes the button size and gives it a nice border*/
+.button-maxed {
+    font-size: 25px;
     display: inline-block;
     height: 100%;
     width: 100%;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
-    border-width:5px;  
-    border-style:groove
-  }
-  
-  /*Not used anymore*/
-  .grid-button:after {
+    border-width: none;
+    border-style: none;
+}
+
+/*Not used anymore*/
+.grid-button:after {
     condecimalt: "";
     background: #f1f1f1;
     display: block;
@@ -144,79 +176,106 @@ grid-area: decimal;
     margin-top: -120%;
     opacity: 0;
     transition: all 0.8s;
-  }
-  /*Not used anymore*/
-  .grid-button:active:after {
+}
+
+/*Not used anymore*/
+.grid-button:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s;
-  }
-  /*Not used anymore*/
-  .grid-button:focus {
-    outline: 0;
-  }
-  /*Not used anymore*/
-  .display {
-    font: 100% Roboto, sans-serif;
-    font-size: 8vw;
-    text-align: right;
-  }
-  /*The grid in which everything else is placed*/
-  .calculator-grid {
+}
+
+/*Not used anymore*/
+.grid-button:focus {
+  outline: 0;
+}
+
+/*Not used anymore*/
+.display {
+  font: 100% Roboto, sans-serif;
+  font-size: 8vw;
+  text-align: right;
+}
+
+/*The grid in which everything else is placed*/
+.calculator-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 56px 100px 10vh auto 50px;
+    grid-template-rows: 50px 100px 10vh auto 50px;
     height: 100vh;
-    grid-gap: 5px;
-  }
-  
+    grid-gap: 0px;
+}
+
   /*The grid for the decimal mode*/
-  .decimal-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 100%;
-    grid-template-areas: "decimal hex ce clear"
-                          "bin openbracket closebracket divide"
-                          "seven eight nine multiply"
-                          "four five six minus"
-                          "one two three plus"
-                          "zero komma equal equal"
-  }
-/*The grid for the hexadecimal mode*/
-  .hexadecimal-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 100%;
-    grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "seven eight nine multiply"
-    "four five six minus"
-    "one two three plus"
-    "zero komma A B"
-    "C D E F"
-    "equal equal equal equal"
-
-  }
-
-  /*The grid for the binary mode*/
-  .binary-grid{
+.decimal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "plus multiply komma minus"
+    grid-template-areas: "ce clear openbracket closebracket"
+                          "seven eight nine divide"
+                          "four five six multiply"
+                          "one two three minus"
+                          "komma zero equal plus"
+}
+
+/*The grid for the hexadecimal mode*/
+.hexadecimal-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
+    grid-template-areas:
+    "ce clear openbracket closebracket"
+    "seven eight nine divide"
+    "four five six multiply"
+    "one two three minus"
+    "zero A B plus"
+    "C D E F"
+    "equal equal equal equal"
+}
+
+/*The grid for the binary mode*/
+.binary-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 100%;
+    grid-template-areas:
+    "ce clear openbracket closebracket"
+    "plus multiply minus divide"
     "zero zero one one"
     "equal equal equal equal"
+}
+
+.white{
+    font-size: 25px;
+    border: none;
+    color: black;
+    background-color: #E8EAF6
   }
 
+.red{
+  font-size: 25px;
+  border: none;
+  background-color: #FF8A65;
+  color: white;
+}
 
-  
-  
+.gray{
+  font-size: 25px;
+  border: none;
+  background-color: #BDBDBD;
+  color: white;
+}
+
+.darkgray {
+  font-size: 25px;
+  border: none;
+  background-color: #757575;
+  color: white;
+}
+
+
   /*# sourceMappingURL=build/css/styles.css.map */
