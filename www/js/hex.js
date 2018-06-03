@@ -4,7 +4,7 @@ function hexDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
   charCode = String.fromCharCode(charCode);
 
-  var patt = /[0-F|+|\-|*|/|(|)]/;
+  var patt = /[0-F|+|\-|*|/|(|)|a-f]/;
   var c = patt.test(charCode);
 
   if(c === false) {
@@ -21,7 +21,7 @@ Wenn hex.test(c) false returned und number true returned, bedeutet dass nach 0X[
 */
 function hexaKorrigieren(string) {
    var extra = "0X";
-   var hex = /[0-F|X]/;
+   var hex = /[0-F|X|a-f]/;
    var neo = "";
 
    var number = false;
@@ -51,7 +51,7 @@ function hexaKorrigieren(string) {
 
 //Überprüft, ob nach Hexadezimal eine geöffnete Klammer folgt, wird für das einfügen eines Multilikationszeichen wichtig
 function hexaCheckBrackets(string) {
-  var patt = /([0-F]+[\(]|[\)][0-F]+)/
+  var patt = /([0-F|a-f]+[\(]|[\)][0-F|a-f]+)/
 
   var c = patt.test(string);
 
@@ -62,7 +62,7 @@ function hexaCheckBrackets(string) {
 oder sich schließenden und öffnenden Klammer hinzuzufügen.
 */
 function hexaModifizieren(string) {
-   var binaryPattern = /[0-F]/;
+   var binaryPattern = /[0-F|a-f]/;
 
    var neo = string.charAt(0);
    var zusatz = "*";
@@ -93,7 +93,11 @@ function hexInputValidator(string) {
  var message2 = "";
 
  var j = emptyBrackets(string);
- if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+ if(j == true) {string = removeEmpty(string); string = string.replace("0X", ""); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+
+
+ var e = emptyString(string);
+ if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); return false;}
 
  var brackets = bracketsCheck(string);
  if(brackets == false) {message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}

@@ -86,6 +86,11 @@ function removeEmpty(string) {
   return string;
 }
 
+function emptyString(string) {
+ if(string == "") {return true;}
+ else return false;
+}
+
 module.exports = {
   operators: operators,
   beginning: beginning,

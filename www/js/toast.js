@@ -31,7 +31,8 @@ function sleep(ms) {
         displayToastMessage(messageOne);
         await sleep(2500);
       }
-      else {
+
+      else if(messageOne != "" && messageTwo != "") {
         displayToastMessage(messageOne);
         await sleep(2500);
         displayToastMessage(messageTwo);

@@ -96,7 +96,7 @@ function binInputValidator(string) {
  var message2 = "";
 
  var j = emptyBrackets(string);
- if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+ if(j == true) {string = removeEmpty(string); string = string.replace("0B", ""); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
 
  var brackets = bracketsCheck(string);
  if(brackets == false) {message2 = "Klammern sind nicht korrekt"; waitForToast(message1, message2); return false;}

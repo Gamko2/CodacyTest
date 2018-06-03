@@ -142,7 +142,7 @@ function hexCheck() {
       string = hexaModifizieren(string);
     }
 
-    if(string == "") {
+    if(readInput() == "") {
       displayToastMessage("Das Eingabefeld ist leer!");
     } else {
       var result = eval(string);
