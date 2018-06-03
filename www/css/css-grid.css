@@ -6,111 +6,189 @@
     height: 100%;
     width: 100%;
     background-color: #2196F3;
-    border: none;
+    /*border: none;*/
     color: white;
     text-align: center;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    text-decoration: none;
+    text-decoration: 5px;
     overflow: hidden;
-    cursor: pointer;
+    cursor: pointer;  
   }
 
  /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
 .zero{
   grid-area: zero;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .one{
-grid-area: one;
+  grid-area: one;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
   }
 .two{
     grid-area: two;
+    color: white;
+    font-size: 20px;
+    background-color: #2196f3;
   }
 .three {
     grid-area: three;
+    color: white;
+    font-size: 20px;
+    background-color: #2196f3;
   }
 .four {
   grid-area: four;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .five{
   grid-area: five;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .six{
   grid-area: six;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .seven {
   grid-area: seven;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .eight {
   grid-area: eight;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .nine {
   grid-area: nine;
-}
-.decimal {
-grid-area: decimal;
-}
-.hex {
-  grid-area: hex;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .ce {
   grid-area: ce;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
-.thirteeen {
+.clear {
   grid-area: clear;
-}
-.bin {
-  grid-area: bin;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .openbracket {
   grid-area: openbracket;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .closebracket {
   grid-area: closebracket;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .divide {
   grid-area: divide;
+   background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .plus {
   grid-area: plus;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .komma {
   grid-area: komma;
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
 }
 .equal {
   grid-area: equal;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .A {
   grid-area: A;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .B {
   grid-area: B;
+   background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .C {
   grid-area: C;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .D {
   grid-area: D;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .E {
   grid-area: E;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .F {
   grid-area: F;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
 }
 .multiply {
   grid-area: multiply;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
-.twentyeigth {
+.minus {
   grid-area: minus;
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
 }
 .twentynine {
   grid-area: twentynine;
+  color: white;
+  font-size: 20px;
 }
 .thirty {
   grid-area: thirty;
+  color: white;
+  font-size: 20px;
 }
-
+.copy {
+  grid-area: copy;
+  background-color: gray;
+  color: white;
+  font-size: 20px;
+}
   .span2{
     grid-column: 3 / -1;
   }
@@ -132,36 +210,7 @@ grid-area: decimal;
     border-style:groove
   }
   
-  /*Not used anymore*/
-  .grid-button:after {
-    condecimalt: "";
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px !important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s;
-  }
-  /*Not used anymore*/
-  .grid-button:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s;
-  }
-  /*Not used anymore*/
-  .grid-button:focus {
-    outline: 0;
-  }
-  /*Not used anymore*/
-  .display {
-    font: 100% Roboto, sans-serif;
-    font-size: 8vw;
-    text-align: right;
-  }
+ 
   /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
@@ -173,50 +222,43 @@ grid-area: decimal;
   
   /*The grid for the decimal mode*/
   .decimal-grid {
-    display: grid;
+    display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10% 10% 10% 10% 10% 10%;
     height: 100%;
-    grid-template-areas: "decimal hex ce clear"
-                          "bin openbracket closebracket divide"
-                          "seven eight nine multiply"
-                          "four five six minus"
-                          "one two three plus"
-                          "zero komma equal equal"
+    grid-template-areas: "ce clear openbracket closebracket"
+                          "seven eight nine divide"
+                          "four five six multiply"
+                          "one two three minus"
+                          "zero komma equal plus"
+                          "copy copy copy copy"
   }
 /*The grid for the hexadecimal mode*/
   .hexadecimal-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 8% 8% 8% 8% 8% 8% 8%;
     height: 100%;
-    grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "seven eight nine multiply"
-    "four five six minus"
-    "one two three plus"
-    "zero komma A B"
-    "C D E F"
-    "equal equal equal equal"
-
+    grid-template-areas: "clear ce openbracket closebracket"
+                         "seven eight nine divide"
+                         "four five six multiply"
+                         "one two three minus"
+                         "zero equal equal plus"
+                         "A B C D"
+                         "E F copy copy"
   }
 
   /*The grid for the binary mode*/
   .binary-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10% 10% 10% 10%;
     height: 100%;
     grid-template-areas: 
-    "decimal hex ce clear"
-    "bin openbracket closebracket divide"
-    "plus multiply komma minus"
+    "ce clear openbracket closebracket"
     "zero zero one one"
-    "equal equal equal equal"
+    "divide multiply minus plus"
+    "equal equal copy copy"
   }
 
-
-  
-  
   /*# sourceMappingURL=build/css/styles.css.map */
