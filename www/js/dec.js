@@ -1,3 +1,4 @@
+
 /*Der dezimale DisplayValidator ist dafür zuständig, dass nur Zahlen, die Operatoren und Klammern
 sowie das Backspace eingegeben werden können. Alles andere wird durch das evt.preventDefault() verhindert.
 einzugeben*/
@@ -97,24 +98,31 @@ und eine Fehlermeldung ausgegeben*/
 
   function decInputValidator(string) {
 
+    var message1 = "";
+    var message2 = "";
+
+    var j = emptyBrackets(string);
+    if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n"}
+
     var b = bracketsCheck(string);
-    if(b == false) {displayToastMessage("Die Klammern sind nicht richtig gesetzt!"); return false;}
+    if(b == false) {/*displayToastMessage("Die Klammern sind nicht richtig gesetzt!");*/ message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}
 
     var o = operators(string);
-    if(o == true) {displayToastMessage("Operatoren hintereinander"); return false;}
+    if(o == true) {message2 = "Operatoren hintereinander"; waitForToast(message1, message2); return false;}
 
     var a = afteroperator(string);
-    if(a == false) {displayToastMessage("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false;}
+    if(a == false) {message2 = "Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); return false;}
 
     var aBNMD = afterBracketsNoMulDiv(string);
-    if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"); return false;}
+    if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); return false;}
 
     var kc = kommaCheck(string);
-    if(kc == true) {displayToastMessage("Es darf pro Zahl nur ein Komma vorkommen"); return false;}
+    if(kc == true) {message2 = "Es darf pro Zahl nur ein Komma vorkommen"; waitForToast(message1, message2); return false;}
 
     var beg = beginning(string);
-    if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"); return false;}
+    if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); return false;}
 
+    waitForToast(message1, message2);
     return true;
   }
 

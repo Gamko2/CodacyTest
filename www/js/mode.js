@@ -1,3 +1,4 @@
+
 /*Die Enumeration dient später zum Vergleichscheck bei der Funktion setMode(m)
 */
 var mode = {
@@ -35,13 +36,13 @@ function decCheck() {
   var number = 0;
   var string = readInput();
 
-  var number3 = emptyBrackets(string);
+  /*var number3 = emptyBrackets(string);
 
   //Leere Klammern entfernen
   if(number3 == true) {
     string = removeEmpty(string);
     writeOutput(string);
-  }
+  }*/
 
   if(decInputValidator(string) === true) {
     var number1 = checkDecBrackets(string);

@@ -89,21 +89,28 @@ und eine Fehlermeldung ausgegeben*/
 function hexInputValidator(string) {
  //string = korrigieren(string);
 
+ var message1 = "";
+ var message2 = "";
+
+ var j = emptyBrackets(string);
+ if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n"}
+
  var brackets = bracketsCheck(string);
- if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {/*displayToastMessage("Die Klammern sind nicht richtig gesetzt!");*/ message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}
 
  var operator = operators(string);
- if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {message2 = "Operatoren hintereinander"; waitForToast(message1, message2); return false;}
 
  var after = afteroperator(string);
- if(after == false) {displayToastMessage("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {message2 = "Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); return false;}
 
  var beg = beginning(string);
- if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"; waitForToast(message1, message2); return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
  if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
 
+ waitForToast(message1, message2);
  return true;
 }
 

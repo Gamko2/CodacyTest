@@ -1,9 +1,10 @@
 // Create top toast
 
-var toastTop = undefined;
+
 
 
 function displayToastMessage(message) {
+  var toastTop = undefined;
     toastTop = app.toast.create({
         text: message,
         position: 'top',
@@ -13,3 +14,27 @@ function displayToastMessage(message) {
     });
     toastTop.open();
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+
+  async function waitForToast(messageOne, messageTwo){
+
+      if(messageOne == "" && messageTwo != "") {
+      displayToastMessage(messageTwo);
+      await sleep(2500);
+      }
+
+      else if(messageOne != "" && messageTwo == "") {
+        displayToastMessage(messageOne);
+        await sleep(2500);
+      }
+      else {
+        displayToastMessage(messageOne);
+        await sleep(2500);
+        displayToastMessage(messageTwo);
+      }
+  }
