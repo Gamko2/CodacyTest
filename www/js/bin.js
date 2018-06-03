@@ -91,21 +91,29 @@ function binModifizieren(string) {
 //Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben und eine Fehlermeldung ausgegeben
 function binInputValidator(string) {
  //string = korrigieren(string);
+
+ var message1 = "";
+ var message2 = "";
+
+ var j = emptyBrackets(string);
+ if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+
  var brackets = bracketsCheck(string);
- if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {message2 = "Klammern sind nicht korrekt"; waitForToast(message1, message2); return false;}
 
  var operator = operators(string);
- if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {message2 = "Mehrere hintereinander folgende Operatoren"; waitForToast(message1, message2); return false;}
 
  var after = afteroperator(string);
- if(after == false) {displayToastMessage("Nach einem Operator muss eine Binärzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {message2 = "Nach einem Operator muss eine Binärzahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); return false;}
 
  var beg = beginning(string);
- if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Binärzahl stehen!"); return false;}
+ if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Binärzahl stehen!"; waitForToast(message1, message2); return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Binärzahl stehen!"); return false;}
+ if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Binärzahl stehen!"; waitForToast(message1, message2); return false;}
 
+ waitForToast(message1, message2);
  return true;
 }
 

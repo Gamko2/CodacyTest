@@ -83,11 +83,11 @@ function binCheck() {
   var string = readInput();
   var number3 = emptyBrackets(string);
 
-  //Leere Klammern entfernen
+/*  //Leere Klammern entfernen
   if(number3 == true) {
     string = removeEmpty(string);
     writeOutput(string);
-  }
+  }*/
 
   string = korrigieren(readInput());
   //console.log(string);
@@ -125,13 +125,13 @@ function hexCheck() {
   var erg = 0;
   var result;
 
-  var number3 = emptyBrackets(string);
+/*  var number3 = emptyBrackets(string);
 
   //Leere Klammern entfernen
   if(number3 == true) {
     string = removeEmpty(string);
     writeOutput(string);
-  }
+  }*/
 
   var string = hexaKorrigieren(readInput());
   if(hexInputValidator(string) === true) {

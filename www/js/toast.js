@@ -22,7 +22,6 @@ function sleep(ms) {
 
 
   async function waitForToast(messageOne, messageTwo){
-
       if(messageOne == "" && messageTwo != "") {
       displayToastMessage(messageTwo);
       await sleep(2500);
