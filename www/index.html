@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-  <!-- Required meta tags-->
+  <!-- Requigreen meta tags-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,104 +32,94 @@
           <!-- Page, "data-page" contains page name -->
           <div data-page="index" class="page">
            <!--navbar-->
-           <div class="navbar">
-             <div class="navbar-inner">
-               <div class="left"></div>
-               <div class="center sliding">Alekulator</div>
-               <div class = "right"></div>
+           <div class="calculator-grid">
+             <div class="navbar">
+               <div class="navbar-inner">
+                 <div class="left"></div>
+                 <div class="center sliding">Alekulator</div>
+              </div>
              </div>
+             <!-- Toolbar. In Material theme it should be inside of the page-->
+
+             <!-- Scrollable page content -->
+
+             <form id="my-form" name="Alekulator">
+               <input id="input" type="text" name="name" placeholder="0">
+             </form>
+             <div>
+               <button class="btn button-fill button-maxed gray open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+             </div>
+             <div id="grid-mode" class="decimal-grid">
+               <!--button id="dec" class="col button-big button-fill gray decimal" value="dec" onclick="decimal()">Dec</button-->
+               <!--button id="hex" class="col button-big button-fill gray hex" value="hex" onclick="hexadecimal()">Hex</button-->
+               <button id="empty" class="col button-fill gray ce" onclick="reduce(1)">CE</button>
+               <button id="clear" class="col button-fill gray clear" onclick="Clear()">Clear</button>
+
+
+               <!--button id="bin" class="col button-big button-fill gray bin" value="bin" onclick="binary()">Bin</button-->
+               <button id="leftparantheses" class="col button-fill green openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
+               <button id="rightparantheses" class="col button-fill green closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
+               <button id="divid" class="col button-fill green divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
+
+               <button id="1" class="col button-fill blue one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
+               <button id="2" class="col button-fill blue two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
+               <button id="3" class="col button-fill blue three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
+               <button id="multiplication" class="col button-fill green multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
+
+               <button id="4" class="col button-fill blue four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
+               <button id="5" class="col button-fill blue five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
+               <button id="6" class="col button-fill blue six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
+               <button id="subtract" class="col button-fill green minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+
+               <button id="7" class="col button-fill blue seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
+               <button id="8" class="col button-fill blue eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
+               <button id="9" class="col button-fill blue nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
+               <button id="add" class="col button-fill green plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
+
+
+               <button class="col button-fill blue zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
+               <button id="floatkomma" class="col button-fill gray komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
+
+               <button id="equal" class="col button-fill green equal" value="=">=</button>
+
+               <button id="A" class="col button-fill gray A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
+               <button id="B" class="col button-fill gray B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
+               <button id="C" class="col button-fill gray C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
+               <button id="D" class="col button-fill gray D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
+               <button id="E" class="col button-fill gray E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+               <button id="F" class="col button-fill gray F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+
+
+             </div>
+             <div class="toolbar toolbar-bottom">
+                 <div class="toolbar-inner">
+                   <a class="link popup-open" href="#" data-popup=".popup-about"><i class="material-icons size-22">info</i></a>
+                   <a href="#" id="dec" onclick="decimal()" class="link button decimal" value="dec">Dec</a>
+                   <a href="#" id="hex" onclick="hexadecimal()" class="link button hex" value="hex">Hex</a>
+                   <a href="#" id="bin" onclick="binary()" class="link button bin" value="dec">Bin</a>
+                   <a href="#" onclick="sendemail()" class="link"><i class="material-icons size-22">email</i></a>
+                 </div>
+
            </div>
+           <div class="popup popup-about">
+            <div class="block">
+              <!-- Close Popup -->
+              <p><a class="link popup-close" href="#">Close</a></p>
+              <h4>Welcome to Alekulator Version: 1.0!!!</h4>
+              <p> Alekulator ist ein Hybridapp.</p>
+              <p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>
+              <p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>
+            </div>
+            </div>
+             <!-- REFERENCE SCRIPTS-->
+             <!-- Path to Framework7 Library JS-->
+            <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
 
-          <form id = "my-form" class = "list-block" name = "Alekulator">
-            <ul>
-              <li>
-                <div class = "item-content">
-                  <div class = "item-inner">
-                     <div class = "item-input">
-                        <input id="input" type="text" name="name" placeholder="0">
-                  </div>
-               </div>
-                </div>
-            </li>
-          </ul>
-        </form>
 
-        <div id="grid-mode" class="hexadecimal-grid">
-
-          <button id="empty" class="col-25 ce" onclick="reduce(1)">CE</button>
-          <button id="clear" class="col-25 clear" onclick="Clear()">Clear</button>
-          <button id="leftparantheses" class="col-25 openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
-          <button id="rightparantheses" class="col-25 closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
-
-          <button id="7" class="col-25 seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
-          <button id="8" class="col-25 eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
-          <button id="9" class="col-25 nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
-          <button id="divid" class="col-25 divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
-
-          <button id="4" class="col-25 four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-          <button id="5" class="col-25 five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-          <button id="6" class="col-25 six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-          <button id="multiplication" class="col-25 multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
-
-          <button id="1" class="col-25 one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
-          <button id="2" class="col-25 two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
-          <button id="3" class="col-25 three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
-          <button id="subtract" class="col-25 minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
-
-          <button class="col-25 zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
-          <button id="floatkomma" class="col-25 komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
-          <button id="add" class="col-25 plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
-          <button id="equal" class="col-25 equal" value="=">=</button>
-
-          <button id="A" class="col-25 A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-          <button id="B" class="col-25 B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-          <button id="C" class="col-25 C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-          <button id="D" class="col-25 D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-
-          <button id="E" class="col-25  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-          <button id="F" class="col-25  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
-          <button class="col-25 open-toast-top copy" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
-        </div>
-        <!--toolbar-->
-        <div class="toolbar toolbar-bottom">
-        <div class="toolbar-inner">
-          <a class="link popup-open" href="#" data-popup=".popup-about"><i class="material-icons size-22">info</i></a>
-          <a href="#" id="dec" onclick="decimal()" class="link button decimal" value="dec">Dec</a>
-          <a href="#" id="hex" onclick="hexadecimal()" class="link button hex" value="hex">Hex</a>
-          <a href="#" id="bin" onclick="binary()" class="link button bin" value="dec">Bin</a>
-          <a href="#" onclick="sendemail()" class="link"><i class="material-icons size-22">email</i></a>
-        </div>
-       </div>
-      </div>
-    </div>
-   </div>
-  </div>
-  <div class="popup popup-about">
-  <div class="block">
-    <!-- Close Popup -->
-    <p><a class="link popup-close" href="#">Close</a></p>
-    <h4>Welcome to Alekulator Version: 1.0!!!</h4>
-    <p> Alekulator ist ein Hybridapp.</p>
-    <p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>
-    <p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>
-  </div>
-  </div>
-   <!-- REFERENCE SCRIPTS-->
-   <!-- Path to Framework7 Library JS-->
-  <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
-    var app = new Framework7();
-  <script>
-    var $$ = Dom7;
-    // DOM events for About popup
-    $$('.popup-about').on('popup:open', function (e, popup) {
-    console.log('About popup open');
-    });
-    $$('.popup-about').on('popup:opened', function (e, popup) {
-     console.log('About popup opened');
-    });
-  </script>
-
-    <script src="js/toast.js"></script>
+  <!--end Picker-->
+  <!-- REFERENCE SCRIPTS-->
+  <!-- Path to Framework7 Library JS-->
+  <script src="js/toast.js"></script>
   <!-- Path to your app js-->
   <script src="js/app.js"></script>
   <script src="js/interface.js"></script>
@@ -143,6 +132,7 @@
   <script src="js/mode.js"></script>
   <script src="js/ValidatorRules.js"></script>
   <script src="js/email.js"></script>
+
 </body>
 
 </html>

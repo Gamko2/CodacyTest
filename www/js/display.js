@@ -23,7 +23,8 @@ function reduce(amount) {
 //Mode auf HEX stellen, da wir beim User Interface im Default Mode bei HEX liegen
 function init() {
   //console.log("init() activated");
-  setMode("hex");
+  decimal();
+  setMode("dec");
 }
 
 /*Die Funktion setValidator() setzt den Display Validator und die sogenannten CheckMethoden.

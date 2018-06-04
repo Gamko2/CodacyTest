@@ -13,184 +13,161 @@
     transition-duration: 0.4s;
     text-decoration: 5px;
     overflow: hidden;
-    cursor: pointer; 
-    justify-content: center; 
+    cursor: pointer;
+    justify-content: center;
   }
 
- /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
-.zero{
-  grid-area: zero;
+ /* This is to predefine zones in the grid to make swapping buttons around easier.*/
+.white {
   color: white;
   font-size: 20px;
   background-color: #2196f3;
+}
 
-}
-.one{
-  grid-area: one;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-  }
-.two{
-    grid-area: two;
-    color: white;
-    font-size: 20px;
-    background-color: #2196f3;
-  }
-.three {
-    grid-area: three;
-    color: white;
-    font-size: 20px;
-    background-color: #2196f3;
-  }
-.four {
-  grid-area: four;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.five{
-  grid-area: five;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.six{
-  grid-area: six;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.seven {
-  grid-area: seven;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.eight {
-  grid-area: eight;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.nine {
-  grid-area: nine;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
-}
-.ce {
-  grid-area: ce;
+.gray {
   background-color: gray;
   color: white;
   font-size: 20px;
+}
+
+.green {
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
+}
+
+.blue {
+  background-color: #2196f3;
+  color: white;
+  font-size: 20px;
+}
+
+.zero{
+  grid-area: zero;
+}
+
+.one{
+  grid-area: one;
+}
+
+.two{
+    grid-area: two;
+}
+
+.three {
+    grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five{
+  grid-area: five;
+}
+
+.six{
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.ce {
+  grid-area: ce;
 }
 .clear {
   grid-area: clear;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .openbracket {
   grid-area: openbracket;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .closebracket {
   grid-area: closebracket;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .divide {
   grid-area: divide;
-   background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
 .plus {
   grid-area: plus;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .komma {
   grid-area: komma;
-  color: white;
-  font-size: 20px;
-  background-color: #2196f3;
 }
+
 .equal {
   grid-area: equal;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .A {
   grid-area: A;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .B {
   grid-area: B;
-   background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .C {
   grid-area: C;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .D {
   grid-area: D;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .E {
   grid-area: E;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .F {
   grid-area: F;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
 .multiply {
   grid-area: multiply;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .minus {
   grid-area: minus;
-  background-color: #4caf50;
-  color: white;
-  font-size: 20px;
 }
+
 .twentynine {
   grid-area: twentynine;
-  color: white;
-  font-size: 20px;
 }
+
 .thirty {
   grid-area: thirty;
-  color: white;
-  font-size: 20px;
 }
+
 .copy {
   grid-area: copy;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
 }
+
+.button-maxed {
+    font-size: 25px;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-width: none;
+    border-style: none;
+}
+
   .span2{
     grid-column: 3 / -1;
   }
@@ -200,7 +177,7 @@
     position: fixed;
   }
 
- 
+
   /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
@@ -209,48 +186,45 @@
     height: 100vh;
     grid-gap: 5px;
   }
-  
+
   /*The grid for the decimal mode*/
   .decimal-grid {
-    display: grid; 
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto;
-    height: 55%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
     grid-template-areas: "ce clear openbracket closebracket"
                           "seven eight nine divide"
                           "four five six multiply"
                           "one two three minus"
                           "zero komma equal plus"
-                          "copy copy copy copy"
   }
 /*The grid for the hexadecimal mode*/
   .hexadecimal-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto 5%;
-    height: 57%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
     grid-template-areas: "clear ce openbracket closebracket"
                          "seven eight nine divide"
                          "four five six multiply"
                          "one two three minus"
                          "zero equal equal plus"
                          "A B C D"
-                         "E F copy copy"
-                         "komma komma komma komma"
+                         "E E F F"
   }
 
   /*The grid for the binary mode*/
   .binary-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto 5%;
-    height: 55%;
-    grid-template-areas: 
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 100%;
+    grid-template-areas:
     "ce clear openbracket closebracket"
     "zero zero one one"
     "divide multiply minus plus"
-    "equal equal copy copy"
-    "komma komma komma komma"
+    "equal equal equal equal"
   }
 
   /*# sourceMappingURL=build/css/styles.css.map */

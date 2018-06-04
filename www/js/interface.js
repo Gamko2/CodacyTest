@@ -20,11 +20,11 @@ The array created here is a placeholder it should be included in the Mode Enum w
 We make all elements visible and then the specified ones invisible.
 Afterwards we load the decimal-grid*/
 function decimal() {
-  var x = document.getElementById("floatkomma");
+  /*var x = document.getElementById("floatkomma");
 //  var y = document.getElementById("decdiv");
 //  if (x.style.display === "none") {
       x.style.display = "block";
-      x.style.visibility = "visible";
+      x.style.visibility = "visible";*/
   allVisible();
   let array = new Array('A','B','C','D','E','F')
   makeInvisible(array);
@@ -35,13 +35,13 @@ function decimal() {
 /*This is called when the HEX Button is pressed
 We make every element visible and then load the hexadecimal-grid*/
 function hexadecimal(){
-  var x = document.getElementById("floatkomma");
+  /*var x = document.getElementById("floatkomma");
       if (x.style.display === "block") {
           x.style.display = "none";
           x.style.visibility = "hidden";
       } else {
           x.style.display = "block";
-      }
+      }*/
   allVisible();
   let array = new Array('floatkomma')
   makeInvisible(array);
@@ -54,13 +54,13 @@ This array is again a placeholder should be in the Mode Enum.
 We make all elements from the array invisible and load the binary-grid afterwards.
 */
 function binary(){
-  var x = document.getElementById("floatkomma");
+  /*var x = document.getElementById("floatkomma");
       if (x.style.display === "block") {
           x.style.display = "none";
           x.style.visibility = "hidden";
       } else {
           x.style.display = "block";
-      }
+      }*/
   allVisible();
   let array = new Array('A','B','C','D','E','F','2','3','4','5','6','7','8','9','floatkomma')
   makeInvisible(array);
