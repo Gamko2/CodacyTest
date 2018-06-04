@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -49,6 +50,7 @@
                         <input id="input" type="text" name="name" placeholder="0">
                   </div>
                </div>
+                </div>
             </li>
           </ul>
         </form>
@@ -92,9 +94,9 @@
         <!--toolbar-->
         <div class="toolbar toolbar-bottom">
         <div class="toolbar-inner">
-          <a href = "#" data-popup = ".first_page" class = "link open-popup"><i class="material-icons size-22">info</i></a>
+          <a class="link popup-open" href="#" data-popup=".popup-about"><i class="material-icons size-22">info</i></a>
           <a href="#" id="dec" onclick="decimal()" class="link button decimal" value="dec">Dec</a>
-          <a href="#" id="hex" onclick="hexadecimal()" class="link button hexl" value="hex">Hex</a>
+          <a href="#" id="hex" onclick="hexadecimal()" class="link button hex" value="hex">Hex</a>
           <a href="#" id="bin" onclick="binary()" class="link button bin" value="dec">Bin</a>
           <a href="#" onclick="sendemail()" class="link"><i class="material-icons size-22">email</i></a>
         </div>
@@ -103,23 +105,31 @@
     </div>
    </div>
   </div>
- </div>
- <div class = "popup first_page">
-     <div class = "content-block">
-
-       <p> <a href = "#" class = "close-popup">Close</a></p>
-
-       <h4>Welcome to Alekulator Version: 1.0!!!</h4>
-       <p> Alekulator ist ein Hybridapp.</p>
-       <p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>
-       <p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>
-    </div>
+  <div class="popup popup-about">
+  <div class="block">
+    <!-- Close Popup -->
+    <p><a class="link popup-close" href="#">Close</a></p>
+    <h4>Welcome to Alekulator Version: 1.0!!!</h4>
+    <p> Alekulator ist ein Hybridapp.</p>
+    <p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>
+    <p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>
   </div>
-
-<!--end Picker-->
-  <!-- REFERENCE SCRIPTS-->
-  <!-- Path to Framework7 Library JS-->
+  </div>
+   <!-- REFERENCE SCRIPTS-->
+   <!-- Path to Framework7 Library JS-->
   <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
+    var app = new Framework7();
+  <script>
+    var $$ = Dom7;
+    // DOM events for About popup
+    $$('.popup-about').on('popup:open', function (e, popup) {
+    console.log('About popup open');
+    });
+    $$('.popup-about').on('popup:opened', function (e, popup) {
+     console.log('About popup opened');
+    });
+  </script>
+
     <script src="js/toast.js"></script>
   <!-- Path to your app js-->
   <script src="js/app.js"></script>
