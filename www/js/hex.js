@@ -4,10 +4,12 @@ function hexDisplayValidator(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode;
   charCode = String.fromCharCode(charCode);
 
-  var patt = /[0-F|+|\-|*|/|(|)|a-f]/;
-  var c = patt.test(charCode);
+  var patt = /[0-F|+|\-|*|/|(|)|a-f|\.]/;
+  var forbidden = /[@|\||:|;|>|<|?|=]/;
 
-  if(c === false) {
+  var c = patt.test(charCode);
+  var f = forbidden.test(charCode);
+  if(c === false || f === true) {
     evt.preventDefault();
   }
 }
