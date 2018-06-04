@@ -65,7 +65,6 @@ function binCheck() {
 //hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
   var ausdruck = hexaKorrigieren(readInput()); //OX anhängen
-  alert("Korrektur: " + ausdruck);
   var ergebnis = 0;
 
   if(hexInputValidator(ausdruck) === true) {
