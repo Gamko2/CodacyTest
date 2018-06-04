@@ -95,7 +95,6 @@ function hexInputValidator(string) {
  var j = emptyBrackets(string);
  if(j == true) {string = removeEmpty(string); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
 
-
  var e = emptyString(string);
  if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); return false;}
 
@@ -113,6 +112,7 @@ function hexInputValidator(string) {
 
  var aBNMD = afterBracketsNoMulDiv(string);
  if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"; waitForToast(message1, message2); return false;}
+
 
  waitForToast(message1, message2);
  return true;

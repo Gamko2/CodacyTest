@@ -36,7 +36,7 @@ function decCheck() {
 
   if(decInputValidator(ausdruck) === true) {
     //var number1 = checkBinBrackets(string);
-    ausdruck = decModifizieren(ausdruck);
+    ausdruck = decModifizieren(readInput());
     ergebnis = eval(ausdruck);
     ergebnis = (Math.round(ergebnis * 1000) / 1000);
 
@@ -53,7 +53,7 @@ function binCheck() {
 
   if(binInputValidator(ausdruck) === true) {
     //var number1 = checkBinBrackets(string);
-    ausdruck = binModifizieren(ausdruck);
+    ausdruck = binModifizieren(readInput());
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(2);
 
@@ -69,7 +69,7 @@ function hexCheck() {
 
   if(hexInputValidator(ausdruck) === true) {
     //var number1 = checkBinBrackets(string);
-    ausdruck = hexaModifizieren(ausdruck);
+    ausdruck = hexaModifizieren(readInput());
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(16).toUpperCase();
     if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
