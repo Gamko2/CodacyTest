@@ -53,7 +53,7 @@ function binCheck() {
 
   if(binInputValidator(ausdruck) === true) {
     //var number1 = checkBinBrackets(string);
-    ausdruck = binModifizieren(readInput());
+    ausdruck = binModifizieren(korrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(2);
 
@@ -65,11 +65,12 @@ function binCheck() {
 //hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
   var ausdruck = hexaKorrigieren(readInput()); //OX anhängen
+  alert("Korrektur: " + ausdruck);
   var ergebnis = 0;
 
   if(hexInputValidator(ausdruck) === true) {
     //var number1 = checkBinBrackets(string);
-    ausdruck = hexaModifizieren(readInput());
+    ausdruck = hexaModifizieren(hexaKorrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(16).toUpperCase();
     if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }

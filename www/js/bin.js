@@ -5,13 +5,11 @@ function binDisplayValidator(evt) {
   charCode = String.fromCharCode(charCode);
 
   var patt = /[0|1|B|+|\-|*|/|(|)]/;
+  var forbidden = /[@|\||:|;|>|<|?|=]/;
+
   var c = patt.test(charCode);
-
-  /*if(charCode == '#' || charCode == ',' || charCode == '\'' || charCode == '.') {
-    c = false;
-  }*/
-
-  if(c === false) {
+  var f = forbidden.test(charCode);
+  if(c === false || f === true) {
     evt.preventDefault();
   }
 }
