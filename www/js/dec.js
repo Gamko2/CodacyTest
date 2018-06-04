@@ -104,6 +104,9 @@ und eine Fehlermeldung ausgegeben*/
     var j = emptyBrackets(string);
     if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n"}
 
+    var e = emptyString(string);
+    if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); return false;}
+
     var b = bracketsCheck(string);
     if(b == false) {/*displayToastMessage("Die Klammern sind nicht richtig gesetzt!");*/ message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}
 

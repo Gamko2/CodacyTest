@@ -56,7 +56,7 @@ function korrigieren(string) {
 /*Überprüft, ob nach einer Zahl eine geöffnete Klammer folgt, ist später dafür zuständig, dass zwischen einer Zahl und einer Klammer
 ein Multiplikationszeichen folgt*/
 function checkBinBrackets(string) {
-  var patt = /([0-1]+[\(]|[\)][0-1]+)/
+  var patt = /([0-1]+[\(]|[\)][0-1]+|[\)][\(])/
 
   var c = patt.test(string);
 
@@ -95,8 +95,12 @@ function binInputValidator(string) {
  var message1 = "";
  var message2 = "";
 
+
  var j = emptyBrackets(string);
- if(j == true) {string = removeEmpty(string); string = string.replace("0B", ""); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+ if(j == true) {string = removeEmpty(string); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
+
+ var e = emptyString(string);
+ if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); return false;}
 
  var brackets = bracketsCheck(string);
  if(brackets == false) {message2 = "Klammern sind nicht korrekt"; waitForToast(message1, message2); return false;}

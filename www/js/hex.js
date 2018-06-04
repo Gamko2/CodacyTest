@@ -93,7 +93,7 @@ function hexInputValidator(string) {
  var message2 = "";
 
  var j = emptyBrackets(string);
- if(j == true) {string = removeEmpty(string); string = string.replace("0X", ""); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+ if(j == true) {string = removeEmpty(string); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
 
 
  var e = emptyString(string);
