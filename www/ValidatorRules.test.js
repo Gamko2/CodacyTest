@@ -125,3 +125,116 @@ test('A+1() equals A+1', () => {
 test('A()+1() equals A+1', () => {
   expect(valRules.removeEmpty('A()+1()')).toBe('A+1');
 });
+
+test('1+-/4 equals true', () => {
+  expect(valRules.operators('1+-/4')).toBe(true);
+});
+
+test('1++4 equals true', () => {
+  expect(valRules.operators('1++4')).toBe(true);
+});
+
+test('1+4 equals false', () => {
+  expect(valRules.operators('1+4')).toBe(false);
+});
+
+
+//Wenn nach einem Operator ), . oder nichts steht, gebe false zurück
+
+test('(4+)+20+(10+10) equals false', () => {
+  expect(valRules.afteroperator('(4+)+20+(10+10)')).toBe(false);
+});
+
+test('10+4+.+2 equals false', () => {
+  expect(valRules.afteroperator('10+4+.+2')).toBe(false);
+});
+
+test('4+ equals false', () => {
+  expect(valRules.afteroperator('4+')).toBe(false);
+});
+
+test('4+(10+3) equals true', () => {
+  expect(valRules.afteroperator('4+(10+3)')).toBe(true);
+});
+
+test('4+10+2 equals true', () => {
+  expect(valRules.afteroperator('4+10+2')).toBe(true);
+});
+
+
+//Wenn zu Begin *, /, oder ), gebe true zurück
+
+test('/4 equals true', () => {
+  expect(valRules.beginning('/4')).toBe(true);
+});
+
+test('*4 equals true', () => {
+  expect(valRules.beginning('*4')).toBe(true);
+});
+
+test(')6 equals true', () => {
+  expect(valRules.beginning(')6')).toBe(true);
+});
+
+test('+6-3 equals false', () => {
+  expect(valRules.beginning('+6-3')).toBe(false);
+});
+
+test('-10-5+4 equals false', () => {
+  expect(valRules.beginning('-10-5+4')).toBe(false);
+});
+
+test('(10-6+4) equals false', () => {
+  expect(valRules.beginning('(10-6+4)')).toBe(false);
+});
+
+
+//Nach einer Klammer darf kein * oder / stehen, wenn's eintrifft true
+
+test('(*4) equals true', () => {
+  expect(valRules.afterBracketsNoMulDiv('(*4)')).toBe(true);
+});
+
+test('(/4) equals true', () => {
+  expect(valRules.afterBracketsNoMulDiv('(/4)')).toBe(true);
+});
+
+test('(+12) equals false', () => {
+  expect(valRules.afterBracketsNoMulDiv('(+12)')).toBe(false);
+});
+
+test('(-100) equals false', () => {
+  expect(valRules.afterBracketsNoMulDiv('(-100)')).toBe(false);
+});
+
+test('((-100)) equals false', () => {
+  expect(valRules.afterBracketsNoMulDiv('((-100))')).toBe(false);
+});
+
+
+//Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
+
+test('(6+1)(4+10) equals true', () => {
+  expect(valRules.checkCloseOpenBrackets('(6+1)(4+10)')).toBe(true);
+});
+
+test('3+4 equals false', () => {
+  expect(valRules.checkCloseOpenBrackets('3+4')).toBe(false);
+});
+
+
+//Überprüft, ob die Klammern leer sind
+  
+  test('adds () equals true', () =>{
+  expect(valRules.emptyBrackets('()')).toBe(true);
+});
+
+ //Überprüft, ob die Klammeranzahl stimmt
+
+  test('adds ((((()))) equals false', () =>{
+  expect(valRules.bracketsCheck('((((())))')).toBe(false);
+});
+  test('adds ((())) equals true', () =>{
+  expect(valRules.bracketsCheck('((()))')).toBe(true);
+});
+
