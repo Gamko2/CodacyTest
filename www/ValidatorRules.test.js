@@ -1,4 +1,4 @@
-const valRules = require('./js/ValidatorRules.js');
+﻿const valRules = require('./js/ValidatorRules.js');
 
 //Allte Tests enthalten einen positiven und negativen Test
 //Richtige Klammersetzung, wenn die Klammern nicht richtig gesetzt sind, wird false zurückgegeben
@@ -103,7 +103,7 @@ test('((-100)) equals false', () => {
   expect(valRules.afterBracketsNoMulDiv('((-100))')).toBe(false);
 });
 
-//Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
+/*//Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
 test('(A+1)(B+10) equals true', () => {
   expect(valRules.checkCloseOpenBrackets('(A+1)(B+10)')).toBe(true);
 });
@@ -115,7 +115,7 @@ test('F+34 equals false', () => {
 
 test('(F+34) equals false', () => {
   expect(valRules.checkCloseOpenBrackets('(F+34)')).toBe(false);
-});
+});*/
 
 //Leere Klammer löschen
 test('A+1() equals A+1', () => {

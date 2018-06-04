@@ -66,15 +66,6 @@ function afterBracketsNoMulDiv(x) {
   return c;
 }
 
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-/*function checkCloseOpenBrackets(string) {
-  var patt = /([\)])([\(])/
-
-  var c = patt.test(string);
-
-  return c;
-}*/
-
 //Leere Klammern löschen
 function removeEmpty(string) {
   var regex = /[(][)]/;
@@ -104,6 +95,5 @@ module.exports = {
   emptyBrackets: emptyBrackets,
   bracketsCheck: bracketsCheck,
   afterBracketsNoMulDiv: afterBracketsNoMulDiv,
-  checkCloseOpenBrackets: checkCloseOpenBrackets,
   removeEmpty: removeEmpty
 }
