@@ -4,6 +4,7 @@ sowie das Backspace eingegeben werden können. Alles andere wird durch das evt.p
 einzugeben*/
 function decDisplayValidator(evt) {
   //console.log("decDisplay");
+  changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
   if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
   {
@@ -28,10 +29,11 @@ function decDisplayValidator(evt) {
 }*/
 
 //Überprüfung der Eingabe per Paste
-document.addEventListener('paste', function(event) {
+function decPaste(event) {
     var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
     var fail = 0;
     var i = 0;
+    console.log(inputText);
 
     /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
     keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
@@ -52,7 +54,8 @@ document.addEventListener('paste', function(event) {
     } else {
       return true;
     }
-  });
+  };
+
 
 //Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
 function kommaCheck(x) {
@@ -102,28 +105,28 @@ und eine Fehlermeldung ausgegeben*/
     var message2 = "";
 
     var j = emptyBrackets(string);
-    if(j == true) {string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n"}
+    if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
 
     var e = emptyString(string);
-    if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); return false;}
+    if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); changeColor(); return false;}
 
     var b = bracketsCheck(string);
     if(b == false) {/*displayToastMessage("Die Klammern sind nicht richtig gesetzt!");*/ message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}
 
     var o = operators(string);
-    if(o == true) {message2 = "Operatoren hintereinander"; waitForToast(message1, message2); return false;}
+    if(o == true) {message2 = "Operatoren hintereinander"; waitForToast(message1, message2); changeColor(); return false;}
 
     var a = afteroperator(string);
-    if(a == false) {message2 = "Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); return false;}
+    if(a == false) {message2 = "Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); changeColor(); return false;}
 
     var aBNMD = afterBracketsNoMulDiv(string);
-    if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); return false;}
+    if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); changeColor(); return false;}
 
     var kc = kommaCheck(string);
-    if(kc == true) {message2 = "Es darf pro Zahl nur ein Komma vorkommen"; waitForToast(message1, message2); return false;}
+    if(kc == true) {message2 = "Es darf pro Zahl nur ein Komma vorkommen"; waitForToast(message1, message2); changeColor(); return false;}
 
     var beg = beginning(string);
-    if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); return false;}
+    if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"; waitForToast(message1, message2); changeColor(); return false;}
 
     waitForToast(message1, message2);
     return true;

@@ -14,6 +14,16 @@ function Clear() {
   document.getElementById('input').value = '';
 }
 
+//Ändert die Farbe bei Fehlermeldung
+function changeColor(){
+  document.getElementById('input').style.color="red";
+}
+
+//Ändert die Farbe zurück zu Schwarz
+function changeColorBlack(){
+  document.getElementById('input').style.color="black";
+}
+
 //Löscht Zeichen in Abhängigkeit von Amount
 function reduce(amount) {
   var text = readInput();
@@ -23,7 +33,9 @@ function reduce(amount) {
 //Mode auf HEX stellen, da wir beim User Interface im Default Mode bei HEX liegen
 function init() {
   //console.log("init() activated");
-  setMode("hex");
+  decimal();
+  document.addEventListener("paste", decPaste);
+  setMode("dec");
 }
 
 /*Die Funktion setValidator() setzt den Display Validator und die sogenannten CheckMethoden.
@@ -34,16 +46,19 @@ function setValidator(x) {
 
 //Löschen der alten Events
   //if(mode == "dec") {
+    document.removeEventListener("paste", decPaste);
     document.getElementById("equal").removeEventListener("click", decInputValidator);
     document.getElementById("input").removeEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").removeEventListener("click", decCheck);
     //console.log("Löschen Decimal Successful!");
   //} else if(mode == "hex") {
+    document.removeEventListener("paste", hexPaste);
     document.getElementById("equal").removeEventListener("click", hexInputValidator);
     document.getElementById("input").removeEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").removeEventListener("click", hexCheck);
     //console.log("Löschen Hexadecimal Successful!");
   //} else if(mode == "bin") {
+    document.removeEventListener("paste", binPaste);
     document.getElementById("equal").removeEventListener("click", binInputValidator);
     document.getElementById("input").removeEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").removeEventListener("click", binCheck);
@@ -54,18 +69,21 @@ function setValidator(x) {
 //Hinzufügen neuer Validatoren
   if(mode === "dec") {
     //document.getElementById("equal").addEventListener("click", inputValidator);
+    document.addEventListener("paste", decPaste);
     document.getElementById("input").addEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").addEventListener("click", decCheck);
     //console.log("Decimal Validator Successful!");
 
   } else if(mode === "hex") {
     //document.getElementById("equal").addEventListener("click", hexInputValidator);
+    document.addEventListener("paste", hexPaste);
     document.getElementById("input").addEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").addEventListener("click", hexCheck);
     //console.log("Hexadecimal Validator Successful!");
 
   } else if(mode === "bin") {
     //document.getElementById("equal").addEventListener("click", binInputValidator);
+    document.addEventListener("paste", binPaste);
     document.getElementById("input").addEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").addEventListener("click", binCheck);
     //console.log("Binary Validator Successful!");

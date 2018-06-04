@@ -57,7 +57,7 @@ function binCheck() {
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(2);
 
-    if(ergebnis == Infinity) { alert("Teilen durch 0 nicht möglich!"); }
+    if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
     else { writeOutput(ergebnis); }
     }
 }
@@ -72,7 +72,7 @@ function hexCheck() {
     ausdruck = hexaModifizieren(hexaKorrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(16).toUpperCase();
-    if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
+    if(ergebnis == "INFINITY") { displayToastMessage("Teilen durch 0 nicht möglich!"); }
     else { writeOutput(ergebnis); }
     }
 }
