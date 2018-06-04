@@ -27,7 +27,16 @@ function decDisplayValidator(evt) {
 }*/
 
 //Überprüfung der Eingabe per Paste
-document.addEventListener('paste', function(event) {
+
+//Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
+function kommaCheck(x) {
+  var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
+  var c = pattern.test(x);
+
+  return c;
+}
+
+function decPaste(event) {
     var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
     var fail = 0;
     var i = 0;
@@ -40,8 +49,8 @@ document.addEventListener('paste', function(event) {
         //console.log(inputText.charAt(i));
         fail = 1;
         break;
-      }
     }
+}
 
     //console.log(correct);
     if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
@@ -51,15 +60,7 @@ document.addEventListener('paste', function(event) {
     } else {
       return true;
     }
-  });
-
-//Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
-function kommaCheck(x) {
-  var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
-  var c = pattern.test(x);
-
-  return c;
-}
+  }
 
 //Überprüft, ob nach einer Zahl eine Klammer folgt, für das Einfügen eines Multiplikationszeichen notwendig
 function checkDecBrackets(x) {

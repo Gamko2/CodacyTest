@@ -38,7 +38,7 @@
       <!-- Scrollable page content -->
 
       <form id="my-form" name="Alekulator">
-        <input id="input" type="text" name="name" placeholder="0">
+        <input id="input" type="text" onpaste="decPaste(event)" name="name" placeholder="0">
       </form>
       <div>
         <button class="btn button-fill button-maxed open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>

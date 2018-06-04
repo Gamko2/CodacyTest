@@ -19,6 +19,33 @@ wieder eine Hexaddezimalzahl von 0-F eingetippt wird an 0X[0-F] nochmals [0-F] d
 Wenn hex.test(c) false returned und number true returned, bedeutet dass nach 0X[0-F]... ein Operator oder Klammern folgt und an
 0X[0-F]... drangehängt wird = 0X[0-F][+/-/* und geteilt oder ()].
 */
+
+function hexPaste(event) {
+    var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
+    var fail = 0;
+    var i = 0;
+
+    /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
+    keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
+    for(i = 0; i < inputText.length; i++) {
+      if(!((inputText.charAt(i) >= '0' && inputText.charAt(i) <= '9') || (inputText.charAt(i) >= 'A' && inputText.charAt(i) <= 'F') || (inputText.charAt(i) >= 'a' && inputText.charAt(i) <= 'f') || (inputText.charAt(i) == '+') || (inputText.charAt(i) == '-') ||
+      (inputText.charAt(i) == '/') || (inputText.charAt(i) == '*') || (inputText.charAt(i) == ')') || (inputText.charAt(i) == '('))) {
+        //console.log(inputText.charAt(i));
+        fail = 1;
+        break;
+    }
+}
+
+    //console.log(correct);
+    if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
+      displayToastMessage("Es dürfen per Paste nur Hexzahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
+      event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
+      return false;
+    } else {
+      return true;
+    }
+}
+
 function hexaKorrigieren(string) {
    var extra = "0X";
    var hex = /[0-F|X]/;
