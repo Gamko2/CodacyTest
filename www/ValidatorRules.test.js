@@ -213,7 +213,7 @@ test('((-100)) equals false', () => {
 
 
 //Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
-
+/*
 test('(6+1)(4+10) equals true', () => {
   expect(valRules.checkCloseOpenBrackets('(6+1)(4+10)')).toBe(true);
 });
@@ -221,6 +221,7 @@ test('(6+1)(4+10) equals true', () => {
 test('3+4 equals false', () => {
   expect(valRules.checkCloseOpenBrackets('3+4')).toBe(false);
 });
+*/
 
 
 //Überprüft, ob die Klammern leer sind
