@@ -53,8 +53,8 @@ function bracketsCheck(string) {
       else if(closedBracketsPattern.test(c)) {brackets--;}
    }
 
-   if(brackets == 0) {return true}
-   else {return false}
+   if(brackets == 0) {return true;}
+   else {return false;}
 }
 
 //Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
@@ -62,15 +62,6 @@ function afterBracketsNoMulDiv(x) {
   var pattern = /([\(])([*]|[\/])/;
 
   var c = pattern.test(x);
-
-  return c;
-}
-
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-function checkCloseOpenBrackets(string) {
-  var patt = /([\)])([\(])/
-
-  var c = patt.test(string);
 
   return c;
 }
@@ -86,6 +77,17 @@ function removeEmpty(string) {
   return string;
 }
 
+function emptyString(string) {
+ if(string == "") {return true;}
+ else return false;
+}
+
+function removePrefix(ausdruck) {
+  ausdruck = ausdruck.replace(/0X/g, "");
+  ausdruck = ausdruck.replace(/0B/g, "");
+  return ausdruck;
+}
+
 module.exports = {
   operators: operators,
   beginning: beginning,
@@ -93,6 +95,5 @@ module.exports = {
   emptyBrackets: emptyBrackets,
   bracketsCheck: bracketsCheck,
   afterBracketsNoMulDiv: afterBracketsNoMulDiv,
-  checkCloseOpenBrackets: checkCloseOpenBrackets,
   removeEmpty: removeEmpty
 }

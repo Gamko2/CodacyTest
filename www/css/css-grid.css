@@ -16,7 +16,7 @@
     cursor: pointer;
   }
 
- /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
+ /* This is to predefine zones in the grid to make swapping buttons around easier.*/
 .zero{
   grid-area: zero;
 }
@@ -74,7 +74,7 @@ grid-area: decimal;
 .plus {
   grid-area: plus;
 }
-.komma {
+.floatkomma {
   grid-area: komma;
 }
 .equal {
@@ -101,7 +101,7 @@ grid-area: decimal;
 .multiply {
   grid-area: multiply;
 }
-.twentyeigth {
+.minus {
   grid-area: minus;
 }
 .twentynine {
@@ -128,10 +128,10 @@ grid-area: decimal;
     text-align: center;
     overflow: hidden;
     cursor: pointer;
-    border-width:5px;  
+    border-width:5px;
     border-style:groove
   }
-  
+
   /*Not used anymore*/
   .grid-button:after {
     condecimalt: "";
@@ -170,7 +170,7 @@ grid-area: decimal;
     height: 100vh;
     grid-gap: 5px;
   }
-  
+
   /*The grid for the decimal mode*/
   .decimal-grid {
     display: grid;
@@ -190,13 +190,13 @@ grid-area: decimal;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: 
+    grid-template-areas:
     "decimal hex ce clear"
     "bin openbracket closebracket divide"
     "seven eight nine multiply"
     "four five six minus"
     "one two three plus"
-    "zero komma A B"
+    "zero . A B"
     "C D E F"
     "equal equal equal equal"
 
@@ -208,15 +208,15 @@ grid-area: decimal;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: 
+    grid-template-areas:
     "decimal hex ce clear"
     "bin openbracket closebracket divide"
-    "plus multiply komma minus"
+    "plus multiply . minus"
     "zero zero one one"
     "equal equal equal equal"
   }
 
 
-  
-  
+
+
   /*# sourceMappingURL=build/css/styles.css.map */

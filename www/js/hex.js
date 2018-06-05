@@ -1,15 +1,44 @@
 /*Der hexadezimale DisplayValidator sorgt dafür, dass im Inputfeld nur die Hexadezimalzahlen, Operatoren und die Klammern vom
 User eingetippt werden können. Alles andere wird durch evt.preventDefault() verhindert*/
 function hexDisplayValidator(evt) {
+  changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
   charCode = String.fromCharCode(charCode);
 
-  var patt = /[0-F|+|\-|*|/|(|)]/;
-  var c = patt.test(charCode);
+  var patt = /[0-F|+|\-|*|/|(|)|a-f|\.]/;
+  var forbidden = /[@|\||:|;|>|<|?|=]/;
 
-  if(c === false) {
+  var c = patt.test(charCode);
+  var f = forbidden.test(charCode);
+  if(c === false || f === true) {
     evt.preventDefault();
   }
+}
+
+function hexPaste(event) {
+    var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
+    var fail = 0;
+    var i = 0;
+
+    /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
+    keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
+    for(i = 0; i < inputText.length; i++) {
+      if(!((inputText.charAt(i) >= '0' && inputText.charAt(i) <= '9') || (inputText.charAt(i) >= 'A' && inputText.charAt(i) <= 'F') || (inputText.charAt(i) >= 'a' && inputText.charAt(i) <= 'f') || (inputText.charAt(i) == '+') || (inputText.charAt(i) == '-') ||
+      (inputText.charAt(i) == '/') || (inputText.charAt(i) == '*') || (inputText.charAt(i) == ')') || (inputText.charAt(i) == '('))) {
+        //console.log(inputText.charAt(i));
+        fail = 1;
+        break;
+    }
+}
+
+    //console.log(correct);
+    if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
+      displayToastMessage("Es dürfen per Paste nur Hexzahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
+      event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
+      return false;
+    } else {
+      return true;
+    }
 }
 
 /*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
@@ -21,7 +50,7 @@ Wenn hex.test(c) false returned und number true returned, bedeutet dass nach 0X[
 */
 function hexaKorrigieren(string) {
    var extra = "0X";
-   var hex = /[0-F|X]/;
+   var hex = /[0-F|X|a-f]/;
    var neo = "";
 
    var number = false;
@@ -51,7 +80,7 @@ function hexaKorrigieren(string) {
 
 //Überprüft, ob nach Hexadezimal eine geöffnete Klammer folgt, wird für das einfügen eines Multilikationszeichen wichtig
 function hexaCheckBrackets(string) {
-  var patt = /([0-F]+[\(]|[\)][0-F]+)/
+  var patt = /([0-F|a-f]+[\(]|[\)][0-F|a-f]+)/
 
   var c = patt.test(string);
 
@@ -62,7 +91,7 @@ function hexaCheckBrackets(string) {
 oder sich schließenden und öffnenden Klammer hinzuzufügen.
 */
 function hexaModifizieren(string) {
-   var binaryPattern = /[0-F]/;
+   var binaryPattern = /[0-F|a-f]/;
 
    var neo = string.charAt(0);
    var zusatz = "*";
@@ -89,21 +118,32 @@ und eine Fehlermeldung ausgegeben*/
 function hexInputValidator(string) {
  //string = korrigieren(string);
 
+ var message1 = "";
+ var message2 = "";
+
+ var j = emptyBrackets(string);
+ if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
+
+ var e = emptyString(string);
+ if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); changeColor(); return false;}
+
  var brackets = bracketsCheck(string);
- if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
+ if(brackets == false) {message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); changeColor(); return false;}
 
  var operator = operators(string);
- if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(operator == true) {message2 = "Die Operatoren sind hintereinander"; waitForToast(message1, message2); changeColor(); return false;}
 
  var after = afteroperator(string);
- if(after == false) {displayToastMessage("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {message2 = "Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"; waitForToast(message1, message2); changeColor(); return false;}
 
  var beg = beginning(string);
- if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(beg == true) {message2 = "Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"; waitForToast(message1, message2); changeColor(); return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(aBNMD == true) {message2 = "Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"; waitForToast(message1, message2); changeColor(); return false;}
 
+
+ waitForToast(message1, message2);
  return true;
 }
 

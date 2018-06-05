@@ -1,3 +1,4 @@
+
 /*Die Enumeration dient später zum Vergleichscheck bei der Funktion setMode(m)
 */
 var mode = {
@@ -30,128 +31,48 @@ Wenn eines dieser Fälle auftritt, wird ein Malzeichen eingefügt. Danach folgt 
 Funktion und wenn das Ergebnis Infinity ausgibt, soll nochmals eine Fehlermeldung angezeigt werden.
 */
 function decCheck() {
-  //console.log("decCheck()");
-  var erg = 0;
-  var number = 0;
-  var string = readInput();
+  var ausdruck = readInput(); //OX anhängen
+  var ergebnis = 0;
 
-  var number3 = emptyBrackets(string);
+  if(decInputValidator(ausdruck) === true) {
+    //var number1 = checkBinBrackets(string);
+    ausdruck = decModifizieren(readInput());
+    ergebnis = eval(ausdruck);
+    ergebnis = (Math.round(ergebnis * 1000) / 1000);
 
-  //Leere Klammern entfernen
-  if(number3 == true) {
-    string = removeEmpty(string);
-    writeOutput(string);
-  }
-
-  if(decInputValidator(string) === true) {
-    var number1 = checkDecBrackets(string);
-    var number2 = checkCloseOpenBrackets(string);
-
-    if(number1 == true || number2 == true) {
-      //console.log("Push");
-      string = decModifizieren(string);
-      //console.log(string);
+    if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
+    else { writeOutput(ergebnis); }
     }
-
-    if(string == "") {
-      displayToastMessage("Das Eingabefeld ist leer!");
-    } else {
-      erg = eval(string);
-
-      if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
-      } else {
-
-        //Runden auf 3 Stellen nach dem Komma
-        /*Funktionsbeispiel: number = 1.2345 -> 1.2345 * 1000 -> 1234.5 -> durch Math.round -> 1235 und durch 1000 -> erg = 1.235
-        */
-        if(erg.toString().includes(".")) {
-          number = erg;
-          erg = (Math.round(number * 1000) / 1000);
-        }
-
-        writeOutput(erg);
-      }
-    }
-  }
 }
 
 //binCheck funktioniert ebenfalls wie decCheck
 function binCheck() {
-  //console.log("binCheck()");
-  var string = readInput();
-  var number3 = emptyBrackets(string);
 
-  //Leere Klammern entfernen
-  if(number3 == true) {
-    string = removeEmpty(string);
-    writeOutput(string);
-  }
+  var ausdruck = korrigieren(readInput()); //OB anhängen
+  var ergebnis = 0;
 
-  string = korrigieren(readInput());
-  //console.log(string);
+  if(binInputValidator(ausdruck) === true) {
+    //var number1 = checkBinBrackets(string);
+    ausdruck = binModifizieren(korrigieren(readInput()));
+    ergebnis = eval(ausdruck);
+    ergebnis = ergebnis.toString(2);
 
-  var erg = 0;
-  var result;
-  if(binInputValidator(string) === true) {
-    var number1 = checkBinBrackets(string);
-    var number2 = checkCloseOpenBrackets(string);
-
-    if(number1 == true || number2 == true) {
-      //console.log("Push");
-      string = binModifizieren(string);
-      //console.log(string);
+    if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
+    else { writeOutput(ergebnis); }
     }
-
-    if(string == "") {
-      displayToastMessage("Das Eingabefeld ist leer!");
-    } else {
-      result = eval(string);
-      erg = result.toString(2);
-      if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
-      } else {
-        writeOutput(erg);
-      }
-    }
-  }
 }
 
 //hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
-  //console.log("hexCheck()");
-  var string = readInput();
-  var erg = 0;
-  var result;
+  var ausdruck = hexaKorrigieren(readInput()); //OX anhängen
+  var ergebnis = 0;
 
-  var number3 = emptyBrackets(string);
-
-  //Leere Klammern entfernen
-  if(number3 == true) {
-    string = removeEmpty(string);
-    writeOutput(string);
-  }
-
-  var string = hexaKorrigieren(readInput());
-  if(hexInputValidator(string) === true) {
-    var number1 = hexaCheckBrackets(string);
-    var number2 = checkCloseOpenBrackets(string);
-
-    if(number1 == true || number2 == true) {
-      string = hexaModifizieren(string);
+  if(hexInputValidator(ausdruck) === true) {
+    //var number1 = checkBinBrackets(string);
+    ausdruck = hexaModifizieren(hexaKorrigieren(readInput()));
+    ergebnis = eval(ausdruck);
+    ergebnis = ergebnis.toString(16).toUpperCase();
+    if(ergebnis == "INFINITY") { displayToastMessage("Teilen durch 0 nicht möglich!"); }
+    else { writeOutput(ergebnis); }
     }
-
-    if(string == "") {
-      displayToastMessage("Das Eingabefeld ist leer!");
-    } else {
-      var result = eval(string);
-      erg = result.toString(16).toUpperCase();
-
-      if(erg == "INFINITY") {
-        alert("Teilen durch 0 nicht möglich!");
-      } else {
-        writeOutput(erg);
-      }
-    }
-  }
 }
