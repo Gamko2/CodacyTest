@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <!-- Required meta tags-->
+  <!-- Requigreen meta tags-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,210 +12,119 @@
   <title>Alekulator</title>
   <!-- Path to Framework7 Library CSS, Material Theme -->
   <link rel="stylesheet" href="framework7/css/framework7.css">
-
+  <link rel="stylesheet" href="css/framework7.material.min.css">
+  <!-- Path to Framework7 color related styles, Material Theme -->
+  <link rel="stylesheet" href="css/framework7.material.colors.min.css">
   <!-- Path to your custom app styles-->
   <link rel="stylesheet" href="css/my-app.css">
   <!-- Path to Framework7 icons -->
   <link rel="stylesheet" href="css/icons.css">
   <link rel="stylesheet" href="css/css-grid.css">
-  <!-- Favicon -->
   <link rel="icon" href="icon/icon.png" type="image/x-icon">
-
 </head>
 
 <body onload="init()">
-  <div id="app">
+  <!--<div id="app">-->
     <!-- Views -->
-    <div class="calculator-grid">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="left">Alekulator</div>
-        </div>
-      </div>
-      <!-- Toolbar. In Material theme it should be inside of the page-->
+    <div id = "app" class="views">
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed toolbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+           <!--navbar-->
+           <div class="calculator-grid">
+             <div class="navbar">
+               <div class="navbar-inner">
+                 <div class="left"></div>
+                 <div class="center sliding">Alekulator</div>
+              </div>
+             </div>
+             <!-- Toolbar. In Material theme it should be inside of the page-->
 
-      <!-- Scrollable page content -->
+             <!-- Scrollable page content -->
 
-      <form id="my-form" name="Alekulator">
-
-
-                  <input id="input" type="text" autofocus="autofocus" name="name" placeholder="0">
-
-      </form>
-      <div>
-        <button class="btn button-fill button-maxed open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
-      </div>
-      <div id="grid-mode" class="hexadecimal-grid">
-        <button id="dec" class="button-fill color-gray button-maxed decimal" value="dec" onclick="decimal()">Dec</button>
-        <button id="hex" class="button-fill color-gray button-maxed hex" value="hex" onclick="hexadecimal()">Hex</button>
-        <button id="empty" class="button-fill color-gray button-maxed ce" onclick="reduce(1)">CE</button>
-        <button id="clear" class="button-fill color-gray button-maxed clear" onclick="Clear()">Clear</button>
-
-
-        <button id="bin" class="button-fill color-gray button-maxed bin" value="bin" onclick="binary()">Bin</button>
-        <button id="leftparantheses" class="button-fill color-orange button-maxed openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
-        <button id="rightparantheses" class="button-fill color-orange button-maxed closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
-        <button id="divid" class="button-fill color-orange button-maxed divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
-
-        <button id="1" class="button-fill color-indigo button-maxed one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
-        <button id="2" class="button-fill color-indigo button-maxed two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
-        <button id="3" class="button-fill color-indigo button-maxed three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
-        <button id="multiplication" class="button-fill color-orange button-maxed multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
-
-        <button id="4" class="button-fill color-indigo button-maxed four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-        <button id="5" class="button-fill color-indigo button-maxed five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-        <button id="6" class="button-fill color-indigo button-maxed six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-        <button id="subtract" class="button-fill button-maxed color-orange minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
-
-        <button id="7" class="button-fill color-indigo button-maxed seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
-        <button id="8" class="button-fill color-indigo button-maxed eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
-        <button id="9" class="button-fill color-indigo button-maxed nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
-        <button id="add" class="button-fill color-orange button-maxed plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
+             <form id="my-form" name="Alekulator">
+               <input id="input" type="text" name="name" placeholder="0">
+             </form>
+             <div>
+               <button class="btn button-fill button-maxed gray open-toast-top" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+             </div>
+             <div id="grid-mode" class="decimal-grid">
+               <!--button id="dec" class="col button-big button-fill gray decimal" value="dec" onclick="decimal()">Dec</button-->
+               <!--button id="hex" class="col button-big button-fill gray hex" value="hex" onclick="hexadecimal()">Hex</button-->
+               <button id="empty" class="col button-fill gray ce" onclick="reduce(1)">CE</button>
+               <button id="clear" class="col button-fill gray clear" onclick="Clear()">Clear</button>
 
 
-        <button class="button-fill color-indigo button-maxed zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
-        <button id="floatkomma" class="button-fill color-indigo button-maxed komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
+               <!--button id="bin" class="col button-big button-fill gray bin" value="bin" onclick="binary()">Bin</button-->
+               <button id="leftparantheses" class="col button-fill green openbracket" value="(" onclick="document.Alekulator.name.value += '('">(</button>
+               <button id="rightparantheses" class="col button-fill green closebracket" value=")" onclick="document.Alekulator.name.value += ')'">)</button>
+               <button id="divid" class="col button-fill green divide" value="/" onclick="document.Alekulator.name.value += '/'">/</button>
 
-        <button id="equal" class="button-fill color-orange button-maxed equal" value="=">=</button>
+               <button id="1" class="col button-fill blue one" value="1" onclick="document.Alekulator.name.value += '1'">1</button>
+               <button id="2" class="col button-fill blue two" value="2" onclick="document.Alekulator.name.value += '2'">2</button>
+               <button id="3" class="col button-fill blue three" value="3" onclick="document.Alekulator.name.value += '3'">3</button>
+               <button id="multiplication" class="col button-fill green multiply" value="*" onclick="document.Alekulator.name.value += '*'">*</button>
 
-        <button id="A" class="button-fill color-indigo button-maxed A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-        <button id="B" class="button-fill color-indigo button-maxed B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-        <button id="C" class="button-fill color-indigo button-maxed C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-        <button id="D" class="button-fill color-indigo button-maxed D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-        <button id="E" class="button-fill color-indigo button-maxed  E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-        <button id="F" class="button-fill color-indigo button-maxed  F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+               <button id="4" class="col button-fill blue four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
+               <button id="5" class="col button-fill blue five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
+               <button id="6" class="col button-fill blue six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
+               <button id="subtract" class="col button-fill green minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+
+               <button id="7" class="col button-fill blue seven" value="7" onclick="document.Alekulator.name.value += '7'">7</button>
+               <button id="8" class="col button-fill blue eight" value="8" onclick="document.Alekulator.name.value += '8'">8</button>
+               <button id="9" class="col button-fill blue nine" value="9" onclick="document.Alekulator.name.value += '9'">9</button>
+               <button id="add" class="col button-fill green plus" value="+" onclick="document.Alekulator.name.value += '+'">+</button>
 
 
-      </div>
-      <div class="toolbar toolbar-bottom">
-        <div class="toolbar-inner">
-          <a>
-            <i class="f7-icons size-22">info</i>
-            <span class="link popup-open"href="#" data-popup=".popup-about">About</span>
-          </a>
-          <a>
-              <i class="f7-icons size-22">email</i>
-            <span class="link popup-open" href="#" data-popup=".popup-email">E-Mail</span>
-          </a>
-        </div>
-      </div>
+               <button class="col button-fill blue zero" value="0" onclick="document.Alekulator.name.value += '0'">0</button>
+               <button id="floatkomma" class="col button-fill gray komma" value="." onclick="document.Alekulator.name.value += '.'">.</button>
 
-    </div>
-  </div>
-<!-- About popup-->
-  <div class="popup popup-about">
-    <head>
-      <meta name = "viewport" content = "width = device-width, initial-scale = 1,
-         maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
-      <meta name = "apple-mobile-web-app-capable" content = "yes" />
-      <meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
-      <title>Email</title>
-			<link rel="stylesheet" href="css/framework7.material.min.css">
-		  <!-- Path to Framework7 icons -->
-		  <link rel="stylesheet" href="css/icons.css">
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.min.css" />
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.colors.min.css" />
-   </head>
-   <body>
-      <div class = "views">
-         <div class = "view view-main">
-            <div class = "navbar">
-               <div class = "navbar-inner">
-                <p><a class="link popup-close" href="#">Close</a></p>
-               </div>
+               <button id="equal" class="col button-fill green equal" value="=">=</button>
+
+               <button id="A" class="col button-fill gray A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
+               <button id="B" class="col button-fill gray B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
+               <button id="C" class="col button-fill gray C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
+               <button id="D" class="col button-fill gray D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
+               <button id="E" class="col button-fill gray E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
+               <button id="F" class="col button-fill gray F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+
+
+             </div>
+             <div class="toolbar toolbar-bottom">
+                 <div class="toolbar-inner">
+                   <a class="link popup-open" href="#" data-popup=".popup-about"><i class="material-icons size-22">info</i></a>
+                   <a href="#" id="dec" onclick="decimal()" class="link button decimal" value="dec">Dec</a>
+                   <a href="#" id="hex" onclick="hexadecimal()" class="link button hex" value="hex">Hex</a>
+                   <a href="#" id="bin" onclick="binary()" class="link button bin" value="dec">Bin</a>
+                   <a href="#" onclick="sendemail()" class="link"><i class="material-icons size-22">email</i></a>
+                 </div>
+
+           </div>
+           <div class="popup popup-about">
+            <div class="block">
+              <!-- Close Popup -->
+              <p><a class="link popup-close" href="#">Close</a></p>
+              <h4>Welcome to Alekulator Version: 1.0!!!</h4>
+              <p> Alekulator ist ein Hybridapp.</p>
+              <p> Es wurde im Sommer Semester 2018 mit Framework7 im Raum des Fach Informatik Projekts durch die achtköpfige Team der Informatik Studenten von Frankfurt University of Applied Sciences entwickelt.</p>
+              <p>Alekulator kann Rechneraufgaben in drei Modes: Decimal, Hexadecimal und Binary durchführen.</p>
             </div>
-            <div class = "pages navbar-through ">
-               <div data-page = "index" class = "page">
-                  <div class = "page-content">
-										<div class="content-block">
-											<p>Akulator</p>
-											<p>Version: 1.0</p>
-											<p>2018</p>
-										</div>
-                  </div>
-               </div>
             </div>
-         </div>
-      </div>
-      <script type = "text/javascript"
-         src = "framework7/js/framework7.min.js"></script>
-   </body>
-  </div>
+             <!-- REFERENCE SCRIPTS-->
+             <!-- Path to Framework7 Library JS-->
+            <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
 
-<!-- Email Popup-->
-  <div class ="popup popup-email">
-    <head>
-      <meta name = "viewport" content = "width = device-width, initial-scale = 1,
-         maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
-      <meta name = "apple-mobile-web-app-capable" content = "yes" />
-      <meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
-      <title>Email</title>
-			<link rel="stylesheet" href="css/framework7.material.min.css">
-		  <!-- Path to Framework7 icons -->
-		  <link rel="stylesheet" href="css/icons.css">
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.min.css" />
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.colors.min.css" />
-   </head>
-   <body>
-      <div class = "views">
-         <div class = "view view-main">
-            <div class = "navbar">
-               <div class = "navbar-inner">
-                <p><a class="link popup-close" href="#">Close</a></p>
-               </div>
-            </div>
-            <div class = "pages navbar-through ">
-               <div data-page = "index" class = "page">
-                  <div class = "page-content">
-										<form id = "my-form" class = "list-block">
-                        <p align="center" ><font size="2">Share your result</font-size></p>
-												<br>
-											  <ul>
-													 <li>
-                              <div class = "item-content">
-                                 <div class = "item-media"><i class = "icon icon-form-email"></i></div>
-                                    <div class = "item-inner">
-                                       <div class = "item-title label">E-mail</div>
-                                         <div class = "item-input">
-                                            <input type = "email" placeholder = "Enter your e-mail">
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-										   </ul>
-											 <div class="content-block">
-			                 <div class="block">
-			                   <div class="row center">
-			                      <button id="send" class="col-100 button button-fill button-round color-red">Send</button>
-			                   </div>
-											 </div>
-										</form>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <script type = "text/javascript"
-         src = "framework7/js/framework7.min.js"></script>
-   </body>
 
-  </div>
-
+  <!--end Picker-->
   <!-- REFERENCE SCRIPTS-->
   <!-- Path to Framework7 Library JS-->
-  <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
-  <!--script type="text/javascript" src="../node_modules/framework7/dist/js/framework7.min.js"></script-->
+  <script src="js/toast.js"></script>
   <!-- Path to your app js-->
   <script src="js/app.js"></script>
-  <!-- Path to your cordova js-->
   <script src="js/interface.js"></script>
-  <script src="js/toast.js"></script>
   <script src="js/clipboard.min.js"></script>
-  <!--script src="../node_modules/clipboard/dist/clipboard.min.js"></script-->
   <script src="js/clipboard.js"></script>
   <script src="js/bin.js"></script>
   <script src="js/dec.js"></script>
@@ -223,6 +132,8 @@
   <script src="js/hex.js"></script>
   <script src="js/mode.js"></script>
   <script src="js/ValidatorRules.js"></script>
+  <script src="js/email.js"></script>
+
 </body>
 
 </html>
