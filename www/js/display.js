@@ -1,23 +1,37 @@
 //Ließt das Eingabefeld
 function readInput() {
-  var inp = document.getElementById('input').value;
+  var inp = document.getElementById('input').innerHTML;
   return inp;
 }
 
 //Schreibt in das Eingabefeld und ersetzt es
 function writeOutput(x) {
-  document.getElementById('input').value = x;
+  document.getElementById('input').innerHTML = x;
 }
 
 //Leert das Eingabefeld
 function Clear() {
-  document.getElementById('input').value = '';
+  document.getElementById('input').innerHTML = '';
 }
 
 //Löscht Zeichen in Abhängigkeit von Amount
 function reduce(amount) {
   var text = readInput();
-  document.getElementById("input").value = text.substring(0,text.length-amount);
+  //console.log(document.getElementById('input').attributes);
+  let lastCharacter = text.charAt(text.length-1);
+  if (lastCharacter == ">"){
+    let n=text.indexOf("<font" );
+    let end = text.indexOf("</font>")
+    let result =text.substring(0,n);
+    result += text.substring(n+18,n+19);
+    result += text.substring(end+7,text.length);
+    document.getElementById('input').innerHTML = result.substring(0,result.length-amount);
+    console.log(document.getElementById('input').innerHTML);
+  }
+
+  else {
+    document.getElementById('input').innerHTML = text.substring(0,text.length-amount);
+  }
 }
 
 //Mode auf HEX stellen, da wir beim User Interface im Default Mode bei HEX liegen
@@ -35,17 +49,17 @@ function setValidator(x) {
 //Löschen der alten Events
   //if(mode == "dec") {
     document.getElementById("equal").removeEventListener("click", decInputValidator);
-    document.getElementById("input").removeEventListener("keypress", decDisplayValidator);
+    document.getElementById('input').removeEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").removeEventListener("click", decCheck);
     //console.log("Löschen Decimal Successful!");
   //} else if(mode == "hex") {
     document.getElementById("equal").removeEventListener("click", hexInputValidator);
-    document.getElementById("input").removeEventListener("keypress", hexDisplayValidator);
+    document.getElementById('input').removeEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").removeEventListener("click", hexCheck);
     //console.log("Löschen Hexadecimal Successful!");
   //} else if(mode == "bin") {
     document.getElementById("equal").removeEventListener("click", binInputValidator);
-    document.getElementById("input").removeEventListener("keypress", binDisplayValidator);
+    document.getElementById('input').removeEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").removeEventListener("click", binCheck);
     //console.log("Löschen Binary Successful!");
   //}
@@ -54,19 +68,19 @@ function setValidator(x) {
 //Hinzufügen neuer Validatoren
   if(mode === "dec") {
     //document.getElementById("equal").addEventListener("click", inputValidator);
-    document.getElementById("input").addEventListener("keypress", decDisplayValidator);
+    document.getElementById('input').addEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").addEventListener("click", decCheck);
     //console.log("Decimal Validator Successful!");
 
   } else if(mode === "hex") {
     //document.getElementById("equal").addEventListener("click", hexInputValidator);
-    document.getElementById("input").addEventListener("keypress", hexDisplayValidator);
+    document.getElementById('input').addEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").addEventListener("click", hexCheck);
     //console.log("Hexadecimal Validator Successful!");
 
   } else if(mode === "bin") {
     //document.getElementById("equal").addEventListener("click", binInputValidator);
-    document.getElementById("input").addEventListener("keypress", binDisplayValidator);
+    document.getElementById('input').addEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").addEventListener("click", binCheck);
     //console.log("Binary Validator Successful!");
   }

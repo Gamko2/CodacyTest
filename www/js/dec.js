@@ -17,7 +17,7 @@ function decDisplayValidator(evt) {
   evt.preventDefault();
   //return false;
 }
-/*
+
 function markRed(index){
 
 let inputString = readInput();
@@ -28,11 +28,11 @@ console.log(cut1);
 console.log(toBeColored);
 console.log(cut2);
 console.log(toBeColored.fontcolor("red"));
-let coloredResult = cut1 + toBeColored.fontcolor("green") +cut2;
+let coloredResult = cut1 + toBeColored.fontcolor("red") +cut2;
 console.log(coloredResult);
 writeOutput(coloredResult);
 }
-*/
+
 
 //3 Nachkommastellen dürfen nur eingegeben werden
 /*function checkAfterPoint(string) {
@@ -71,9 +71,9 @@ document.addEventListener('paste', function (event) {
 //Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
 function kommaCheck(x) {
   var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
-  var c = pattern.test(x);
+  return x.search(pattern);
 
-  return c;
+  
 }
 
 //Überprüft, ob nach einer Zahl eine Klammer folgt, für das Einfügen eines Multiplikationszeichen notwendig
@@ -107,32 +107,53 @@ function decModifizieren(string) {
   return neo;
 }
 
+function adjustKommaRedMark(index, string){
+for (i=index; i<readInput().length; i++){
+  if (string.charAt(i)=="."){
+    markRed(i);
+    break;
+  }
+}
+};
+
 /*Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben
 und eine Fehlermeldung ausgegeben*/
 
 function decInputValidator(string) {
 
   var b = bracketsCheck(string);
-  if (b == false) { displayToastMessage("Die Klammern sind nicht richtig gesetzt!"); return false; }
+  if (b !== -1)
+   { 
+    displayToastMessage("Die Klammern sind nicht richtig gesetzt!");
+    markRed(bracketsCheck(string));
+    return false; }
 
   
   if (operators(string) !== -1) {
     displayToastMessage("Operatoren hintereinander");
-    //markRed(operators(string));
+    markRed(operators(string));
     return false;
   }
 
   var a = afteroperator(string);
-  if (a == false) { displayToastMessage("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen"); return false; }
+  if (a == false) { displayToastMessage("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen");
+  markAfterOperator(string);
+  return false; }
 
   var aBNMD = afterBracketsNoMulDiv(string);
-  if (aBNMD == true) { displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!"); return false; }
+  if (aBNMD !== 0) { displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Zahl stehen!");
+  markRed(afterBracketsNoMulDiv(string));
+  return false; }
 
   var kc = kommaCheck(string);
-  if (kc == true) { displayToastMessage("Es darf pro Zahl nur ein Komma vorkommen"); return false; }
+  if (kc !== -1) { displayToastMessage("Es darf pro Zahl nur ein Komma vorkommen");
+  adjustKommaRedMark(kommaCheck(string), string);
+  return false; }
 
   var beg = beginning(string);
-  if (beg == true) { displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!"); return false; }
+  if (beg !== -1) { displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!");
+  markRed(beginning(string));
+  return false; }
 
   return true;
 }

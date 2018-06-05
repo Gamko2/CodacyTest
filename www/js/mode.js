@@ -34,46 +34,50 @@ function decCheck() {
   var erg = 0;
   var number = 0;
   var string = readInput();
+  if (checkForIncorrectInput(string)){
+    var number3 = emptyBrackets(string);
 
-  var number3 = emptyBrackets(string);
-
-  //Leere Klammern entfernen
-  if(number3 == true) {
-    string = removeEmpty(string);
-    writeOutput(string);
-  }
-
-  if(decInputValidator(string) === true) {
-    var number1 = checkDecBrackets(string);
-    var number2 = checkCloseOpenBrackets(string);
-
-    if(number1 == true || number2 == true) {
-      //console.log("Push");
-      string = decModifizieren(string);
-      //console.log(string);
+    //Leere Klammern entfernen
+    if(number3 !== -1) {
+      string = removeEmpty(string);
+      writeOutput(string);
     }
-
-    if(string == "") {
-      displayToastMessage("Das Eingabefeld ist leer!");
-    } else {
-      erg = eval(string);
-
-      if(erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
-      } else {
-
-        //Runden auf 3 Stellen nach dem Komma
-        /*Funktionsbeispiel: number = 1.2345 -> 1.2345 * 1000 -> 1234.5 -> durch Math.round -> 1235 und durch 1000 -> erg = 1.235
-        */
-        if(erg.toString().includes(".")) {
-          number = erg;
-          erg = (Math.round(number * 1000) / 1000);
-        }
-
-        writeOutput(erg);
+  
+    if(decInputValidator(string) === true) {
+      var number1 = checkDecBrackets(string);
+      var number2 = checkCloseOpenBrackets(string);
+  
+      if(number1 == true || number2 == true) {
+        //console.log("Push");
+        string = decModifizieren(string);
+        //console.log(string);
       }
-    }
+  
+      if(string == "") {
+        displayToastMessage("Das Eingabefeld ist leer!");
+      } else {
+        erg = eval(string);
+  
+        if(erg == Infinity) {
+          alert("Teilen durch 0 nicht möglich!");
+        } else {
+  
+          //Runden auf 3 Stellen nach dem Komma
+          /*Funktionsbeispiel: number = 1.2345 -> 1.2345 * 1000 -> 1234.5 -> durch Math.round -> 1235 und durch 1000 -> erg = 1.235
+          */
+          if(erg.toString().includes(".")) {
+            number = erg;
+            erg = (Math.round(number * 1000) / 1000);
+          }
+  
+          writeOutput(erg);
+        }
+      }
+    } 
+  }else {
+    displayToastMessage("Fix the old errors first");
   }
+
 }
 
 //binCheck funktioniert ebenfalls wie decCheck
@@ -127,8 +131,9 @@ function hexCheck() {
   var number3 = emptyBrackets(string);
 
   //Leere Klammern entfernen
-  if(number3 == true) {
+  if(emptyBrackets(string)!== -1) {
     string = removeEmpty(string);
+    displayToastMessage("Leere Klammern entfernt");
     writeOutput(string);
   }
 

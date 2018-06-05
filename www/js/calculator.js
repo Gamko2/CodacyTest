@@ -149,7 +149,7 @@ function displayValidator(x) {
 
 
     if (temp2 !== '') {
-      document.getElementById('input').value = temp2;
+      document.getElementById('input').innerHTML = temp2;
     }
 
     //------------------------------------------------------------------------------------*/
@@ -190,7 +190,7 @@ function displayValidator(x) {
             return false;
           } else {
             var pushMultiplicationSignNumber = 0;
-            var saveInput = document.getElementById('input').value;
+            var saveInput = document.getElementById('input').innerHTML;
             var newString = " ";
             for (i = 0; i < input.length; i++) {
               if ((input.charAt(i) >= '0' && input.charAt(i) <= '9') && input.charAt(i + 1) == '(') {
@@ -206,13 +206,13 @@ function displayValidator(x) {
                 return false;
               }
 
-              document.getElementById('input').value = eval(newString);
+              document.getElementById('input').innerHTML = eval(newString);
             } else {
-              if (eval(document.getElementById('input').value) == "Infinity") {
+              if (eval(document.getElementById('input').innerHTML) == "Infinity") {
                 alert("Division durch 0 ist nicht möglich!");
                 return false;
               } else {
-                document.getElementById('input').value = eval(document.getElementById('input').value);
+                document.getElementById('input').innerHTML = eval(document.getElementById('input').value);
               }
             }
           }

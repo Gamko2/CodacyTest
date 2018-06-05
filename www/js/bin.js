@@ -58,9 +58,7 @@ ein Multiplikationszeichen folgt*/
 function checkBinBrackets(string) {
   var patt = /([0-1]+[\(]|[\)][0-1]+)/
 
-  var c = patt.test(string);
-
-  return c;
+  return string.search(patt);
 }
 
 /*Der Modifizierer ist dafür zuständig ein Malzeichen zwischen einer Binärzahl und einer geöffneten Klammer oder sich schließenden und
@@ -91,20 +89,30 @@ function binModifizieren(string) {
 //Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben und eine Fehlermeldung ausgegeben
 function binInputValidator(string) {
  //string = korrigieren(string);
- var brackets = bracketsCheck(string);
- if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
+ var brackets = bracketsCheck(readInput());
+ if(brackets !== -1) {displayToastMessage("Klammern sind nicht korrekt");
+ markRed(bracketsCheck(readInput()));
+ return false;}
 
- var operator = operators(string);
- if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
+ var operator = operators(readInput());
+ if(operator !== -1) {displayToastMessage("Mehrere hintereinander folgende Operatoren");
+ markRed(operators(readInput()));
+ return false;}
 
- var after = afteroperator(string);
- if(after == false) {displayToastMessage("Nach einem Operator muss eine Binärzahl oder eine sich öffnende Klammer stehen"); return false;}
+ var a = afteroperator(readInput());
+ if (a == false) { displayToastMessage("Nach einem Operator muss eine Zahl oder eine sich öffnende Klammer stehen");
+ markAfterOperator(readInput());
+ return false; }
 
  var beg = beginning(string);
- if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Binärzahl stehen!"); return false;}
+ if(beg !== -1) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Binärzahl stehen!");
+ markRed(beginning(string));
+ return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Binärzahl stehen!"); return false;}
+ if(aBNMD !== 0) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Binärzahl stehen!");
+ markRed(afterBracketsNoMulDiv(string));
+ return false;}
 
  return true;
 }

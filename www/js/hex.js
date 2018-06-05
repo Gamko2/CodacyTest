@@ -90,19 +90,29 @@ function hexInputValidator(string) {
  //string = korrigieren(string);
 
  var brackets = bracketsCheck(string);
- if(brackets == false) {displayToastMessage("Klammern sind nicht korrekt"); return false;}
-
- var operator = operators(string);
- if(operator == true) {displayToastMessage("Mehrere hintereinander folgende Operatoren"); return false;}
+ if(brackets !== -1) {displayToastMessage("Klammern sind nicht korrekt");
+ markRed(bracketsCheck(string));
+ return false;}
+ if (operators(readInput()) !== -1) {
+  displayToastMessage("Operatoren hintereinander");
+  markRed(operators(readInput()));
+  return false;
+}
 
  var after = afteroperator(string);
- if(after == false) {displayToastMessage("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen"); return false;}
+ if(after == false) {displayToastMessage("Nach einem Operator muss eine Hexadezimalzahl oder eine sich öffnende Klammer stehen");
+ markAfterOperator(readInput());
+ return false;}
 
  var beg = beginning(string);
- if(beg == true) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(beg !== -1) {displayToastMessage("Am Anfang dürfen nur +, -, ( oder eine Hexadezimalzahl stehen!");
+ markRed(beginning(string));
+ return false;}
 
  var aBNMD = afterBracketsNoMulDiv(string);
- if(aBNMD == true) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!"); return false;}
+ if(aBNMD !== 0) {displayToastMessage("Nach einer Klammer darf nur +, -, ( oder eine Hexadezimalzahl stehen!");
+ markRed(afterBracketsNoMulDiv(string));
+ return false;}
 
  return true;
 }

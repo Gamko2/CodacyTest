@@ -173,7 +173,7 @@ grid-area: decimal;
   /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 56px 100px 10vh auto 50px;
     height: 100vh;
     grid-gap: 5px;
@@ -237,12 +237,27 @@ grid-area: decimal;
   background-color: orange;
 }
   
+.dontRapeEverything{
+  overflow:hidden;
+
+
+
+}
+
 #input{
   text-align: right;
   font-size: auto;
   background-color: orange;
   color: black;
-  height: 100%;
+  
+ 
+ 
+  
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  
 }
 
 .orangeButton{
