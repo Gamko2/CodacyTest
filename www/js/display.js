@@ -12,6 +12,7 @@ function writeOutput(x) {
 //Leert das Eingabefeld
 function Clear() {
   document.getElementById('input').value = '';
+  changeColorBlack();
 }
 
 //Ändert die Farbe bei Fehlermeldung
@@ -28,6 +29,7 @@ function changeColorBlack(){
 function reduce(amount) {
   var text = readInput();
   document.getElementById("input").value = text.substring(0,text.length-amount);
+  changeColorBlack();
 }
 
 //Mode auf HEX stellen, da wir beim User Interface im Default Mode bei HEX liegen

@@ -3,30 +3,22 @@
 sowie das Backspace eingegeben werden können. Alles andere wird durch das evt.preventDefault() verhindert.
 einzugeben*/
 function decDisplayValidator(evt) {
-  //console.log("decDisplay");
   changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
+
+  if(charCode  === 13){
+     evt.preventDefault();
+     document.getElementById("equal").click();
+  }
+
   if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
   {
-     //displayToastMessage(charCode);
-     /*c = checkAfterPoint(readInput() + String.fromCharCode(charCode));
-     if(c == true) {
-       displayToastMessage("Es dürfen nur 3 Zahlen nach dem Komma folgen");
-       evt.preventDefault();
-     }*/
      return true;
   }
 
    evt.preventDefault();
-   //return false;
 }
 
-//3 Nachkommastellen dürfen nur eingegeben werden
-/*function checkAfterPoint(string) {
-  var pattern = /([0-9]+)([.][0-9][0-9][0-9][0-9]+)/
-  var c = pattern.test(string);
-  return c;
-}*/
 
 //Überprüfung der Eingabe per Paste
 function decPaste(event) {
@@ -57,12 +49,20 @@ function decPaste(event) {
   };
 
 
-//Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
+//Überprüft, ob Kommas richtig benutz wurden
 function kommaCheck(x) {
-  var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
-  var c = pattern.test(x);
 
-  return c;
+var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
+var pattern2 = /([.]+[.])|([.]+([(]|[)]))|(\.$)/;
+
+var a = pattern.test(x);
+var b = pattern2.test(x);
+
+if(a == true | b == true){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 //Überprüft, ob nach einer Zahl eine Klammer folgt, für das Einfügen eines Multiplikationszeichen notwendig
@@ -105,13 +105,16 @@ und eine Fehlermeldung ausgegeben*/
     var message2 = "";
 
     var j = emptyBrackets(string);
-    if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
+    if(j == true) {changeColor(); string = removeEmpty(string); writeOutput(string); message1 = "Keine leeren Klammer eingeben\n";}
 
     var e = emptyString(string);
     if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); changeColor(); return false;}
 
     var b = bracketsCheck(string);
-    if(b == false) {/*displayToastMessage("Die Klammern sind nicht richtig gesetzt!");*/ message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); return false;}
+    if(b == false) {message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); changeColor(); return false;}
+
+    var order = checkBracketsOrder(string);
+    if(order == true) {message2 = "Die Klammernfolge ist nicht richtig!"; waitForToast(message1, message2); changeColor(); return false;}
 
     var o = operators(string);
     if(o == true) {message2 = "Operatoren hintereinander"; waitForToast(message1, message2); changeColor(); return false;}

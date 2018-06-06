@@ -88,6 +88,13 @@ function removePrefix(ausdruck) {
   return ausdruck;
 }
 
+function checkBracketsOrder(string) {
+  var regex = /^[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]+[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]*[0-F|a-f|\.|+|-|\/|*|X|B|(\d|\D)]*[\(]*[0-F|a-f|\.|+|-|\/|*|X|B]*[\(]+[0-F|a-f|\.|+|-|\/|*|X|B]*$/
+
+  return regex.test(string);
+
+}
+
 module.exports = {
   operators: operators,
   beginning: beginning,
@@ -95,5 +102,6 @@ module.exports = {
   emptyBrackets: emptyBrackets,
   bracketsCheck: bracketsCheck,
   afterBracketsNoMulDiv: afterBracketsNoMulDiv,
+  checkBracketsOrder: checkBracketsOrder,
   removeEmpty: removeEmpty
 }

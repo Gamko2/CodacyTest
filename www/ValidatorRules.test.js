@@ -237,3 +237,22 @@ test('3+4 equals false', () => {
   test('adds ((())) equals true', () =>{
   expect(valRules.bracketsCheck('((()))')).toBe(true);
 });
+
+/*-----------------------------------------------------------------------------*/
+
+test('AF*(4532929)/A*(3443344)(482938) equals false', () => {
+  expect(valRules.checkBracketsOrder('AF*(4532929)/A*(3443344)(482938)')).toBe(false);
+});
+
+//123))((123 -> 123)123)(123(123 ->
+test('(123)(123) equals false', () => {
+  expect(valRules.checkBracketsOrder('(123)(123)')).toBe(false);
+});
+
+test('123))((123 equals true', () => {
+  expect(valRules.checkBracketsOrder('123))((123')).toBe(true);
+});
+
+test('123)123)(123(123 equals true', () => {
+  expect(valRules.checkBracketsOrder('123)123)(123(123')).toBe(true);
+});

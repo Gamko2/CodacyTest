@@ -3,6 +3,11 @@ User eingetippt werden können. Alles andere wird durch evt.preventDefault() ver
 function hexDisplayValidator(evt) {
   changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
+  if(charCode === 13){
+     evt.preventDefault();
+     document.getElementById("equal").click();
+  }
+
   charCode = String.fromCharCode(charCode);
 
   var patt = /[0-F|+|\-|*|/|(|)|a-f|\.]/;
@@ -122,13 +127,16 @@ function hexInputValidator(string) {
  var message2 = "";
 
  var j = emptyBrackets(string);
- if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
+ if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); message1 = "Bitte keine leeren Klammer eingeben";}
 
  var e = emptyString(string);
  if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); changeColor(); return false;}
 
  var brackets = bracketsCheck(string);
  if(brackets == false) {message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); changeColor(); return false;}
+
+ var order = checkBracketsOrder(string);
+ if(order == true) {message2 = "Die Klammernfolge ist nicht richtig!"; waitForToast(message1, message2); changeColor(); return false;}
 
  var operator = operators(string);
  if(operator == true) {message2 = "Die Operatoren sind hintereinander"; waitForToast(message1, message2); changeColor(); return false;}

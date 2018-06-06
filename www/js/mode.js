@@ -56,7 +56,7 @@ function binCheck() {
     ausdruck = binModifizieren(korrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(2);
-
+    ergebnis = RoundAfter3(ergebnis, 3, mode.binary);
     if(ergebnis == Infinity) { displayToastMessage("Teilen durch 0 nicht möglich!"); }
     else { writeOutput(ergebnis); }
     }
@@ -72,7 +72,42 @@ function hexCheck() {
     ausdruck = hexaModifizieren(hexaKorrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(16).toUpperCase();
+    ergebnis = RoundAfter3(ergebnis, 3, mode.hexadecimal);
     if(ergebnis == "INFINITY") { displayToastMessage("Teilen durch 0 nicht möglich!"); }
     else { writeOutput(ergebnis); }
     }
+}
+
+//3 Nachkommastellen für Bin/Hex
+function RoundAfter3(erg, digit, mode) {
+  var index = 0;
+  var vierteStelle;
+  var patternRoundUp = /[8-F|8-f]/;
+  var hex = false;
+  var bin = false;
+  var num;
+
+  if(erg.includes('.')) {
+    console.log(erg);
+    index = erg.indexOf(".");
+    if(mode == "hex") {
+      //console.log("Hex-Mode");
+      hex = patternRoundUp.test(erg.charAt(index+4));
+    }
+
+    if(mode == "bin") {
+      if(erg.charAt(index+4) == "1") {
+        bin = true;
+      }
+    }
+
+    if(bin == true || hex == true) {
+      num = String.fromCharCode(erg.charAt(index+3).charCodeAt(0) + 1);
+      erg = erg.slice(0, index+digit) + num;
+    } else {
+      erg = erg.slice(0, index+digit+1);
+    }
+  }
+
+  return erg;
 }
