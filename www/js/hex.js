@@ -135,6 +135,9 @@ function hexInputValidator(string) {
  var brackets = bracketsCheck(string);
  if(brackets == false) {message2 = "Die Klammern sind nicht richtig gesetzt!"; waitForToast(message1, message2); changeColor(); return false;}
 
+ var order = checkBracketsOrder(string);
+ if(brackets == true) {message2 = "Die Klammernfolge ist nicht richtig!"; waitForToast(message1, message2); changeColor(); return false;}
+
  var operator = operators(string);
  if(operator == true) {message2 = "Die Operatoren sind hintereinander"; waitForToast(message1, message2); changeColor(); return false;}
 
