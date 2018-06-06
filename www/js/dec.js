@@ -3,30 +3,22 @@
 sowie das Backspace eingegeben werden können. Alles andere wird durch das evt.preventDefault() verhindert.
 einzugeben*/
 function decDisplayValidator(evt) {
-  //console.log("decDisplay");
   changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
+
+  if(charCode  === 13){
+     evt.preventDefault();
+     document.getElementById("equal").click();
+  }
+
   if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
   {
-     //displayToastMessage(charCode);
-     /*c = checkAfterPoint(readInput() + String.fromCharCode(charCode));
-     if(c == true) {
-       displayToastMessage("Es dürfen nur 3 Zahlen nach dem Komma folgen");
-       evt.preventDefault();
-     }*/
      return true;
   }
 
    evt.preventDefault();
-   //return false;
 }
 
-//3 Nachkommastellen dürfen nur eingegeben werden
-/*function checkAfterPoint(string) {
-  var pattern = /([0-9]+)([.][0-9][0-9][0-9][0-9]+)/
-  var c = pattern.test(string);
-  return c;
-}*/
 
 //Überprüfung der Eingabe per Paste
 function decPaste(event) {

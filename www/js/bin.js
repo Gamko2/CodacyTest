@@ -3,6 +3,11 @@ User eingetippt werden können. Alles andere wird durch evt.preventDefault() ver
 function binDisplayValidator(evt) {
   changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
+  if(charCode  === 13){
+     evt.preventDefault();
+     document.getElementById("equal").click();
+  }
+  
   charCode = String.fromCharCode(charCode);
 
   var patt = /[0|1|B|+|\-|*|/|(|)]/;
