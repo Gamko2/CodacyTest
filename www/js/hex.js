@@ -127,7 +127,7 @@ function hexInputValidator(string) {
  var message2 = "";
 
  var j = emptyBrackets(string);
- if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); message1 = "Keine leeren Klammer eingeben";}
+ if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); message1 = "Bitte keine leeren Klammer eingeben";}
 
  var e = emptyString(string);
  if(e == true) {message2 = "Bitte keinen leeren Ausdruck eingeben"; waitForToast(message1, message2); changeColor(); return false;}
