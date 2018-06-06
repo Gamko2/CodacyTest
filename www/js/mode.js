@@ -76,3 +76,14 @@ function hexCheck() {
     else { writeOutput(ergebnis); }
     }
 }
+
+//3 Nachkommastellen für Bin/Hex
+function RoundAfter3(erg, digit) {
+  var index = 0;
+  if(erg.includes('.')) {
+    index = erg.indexOf(".");
+    erg = erg.slice(0, index+digit+1);
+  }
+
+  return erg;
+}
