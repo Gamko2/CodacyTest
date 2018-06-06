@@ -121,11 +121,11 @@ und eine Fehlermeldung ausgegeben*/
 
 function decInputValidator(string) {
 
-  var b = bracketsCheck(string);
+  var b = bracketsCheck(readInput());
   if (b !== -1)
    { 
     displayToastMessage("Die Klammern sind nicht richtig gesetzt!");
-    markRed(bracketsCheck(string));
+    markRed(bracketsCheck(readInput));
     return false; }
 
   
