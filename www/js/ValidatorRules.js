@@ -70,7 +70,8 @@ function bracketsCheck(string) {
       return closedIndexes[closedIndexes.length - 1]
     }
 
-  }
+   if(brackets == 0) {return true;}
+   else {return false;}
 }
 
 
@@ -80,15 +81,6 @@ function afterBracketsNoMulDiv(x) {
   var pattern = /([\(])([*]|[\/])/;
   return readInput().search(pattern)+1;
 
-}
-
-//Überprüft, ob eine ) und danach eine Klammer ( steht, um später das Multiplikationszeichen einfügen zu können.
-function checkCloseOpenBrackets(string) {
-  var patt = /([\)])([\(])/
-
-  var c = patt.test(string);
-
-  return c;
 }
 
 //Leere Klammern löschen
@@ -113,6 +105,24 @@ else {
 
 
 
+function emptyString(string) {
+ if(string == "") {return true;}
+ else return false;
+}
+
+function removePrefix(ausdruck) {
+  ausdruck = ausdruck.replace(/0X/g, "");
+  ausdruck = ausdruck.replace(/0B/g, "");
+  return ausdruck;
+}
+
+function checkBracketsOrder(string) {
+  var regex = /^[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]+[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]*[0-F|a-f|\.|+|-|\/|*|X|B|(\d|\D)]*[\(]*[0-F|a-f|\.|+|-|\/|*|X|B]*[\(]+[0-F|a-f|\.|+|-|\/|*|X|B]*$/
+
+  return regex.test(string);
+
+}
+
 module.exports = {
   operators: operators,
   beginning: beginning,
@@ -120,6 +130,6 @@ module.exports = {
   emptyBrackets: emptyBrackets,
   bracketsCheck: bracketsCheck,
   afterBracketsNoMulDiv: afterBracketsNoMulDiv,
-  checkCloseOpenBrackets: checkCloseOpenBrackets,
+  checkBracketsOrder: checkBracketsOrder,
   removeEmpty: removeEmpty
 }

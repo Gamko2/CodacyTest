@@ -1,6 +1,5 @@
 // Create top toast
 
-var toastTop = undefined;
 
 
 async function displayToastMessage(message) {

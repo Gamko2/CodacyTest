@@ -1,21 +1,22 @@
+
 /*Der dezimale DisplayValidator ist dafür zuständig, dass nur Zahlen, die Operatoren und Klammern
 sowie das Backspace eingegeben werden können. Alles andere wird durch das evt.preventDefault() verhindert.
 einzugeben*/
 function decDisplayValidator(evt) {
-  //console.log("decDisplay");
+  changeColorBlack();
   var charCode = (evt.which) ? evt.which : event.keyCode;
-  if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8)) {
-    //displayToastMessage(charCode);
-    /*c = checkAfterPoint(readInput() + String.fromCharCode(charCode));
-    if(c == true) {
-      displayToastMessage("Es dürfen nur 3 Zahlen nach dem Komma folgen");
-      evt.preventDefault();
-    }*/
-    return true;
+
+  if(charCode  === 13){
+     evt.preventDefault();
+     document.getElementById("equal").click();
   }
 
-  evt.preventDefault();
-  //return false;
+  if ((charCode >= 40 && charCode <= 43) || (charCode >= 45 && charCode <= 57) || (charCode == 8))
+  {
+     return true;
+  }
+
+   evt.preventDefault();
 }
 
 function markRed(index){
@@ -42,10 +43,11 @@ writeOutput(coloredResult);
 }*/
 
 //Überprüfung der Eingabe per Paste
-document.addEventListener('paste', function (event) {
-  var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
-  var fail = 0;
-  var i = 0;
+function decPaste(event) {
+    var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
+    var fail = 0;
+    var i = 0;
+    console.log(inputText);
 
   /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
   keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
@@ -58,22 +60,31 @@ document.addEventListener('paste', function (event) {
     }
   }
 
-  //console.log(correct);
-  if (fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
-    displayToastMessage("Es dürfen per Paste nur Zahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
-    event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
-    return false;
-  } else {
-    return true;
-  }
-});
+    //console.log(correct);
+    if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
+      displayToastMessage("Es dürfen per Paste nur Zahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
+      event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
+      return false;
+    } else {
+      return true;
+    }
+  };
 
-//Überprüft, ob bei einer Zahl, mehrere Kommas eingeben werden
+
+//Überprüft, ob Kommas richtig benutz wurden
 function kommaCheck(x) {
-  var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
-  return x.search(pattern);
 
-  
+var pattern = /([0-9]+[.]+[0-9]+[.]+)/;
+var pattern2 = /([.]+[.])|([.]+([(]|[)]))|(\.$)/;
+
+var a = pattern.test(x);
+var b = pattern2.test(x);
+
+if(a == true | b == true){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 //Überprüft, ob nach einer Zahl eine Klammer folgt, für das Einfügen eines Multiplikationszeichen notwendig

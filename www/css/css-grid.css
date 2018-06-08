@@ -6,112 +6,169 @@
     height: 100%;
     width: 100%;
     background-color: #2196F3;
-    border: none;
+    /*border: none;*/
     color: white;
     text-align: center;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    text-decoration: none;
+    text-decoration: 5px;
     overflow: hidden;
     cursor: pointer;
+    justify-content: center;
   }
 
- /* This is to predefine zones in the grid to make swapping buttons around easier.*/ 
+ /* This is to predefine zones in the grid to make swapping buttons around easier.*/
+.white {
+  color: white;
+  font-size: 20px;
+  background-color: #2196f3;
+}
+
+.gray {
+  background-color: gray;
+  color: white;
+  font-size: 20px;
+}
+
+.green {
+  background-color: #4caf50;
+  color: white;
+  font-size: 20px;
+}
+
+.blue {
+  background-color: #2196f3;
+  color: white;
+  font-size: 20px;
+}
+
 .zero{
   grid-area: zero;
 }
+
 .one{
-grid-area: one;
-  }
+  grid-area: one;
+}
+
 .two{
     grid-area: two;
-  }
+}
+
 .three {
     grid-area: three;
-  }
+}
+
 .four {
   grid-area: four;
 }
+
 .five{
   grid-area: five;
 }
+
 .six{
   grid-area: six;
 }
+
 .seven {
   grid-area: seven;
 }
+
 .eight {
   grid-area: eight;
 }
+
 .nine {
   grid-area: nine;
 }
-.decimal {
-grid-area: decimal;
-}
-.hex {
-  grid-area: hex;
-}
+
 .ce {
   grid-area: ce;
 }
-.thirteeen {
+.clear {
   grid-area: clear;
 }
-.bin {
-  grid-area: bin;
-}
+
 .openbracket {
   grid-area: openbracket;
 }
+
 .closebracket {
   grid-area: closebracket;
 }
+
 .divide {
   grid-area: divide;
 }
 .plus {
   grid-area: plus;
 }
+
 .komma {
   grid-area: komma;
 }
+
 .equal {
   grid-area: equal;
 }
+
 .A {
   grid-area: A;
 }
+
 .B {
   grid-area: B;
 }
+
 .C {
   grid-area: C;
 }
+
 .D {
   grid-area: D;
 }
+
 .E {
   grid-area: E;
 }
+
 .F {
   grid-area: F;
 }
+
 .multiply {
   grid-area: multiply;
 }
-.twentyeigth {
+
+.minus {
   grid-area: minus;
 }
+
 .twentynine {
   grid-area: twentynine;
 }
+
 .thirty {
   grid-area: thirty;
 }
 .empty{
   grid-area: empty;
+}
+
+.copy {
+  grid-area: copy;
+}
+
+.button-maxed {
+    font-size: 25px;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-width: none;
+    border-style: none;
 }
 
   .span2{
@@ -170,6 +227,7 @@ grid-area: decimal;
     font-size: 8vw;
     text-align: right;
   }
+
   /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
@@ -179,7 +237,7 @@ grid-area: decimal;
     grid-gap: 5px;
     background-color: black;
   }
-  
+
   /*The grid for the decimal mode*/
   .decimal-grid {
     display: grid;
@@ -200,99 +258,38 @@ grid-area: decimal;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: 
-    "ce clear openbracket closebracket"
-    "seven eight nine divide"
-    "four five six multiply"
-    "one two three minus"
-    "zero komma plus equal"
-    "A B C D"
-    ". E F . "
-    
-    
-  
-  
-    
-
+    grid-template-areas: "clear ce openbracket closebracket"
+                         "seven eight nine divide"
+                         "four five six multiply"
+                         "one two three minus"
+                         "zero equal equal plus"
+                         "A B C D"
+                         "E E F F"
   }
 
   /*The grid for the binary mode*/
   .binary-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 100%;
-    grid-template-areas: 
+    grid-template-areas:
     "ce clear openbracket closebracket"
-    "one divide multiply minus"
-    "zero komma plus equal"
-    
+    "zero zero one one"
+    "divide multiply minus plus"
+    "equal equal equal equal"
   }
 
-.page {
-  background-color: black;
-}
-
-.display{
-  background-color: orange;
-}
-  
-.dontRapeEverything{
-  overflow:hidden;
-
-
-
-}
+  /*# sourceMappingURL=build/css/styles.css.map */
 
 #input{
   text-align: right;
   font-size: auto;
   background-color: orange;
   color: black;
-  
- 
- 
-  
 }
 
 [contenteditable=true]:empty:before{
   content: attr(placeholder);
   
 }
-
-.orangeButton{
-  background-color: orange;  
-  border: none;
-  color: black;  
-  font-size: 5.0vw;
-}
-
-.grayButton{
-  border: none;
-  font-size: 5.2vw;
-  color: black;
-  background-color: gray;
-}
-
-.whiteButton{
-  border: none;
-  font-size: 5.2vw;
-  color: black;
-  background-color:white
-}
-
-.copyButtonMaxed{
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  cursor: pointer;
-  margin: auto;
-  border: none;
-  border-style:groove
-}
-
-
-  
-  /*# sourceMappingURL=build/css/styles.css.map */
