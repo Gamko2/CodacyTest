@@ -25,28 +25,29 @@
 
 <body onload="init()">
   <!--<div id="app">-->
-    <!-- Views -->
-    <div id = "app" class="views">
-      <div class="view view-main">
-        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-fixed toolbar-fixed">
-          <!-- Page, "data-page" contains page name -->
-          <div data-page="index" class="page">
-           <!--navbar-->
-           <div class="calculator-grid">
-             <div class="navbar">
-               <div class="navbar-inner">
-                 <div class="left"></div>
-                 <div class="center sliding">Alekulator</div>
+  <!-- Views -->
+  <div id="app" class="views">
+    <div class="view view-main">
+      <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+      <div class="pages navbar-fixed toolbar-fixed">
+        <!-- Page, "data-page" contains page name -->
+        <div data-page="index" class="page">
+          <!--navbar-->
+          <div class="calculator-grid">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="left"></div>
+                <div class="center sliding">Alekulator</div>
+               <div class="right"><a href="#" class="link popup-open"href="#" data-popup=".popup-about">About</a><i class="material-icons size-22">info</i></a></div>
               </div>
-             </div>
-             <!-- Toolbar. In Material theme it should be inside of the page-->
+            </div>
+            <!-- Toolbar. In Material theme it should be inside of the page-->
 
-             <!-- Scrollable page content -->
+            <!-- Scrollable page content -->
 
-     
 
-<!--      <form id="my-form" name="Alekulator">
+
+            <!--      <form id="my-form" name="Alekulator">
 
 
                   <input id="input"  type="text" name="name" placeholder="0">
@@ -54,132 +55,141 @@
       </form>
     -->
     <div style ="max-width: 100%">
-    <div contenteditable="true" id="input" name="inputField" class="dontRapeEverything" placeholder ="0">
-        
+      <div contenteditable="true" id="input" name="inputField" class="dontRapeEverything" placeholder ="0">
+          
+      </div>
     </div>
-  </div>
-      <div>
-        <button class="btn button-fill grayButton copyButtonMaxed  open-toast-top " data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
-      </div>
-      <div id="grid-mode" class="decimal-grid">
-        <button id="empty" class="button-fill  button-maxed ce round grayButton" onclick="reduce(1)">CE</button>
-        <button id="clear" class="button-fill  button-maxed clear round grayButton" onclick="Clear()">Clear</button>
+        <div>
+          <button class="btn button-fill gray open-toast-top fill-copy" data-clipboard-action="copy" data-clipboard-target="#input">Copy</button>
+        </div>
+            <div id="grid-mode" class="decimal-grid">
+              <button id="empty" class="col button-fill gray ce" onclick="reduce(1)">CE</button>
+              <button id="clear" class="col button-fill gray clear" onclick="Clear()">Clear</button>
 
-               <button id="4" class="col button-fill blue four" value="4" onclick="document.Alekulator.name.value += '4'">4</button>
-               <button id="5" class="col button-fill blue five" value="5" onclick="document.Alekulator.name.value += '5'">5</button>
-               <button id="6" class="col button-fill blue six" value="6" onclick="document.Alekulator.name.value += '6'">6</button>
-               <button id="subtract" class="col button-fill green minus" value="-" onclick="document.Alekulator.name.value += '-'">-</button>
+              <button id="leftparantheses" class="col button-fill green openbracket" value="(" onclick="document.getElementById('input').innerHTML += '('">(</button>
+              <button id="rightparantheses" class="col button-fill green closebracket" value=")" onclick="document.getElementById('input').innerHTML += ')'">)</button>
+              <button id="divid" class="col button-fill green divide" value="/" onclick="document.getElementById('input').innerHTML += '/'">/</button>
 
-        <button id="leftparantheses" class="button-fill  button-maxed openbracket round orangeButton" value="(" onclick="document.getElementById('input').innerHTML += '('">(</button>
-        <button id="rightparantheses" class="button-fill  button-maxed closebracket round orangeButton" value=")" onclick="document.getElementById('input').innerHTML += ')'">)</button>
-        <button id="divid" class="button-fill  button-maxed divide round orangeButton" value="/" onclick="document.getElementById('input').innerHTML += '/'">/</button>
+              <button id="1" class="col button-fill blue one" value="1" onclick="document.getElementById('input').innerHTML += '1'">1</button>
+              <button id="2" class="col button-fill blue two" value="2" onclick="document.getElementById('input').innerHTML += '2'">2</button>
+              <button id="3" class="col button-fill blue three" value="3" onclick="document.getElementById('input').innerHTML += '3'">3</button>
+              <button id="multiplication" class="col button-fill green multiply" value="*" onclick="document.getElementById('input').innerHTML += '*'">*</button>
 
-        <button id="1" class=" whiteButton button-maxed one round" value="1" onclick="document.getElementById('input').innerHTML += '1'">1</button>
-        <button id="2" class=" whiteButton  button-maxed two round" value="2" onclick="document.getElementById('input').innerHTML += '2'">2</button>
-        <button id="3" class=" whiteButton button-maxed three round" value="3" onclick="document.getElementById('input').innerHTML += '3'">3</button>
-        <button id="multiplication" class="button-fill button-maxed multiply round orangeButton" value="*" onclick="document.getElementById('input').innerHTML += '*'">*</button>
+              <button id="4" class="col button-fill blue four" value="4" onclick="document.getElementById('input').innerHTML += '4'">4</button>
+              <button id="5" class="col button-fill blue five" value="5" onclick="document.getElementById('input').innerHTML += '5'">5</button>
+              <button id="6" class="col button-fill blue six" value="6" onclick="document.getElementById('input').innerHTML += '6'">6</button>
+              <button id="subtract" class="col button-fill green minus" value="-" onclick="document.getElementById('input').innerHTML += '-'">-</button>
 
-        <button id="4" class=" whiteButton button-maxed four round" value="4" onclick="document.getElementById('input').innerHTML += '4'">4</button>
-        <button id="5" class=" whiteButton button-maxed five round" value="5" onclick="document.getElementById('input').innerHTML += '5'">5</button>
-        <button id="6" class=" whiteButton button-maxed six round" value="6" onclick="document.getElementById('input').innerHTML += '6'">6</button>
-        <button id="subtract" class=" button-maxed minus round orangeButton" value="-" onclick="document.getElementById('input').innerHTML += '-'">-</button>
+              <button id="7" class="col button-fill blue seven" value="7" onclick="document.getElementById('input').innerHTML += '7'">7</button>
+              <button id="8" class="col button-fill blue eight" value="8" onclick="document.getElementById('input').innerHTML += '8'">8</button>
+              <button id="9" class="col button-fill blue nine" value="9" onclick="document.getElementById('input').innerHTML += '9'">9</button>
+              <button id="add" class="col button-fill green plus" value="+" onclick="document.getElementById('input').innerHTML += '+'">+</button>
 
-        <button id="7" class=" whiteButton button-maxed seven round" value="7" onclick="document.getElementById('input').innerHTML += '7'">7</button>
-        <button id="8" class=" whiteButton button-maxed eight round" value="8" onclick="document.getElementById('input').innerHTML += '8'">8</button>
-        <button id="9" class=" whiteButton button-maxed nine round" value="9" onclick="document.getElementById('input').innerHTML += '9'">9</button>
-        <button id="add" class=" button-maxed plus round orangeButton" value="+" onclick="document.getElementById('input').innerHTML += '+'">+</button>
+              <button class="col button-fill blue zero" value="0" onclick="document.getElementById('input').innerHTML += '0'">0</button>
+              <button id="floatkomma" class="col button-fill gray komma" value="," onclick="document.getElementById('input').innerHTML += '.'">,</button>
 
-               <button id="A" class="col button-fill gray A" value="A" onclick="document.Alekulator.name.value += 'A'">A</button>
-               <button id="B" class="col button-fill gray B" value="B" onclick="document.Alekulator.name.value += 'B'">B</button>
-               <button id="C" class="col button-fill gray C" value="C" onclick="document.Alekulator.name.value += 'C'">C</button>
-               <button id="D" class="col button-fill gray D" value="D" onclick="document.Alekulator.name.value += 'D'">D</button>
-               <button id="E" class="col button-fill gray E" value="E" onclick="document.Alekulator.name.value += 'E'">E</button>
-               <button id="F" class="col button-fill gray F" value="F" onclick="document.Alekulator.name.value += 'F'">F</button>
+              <button id="equal" class="col button-fill green equal" value="=">=</button>
 
-        <button class="l whiteButton  button-maxed zero round" value="0" onclick="document.getElementById('input').innerHTML += '0'">0</button>
-        <button id="floatkomma" class="  button-maxed komma round orangeButton" value="," onclick="document.getElementById('input').innerHTML += '.'">,</button>
-
-        <button id="equal" class=" button-maxed equal round orangeButton" value="=">=</button>
-
-        <button id="A" class="  button-maxed A invis round grayButton" value="A" onclick="document.getElementById('input').innerHTML += 'A'">A</button>
-        <button id="B" class="  button-maxed B invis round grayButton" value="B" onclick="document.getElementById('input').innerHTML += 'B'">B</button>
-        <button id="C" class="  button-maxed C invis round grayButton" value="C" onclick="document.getElementById('input').innerHTML += 'C'">C</button>
-        <button id="D" class="  button-maxed D invis round grayButton" value="D" onclick="document.getElementById('input').innerHTML += 'D'">D</button>
-        <button id="E" class="  button-maxed  E invis round grayButton" value="E" onclick="document.getElementById('input').innerHTML += 'E'">E</button>
-        <button id="F" class="  button-maxed  F invis round grayButton" value="F" onclick="document.getElementById('input').innerHTML += 'F'">F</button>
+              <button id="A" class="col button-fill gray A" value="A" onclick="document.getElementById('input').innerHTML += 'A'">A</button>
+              <button id="B" class="col button-fill gray B" value="B" onclick="document.getElementById('input').innerHTML += 'B'">B</button>
+              <button id="C" class="col button-fill gray C" value="C" onclick="document.getElementById('input').innerHTML += 'C'">C</button>
+              <button id="D" class="col button-fill gray D" value="D" onclick="document.getElementById('input').innerHTML += 'D'">D</button>
+              <button id="E" class="col button-fill gray E" value="E" onclick="document.getElementById('input').innerHTML += 'E'">E</button>
+              <button id="F" class="col button-fill gray F" value="F" onclick="document.getElementById('input').innerHTML += 'F'">F</button>
 
 
-      </div>
-      <div class="toolbar toolbar-bottom">
-        <div class="toolbar-inner">
- 
-            <div class = "center">
-                <div class = "buttons-row">
-                   <a id="dec" value="dec" class = "link" value="dec" onclick="decimal()">Dec</a>
-                   <a id="hex" value="hex" class = "link" value="hex" onclick="hexadecimal()">Hex</a>
-                   <a id="bin" value="bin" class = "link" value="bin" onclick="binary()">Bin</a>
+            </div>
+            <div class="toolbar toolbar-bottom">
+              <div class="toolbar-inner">
+
+                <div class="center">
+                  <div class="buttons-row">
+                    <a id="dec" value="dec" class="link" value="dec" onclick="decimal()">Dec</a>
+                    <a id="hex" value="hex" class="link" value="hex" onclick="hexadecimal()">Hex</a>
+                    <a id="bin" value="bin" class="link" value="bin" onclick="binary()">Bin</a>
+                  </div>
+                </div>
+
+                <a class="tab-link">
+                  <span>
+                    <button id="email" class="button" onclick="sendemail()">E-Mail</button>
+                  </span>
+                  <span>
+                    <i class="material-icons size-22">email</i>
+                  </span>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- About popup-->
+<!-- About popup-->
+<div class="popup popup-about">
+  <head>
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1,
+       maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
+    <meta name = "apple-mobile-web-app-capable" content = "yes" />
+    <meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
+    <title>Email</title>
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <!-- Path to Framework7 icons -->
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel = "stylesheet"
+       href = "css/framework7.ios.min.css" />
+    <link rel = "stylesheet"
+       href = "css/framework7.ios.colors.min.css" />
+ </head>
+ <body>
+    <div class = "views">
+       <div class = "view view-main">
+          <div class = "navbar">
+             <div class = "navbar-inner">
+              <p><a class="link popup-close" href="#">Close</a></p>
+             </div>
+          </div>
+          <div class = "pages navbar-through ">
+             <div data-page = "index" class = "page">
+                <div class = "page-content">
+                  <div class="content-block">
+                    <p>Akulator</p>
+                    <p>Version: 1.0</p>
+                    <p>2018</p>
+                  </div>
                 </div>
              </div>
-          
-              <a class="tab-link">
-            <span> <button  id="email" class="button" onclick="sendemail()">E-Mail</button></span>
-            <span><i class="material-icons size-22">email</i> </span>
-          </a>
-          
-        </div>
-      </div>
-
+          </div>
+       </div>
     </div>
-  </div>
-<!-- About popup-->
-  <div class="popup popup-about">
-    <head>
-      <meta name = "viewport" content = "width = device-width, initial-scale = 1,
-         maximum-scale = 1, minimum-scale = 1, user-scalable = no, minimal-ui" />
-      <meta name = "apple-mobile-web-app-capable" content = "yes" />
-      <meta name = "apple-mobile-web-app-status-bar-style" content = "black" />
-      <title>Email</title>
-			<link rel="stylesheet" href="css/framework7.material.min.css">
-		  <!-- Path to Framework7 icons -->
-		  <link rel="stylesheet" href="css/icons.css">
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.min.css" />
-      <link rel = "stylesheet"
-         href = "css/framework7.ios.colors.min.css" />
-   </head>
-   <body>
-      <div class = "views">
-         <div class = "view view-main">
-            <div class = "navbar">
-               <div class = "navbar-inner">
-                <p><a class="link popup-close" href="#">Close</a></p>
-               </div>
-            </div>
-            </div>
-             <!-- REFERENCE SCRIPTS-->
-             <!-- Path to Framework7 Library JS-->
-            <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
+    <script type = "text/javascript"
+       src = "framework7/js/framework7.min.js"></script>
+ </body>
+</div>
+              <!-- REFERENCE SCRIPTS-->
+              <!-- Path to Framework7 Library JS-->
+              <script type="text/javascript" src="framework7/js/framework7.min.js"></script>
 
 
-  <!--end Picker-->
-  <!-- REFERENCE SCRIPTS-->
-  <!-- Path to Framework7 Library JS-->
-  <script src="js/toast.js"></script>
-  <!-- Path to your app js-->
-  <script src="js/app.js"></script>
-  <script src="js/interface.js"></script>
-  <script src="js/clipboard.min.js"></script>
-  <!--script src="../node_modules/clipboard/dist/clipboard.min.js"></script-->
-  <script src ="js/email.js"></script>
-  <script src="js/clipboard.js"></script>
-  <script src="js/bin.js"></script>
-  <script src="js/dec.js"></script>
-  <script src="js/display.js"></script>
-  <script src="js/hex.js"></script>
-  <script src="js/mode.js"></script>
-  <script src="js/ValidatorRules.js"></script>
-  <script src="js/email.js"></script>
+              <!--end Picker-->
+              <!-- REFERENCE SCRIPTS-->
+              <!-- Path to Framework7 Library JS-->
+              <script src="js/toast.js"></script>
+              <!-- Path to your app js-->
+              <script src="js/app.js"></script>
+              <script src="js/interface.js"></script>
+              <script src="js/clipboard.min.js"></script>
+              <!--script src="../node_modules/clipboard/dist/clipboard.min.js"></script-->
+              <script src="js/email.js"></script>
+              <script src="js/clipboard.js"></script>
+              <script src="js/bin.js"></script>
+              <script src="js/dec.js"></script>
+              <script src="js/display.js"></script>
+              <script src="js/hex.js"></script>
+              <script src="js/mode.js"></script>
+              <script src="js/ValidatorRules.js"></script>
+              <script src="js/email.js"></script>
 
-</body>
+          </body>
 
 </html>

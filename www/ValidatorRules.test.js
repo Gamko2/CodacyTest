@@ -13,15 +13,15 @@ test('((B*C)/(A+1)+(7-8)) equals true', () => {
 
 //Leere Klammern, wenn leere Klammern vorhanden sind, gebe true aus
 test('A+1+() equals true', () => {
-  expect(valRules.emptyBrackets('A+1+()')).toBe(4);
+  expect(valRules.emptyBrackets('A+1+()')).toBe(true);
 });
 
 test('()() equals true', () => {
-  expect(valRules.emptyBrackets('()()')).toBe(0);
+  expect(valRules.emptyBrackets('()()')).toBe(true);
 });
 
 test('(56+CDF) equals false', () => {
-  expect(valRules.emptyBrackets('(56+CDF)')).toBe(-1);
+  expect(valRules.emptyBrackets('(56+CDF)')).toBe(false);
 });
 
 //Mehrere Operatoren hintereinander, wenn dies Eintritt gebe true zurück
@@ -138,15 +138,15 @@ test('A()+1() equals A+1', () => {
 });
 
 test('1+-/4 equals true', () => {
-  expect(valRules.operators('1+-/4')).toBe(true);
+  expect(valRules.operators('1+-/4')).toBe(1);
 });
 
 test('1++4 equals true', () => {
-  expect(valRules.operators('1++4')).toBe(true);
+  expect(valRules.operators('1++4')).toBe(1);
 });
 
 test('1+4 equals false', () => {
-  expect(valRules.operators('1+4')).toBe(false);
+  expect(valRules.operators('1+4')).toBe(-1);
 });
 
 
@@ -176,32 +176,32 @@ test('4+10+2 equals true', () => {
 //Wenn zu Begin *, /, oder ), gebe true zurück
 
 test('/4 equals true', () => {
-  expect(valRules.beginning('/4')).toBe(true);
+  expect(valRules.beginning('/4')).toBe(0);
 });
 
 test('*4 equals true', () => {
-  expect(valRules.beginning('*4')).toBe(true);
+  expect(valRules.beginning('*4')).toBe(0);
 });
 
 test(')6 equals true', () => {
-  expect(valRules.beginning(')6')).toBe(true);
+  expect(valRules.beginning(')6')).toBe(0);
 });
 
 test('+6-3 equals false', () => {
-  expect(valRules.beginning('+6-3')).toBe(false);
+  expect(valRules.beginning('+6-3')).toBe(-1);
 });
 
 test('-10-5+4 equals false', () => {
-  expect(valRules.beginning('-10-5+4')).toBe(false);
+  expect(valRules.beginning('-10-5+4')).toBe(-1);
 });
 
 test('(10-6+4) equals false', () => {
-  expect(valRules.beginning('(10-6+4)')).toBe(false);
+  expect(valRules.beginning('(10-6+4)')).toBe(-1);
 });
 
 
 //Nach einer Klammer darf kein * oder / stehen, wenn's eintrifft true
-
+/*
 test('(*4) equals true', () => {
   expect(valRules.afterBracketsNoMulDiv('(*4)')).toBe(true);
 });
@@ -221,7 +221,7 @@ test('(-100) equals false', () => {
 test('((-100)) equals false', () => {
   expect(valRules.afterBracketsNoMulDiv('((-100))')).toBe(false);
 });
-
+*/
 
 //Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
 
@@ -243,27 +243,27 @@ test('3+4 equals false', () => {
  //Überprüft, ob die Klammeranzahl stimmt
 
   test('adds ((((()))) equals false', () =>{
-  expect(valRules.bracketsCheck('((((())))')).toBe(false);
+  expect(valRules.bracketsCheck('((((())))')).toBe(4);
 });
   test('adds ((())) equals true', () =>{
-  expect(valRules.bracketsCheck('((()))')).toBe(true);
+  expect(valRules.bracketsCheck('((()))')).toBe(-1);
 });
 
 /*-----------------------------------------------------------------------------*/
 
 test('AF*(4532929)/A*(3443344)(482938) equals false', () => {
-  expect(valRules.checkBracketsOrder('AF*(4532929)/A*(3443344)(482938)')).toBe(false);
+  expect(valRules.checkBracketsOrder('AF*(4532929)/A*(3443344)(482938)')).toBe(-1);
 });
 
 //123))((123 -> 123)123)(123(123 ->
 test('(123)(123) equals false', () => {
-  expect(valRules.checkBracketsOrder('(123)(123)')).toBe(false);
+  expect(valRules.checkBracketsOrder('(123)(123)')).toBe(-1);
 });
 
 test('123))((123 equals true', () => {
-  expect(valRules.checkBracketsOrder('123))((123')).toBe(true);
+  expect(valRules.checkBracketsOrder('123))((123')).toBe(0);
 });
 
 test('123)123)(123(123 equals true', () => {
-  expect(valRules.checkBracketsOrder('123)123)(123(123')).toBe(true);
+  expect(valRules.checkBracketsOrder('123)123)(123(123')).toBe(0);
 });

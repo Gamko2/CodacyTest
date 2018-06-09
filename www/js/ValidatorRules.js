@@ -37,9 +37,9 @@ function markAfterOperator(input) {
 function emptyBrackets(string) {
 
   var patt = /[(][)]/;
-  return string.search(patt);
+  var c = patt.test(string);
 
-
+  return c;
 }
 
 //Überprüft, ob die Klammeranzahl stimmt
@@ -70,66 +70,68 @@ function bracketsCheck(string) {
       return closedIndexes[closedIndexes.length - 1]
     }
 
-   if(brackets == 0) {return true;}
-   else {return false;}
+    if (brackets == 0) { return true; }
+    else { return false; }
+  }
 }
 
 
+  //Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
+  function afterBracketsNoMulDiv(x) {
+    var pattern = /([\(])([*]|[\/])/;
+    return readInput().search(pattern) + 1;
 
-//Überprüft, ob nach den Klammern ein Multiplikationszeichen oder ein geteilt Zeichen steht -> Damit nach einer Klammer nur +, -, eine Zahl oder die Klammern stehen können
-function afterBracketsNoMulDiv(x) {
-  var pattern = /([\(])([*]|[\/])/;
-  return readInput().search(pattern)+1;
-
-}
-
-//Leere Klammern löschen
-function removeEmpty(string) {
-  var regex = /[(][)]/;
-
-  while (regex.test(string)) {
-    string = string.replace("()", "");
   }
 
-  return string;
-}
+  //Leere Klammern löschen
+  function removeEmpty(string) {
+    var regex = /[(][)]/;
 
-function checkForIncorrectInput(string){
-if (string.includes("font")){
- return false; 
-} 
-else {
-  return true;
-}
-}
+    while (regex.test(string)) {
+      string = string.replace("()", "");
+    }
+
+    return string;
+  }
+
+  function checkForIncorrectInput(string) {
+    if (string.includes("font")) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 
 
 
-function emptyString(string) {
- if(string == "") {return true;}
- else return false;
-}
+  function emptyString(string) {
+    if (string == "") { return true; }
+    else return false;
+  }
 
-function removePrefix(ausdruck) {
-  ausdruck = ausdruck.replace(/0X/g, "");
-  ausdruck = ausdruck.replace(/0B/g, "");
-  return ausdruck;
-}
+  function removePrefix(ausdruck) {
+    ausdruck = ausdruck.replace(/0X/g, "");
+    ausdruck = ausdruck.replace(/0B/g, "");
+    return ausdruck;
+  }
 
-function checkBracketsOrder(string) {
-  var regex = /^[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]+[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]*[0-F|a-f|\.|+|-|\/|*|X|B|(\d|\D)]*[\(]*[0-F|a-f|\.|+|-|\/|*|X|B]*[\(]+[0-F|a-f|\.|+|-|\/|*|X|B]*$/
+  function checkBracketsOrder(string) {
+    var regex = /^[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]+[0-F|a-f|\.|+|-|\/|*|X|B]*[\)]*[0-F|a-f|\.|+|-|\/|*|X|B|(\d|\D)]*[\(]*[0-F|a-f|\.|+|-|\/|*|X|B]*[\(]+[0-F|a-f|\.|+|-|\/|*|X|B]*$/
 
-  return regex.test(string);
+    return string.search(regex);
 
-}
+  }
 
-module.exports = {
-  operators: operators,
-  beginning: beginning,
-  afteroperator: afteroperator,
-  emptyBrackets: emptyBrackets,
-  bracketsCheck: bracketsCheck,
-  afterBracketsNoMulDiv: afterBracketsNoMulDiv,
-  checkBracketsOrder: checkBracketsOrder,
-  removeEmpty: removeEmpty
-}
+
+
+  module.exports = {
+    operators: operators,
+    beginning: beginning,
+    afteroperator: afteroperator,
+    emptyBrackets: emptyBrackets,
+    bracketsCheck: bracketsCheck,
+    afterBracketsNoMulDiv: afterBracketsNoMulDiv,
+    checkBracketsOrder: checkBracketsOrder,
+    removeEmpty: removeEmpty
+  }

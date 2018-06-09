@@ -27,10 +27,13 @@ function sleep(ms) {
   
 
 
-  async function waitBetweenToast(messageOne, messageTwo){
-      displayToastMessage(messageOne);
-      await sleep(2500);
-      displayToastMessage(messageTwo);
+  async function waitBetweenToast(toastArray){
+      for (i=0; i<toastArray.length; i++){
+        displayToastMessage(toastArray[i]);
+        await sleep(2500);
+      }
+  
+      
   }
 
 
