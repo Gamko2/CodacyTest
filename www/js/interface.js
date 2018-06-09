@@ -24,7 +24,7 @@ function decimal() {
   let array = new Array('A','B','C','D','E','F')
   makeInvisible(array);
   document.getElementById("grid-mode").className = "decimal-grid";
-  setMode(mode.decimal);
+  setMode("dec");
 }
 
 /*This is called when the HEX Button is pressed
@@ -34,7 +34,7 @@ function hexadecimal(){
   let array = new Array('floatkomma');
   makeInvisible(array);
   document.getElementById("grid-mode").className = "hexadecimal-grid";
-  setMode(mode.hexadecimal);
+  setMode("hex");
 }
 /*This is called when the Bin button is pressed
 We make every element visible.
@@ -46,5 +46,5 @@ function binary(){
   let array = new Array('A','B','C','D','E','F','2','3','4','5','6','7','8','9', 'floatkomma');
   makeInvisible(array);
   document.getElementById("grid-mode").className = "binary-grid";
-  setMode(mode.binary);
+  setMode("bin");
 }

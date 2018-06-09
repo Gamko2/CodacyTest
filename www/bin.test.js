@@ -12,11 +12,11 @@ test('(1010*011)+(1)-(0)*(011/11) to (0B1010*0B011)+(0B1)-(0B0)*(0B011/0B11)', (
 
 //Gebe true zurück wenn nach einer Zahl eine sich öffnende Klammer folgt
 test('01010( equals true', () => {
-  expect(bin.checkBinBrackets('01010(')).toBe(true);
+  expect(bin.checkBinBrackets('01010(')).toBe(0);
 });
 
 test('(01010+0101)*(0101010*010100) equals false)', () => {
-  expect(bin.checkBinBrackets('(01010+0101)*(0101010*010100)')).toBe(false);
+  expect(bin.checkBinBrackets('(01010+0101)*(0101010*010100)')).toBe(-1);
 });
 
 test('01010(01010+0101) to 01010*(01010+0101)', () => {

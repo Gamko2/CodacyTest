@@ -2,39 +2,38 @@
 
 
 
+async function displayToastMessage(message) {
+        toastTop = app.toast.create({
+            text: message,
+            position: 'top',
+            closeTimeout: 2000,
+    
+    
+        });
+        toastTop.open();
+        //toastTop.close();
+        
+        
 
-function displayToastMessage(message) {
-  var toastTop = undefined;
-    toastTop = app.toast.create({
-        text: message,
-        position: 'top',
-        closeTimeout: 2000,
-
-
-    });
-    toastTop.open();
+    
+  
+   
 }
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+  
 
 
-
-  async function waitForToast(messageOne, messageTwo){
-      if(messageOne == "" && messageTwo != "") {
-      displayToastMessage(messageTwo);
-      await sleep(2500);
-      }
-
-      else if(messageOne != "" && messageTwo == "") {
-        displayToastMessage(messageOne);
+  async function waitBetweenToast(toastArray){
+      for (i=0; i<toastArray.length; i++){
+        displayToastMessage(toastArray[i]);
         await sleep(2500);
       }
-
-      else if(messageOne != "" && messageTwo != "") {
-        displayToastMessage(messageOne);
-        await sleep(2500);
-        displayToastMessage(messageTwo);
-      }
+  
+      
   }
+
+

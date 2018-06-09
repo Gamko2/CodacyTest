@@ -151,11 +151,18 @@
 .thirty {
   grid-area: thirty;
 }
+.empty{
+  grid-area: empty;
+}
 
 .copy {
   grid-area: copy;
 }
 
+.fill-copy{
+  height: 100%;
+  width: 100%;
+}
 .button-maxed {
     font-size: 25px;
     display: inline-block;
@@ -176,15 +183,63 @@
     visibility: hidden;
     position: fixed;
   }
+  .round {
+    border-radius: 50%;
+  }
 
+  /*Maxes the button size and gives it a nice border*/
+  .button-maxed{
+    display: inline-block;
+    height: 70%;
+    width: 70%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    margin: auto;
+    border: none;
+    
+    border-style:groove
+  }
+  
+  /*Not used anymore*/
+  .grid-button:after {
+    condecimalt: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+  /*Not used anymore*/
+  .grid-button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
+  /*Not used anymore*/
+  .grid-button:focus {
+    outline: 0;
+  }
+  /*Not used anymore*/
+  .display {
+    font: 100% Roboto, sans-serif;
+    font-size: 8vw;
+    text-align: right;
+  }
 
   /*The grid in which everything else is placed*/
   .calculator-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 56px 100px 10vh auto 50px;
     height: 100vh;
     grid-gap: 5px;
+    background-color: white;
   }
 
   /*The grid for the decimal mode*/
@@ -193,11 +248,13 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     height: 100%;
+    
     grid-template-areas: "ce clear openbracket closebracket"
-                          "seven eight nine divide"
+                          "seven eight nine  divide"
                           "four five six multiply"
                           "one two three minus"
-                          "zero komma equal plus"
+                          "zero komma plus equal"
+                          
   }
 /*The grid for the hexadecimal mode*/
   .hexadecimal-grid{
@@ -228,3 +285,15 @@
   }
 
   /*# sourceMappingURL=build/css/styles.css.map */
+
+#input{
+  text-align: right;
+  font-size: auto;
+  background-color: whitesmoke;
+  color: black;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  
+}
