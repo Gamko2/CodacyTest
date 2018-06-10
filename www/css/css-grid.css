@@ -242,6 +242,18 @@
     background-color: white;
   }
 
+  .input-grid{
+    
+  }
+ /*
+  .copy-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    height: 100%;
+  }
+  */
+
   /*The grid for the decimal mode*/
   .decimal-grid {
     display: grid;
@@ -291,6 +303,8 @@
   font-size: auto;
   background-color: whitesmoke;
   color: black;
+  height: 100px;
+  overflow:hidden;
 }
 
 [contenteditable=true]:empty:before{
