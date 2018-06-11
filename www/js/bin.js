@@ -128,13 +128,18 @@ emptyInput();
 
 
  var j = emptyBrackets(string);
- if(j == true) {string = removeEmpty(string); writeOutput(removePrefix(string)); toasts.push("Keine leeren Klammer eingeben");}
+ if(j == true) {toasts.push("Keine leeren Klammer eingeben"); string = removeEmpty(string); writeOutput(removePrefix(string)); waitBetweenToast(toasts);}
 
  var e = emptyString(string);
  if(e == true) {toasts.push("Bitte keinen leeren Ausdruck eingeben");waitBetweenToast(toasts);  return false;}
 
  var brackets = bracketsCheck(readInput());
- if(brackets == false) {toasts.push("Klammern sind nicht korrekt");waitBetweenToast(toasts); return false;}
+ if (brackets !== -1) {
+   toasts.push("Die Klammern sind nicht richtig gesetzt!");
+   markRed(brackets);
+   waitBetweenToast(toasts);
+   return false;
+ }
 
  var operator = operators(readInput());
  if(operator !== -1) {toasts.push("Mehrere hintereinander folgende Operatoren");
@@ -169,7 +174,7 @@ emptyInput();
  waitBetweenToast(toasts);
  return false;}
 
- 
+
  return true;
 }
 

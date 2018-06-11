@@ -142,12 +142,12 @@ function decInputValidator(string) {
 
 
   var j = emptyBrackets(string);
-  if (j == true) { string = removeEmpty(string); writeOutput(string); toasts.push("Keine leeren Klammer eingeben\n"); }
+  if (j == true) {toasts.push("Keine leeren Klammer eingeben\n"); string = removeEmpty(string); writeOutput(string); waitBetweenToast(toasts);}
 
   var e = emptyString(string);
   if(e == true) {toasts.push("Bitte keinen leeren Ausdruck eingeben");waitBetweenToast(toasts);  return false;}
 
-  
+
 
   var b = bracketsCheck(readInput());
   if (b !== -1) {
@@ -197,7 +197,7 @@ function decInputValidator(string) {
 
   var beg = beginning(string);
   if (beg !== -1) {
-    dtoasts.push("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!");
+    toasts.push("Am Anfang dürfen nur +, -, ( oder eine Zahl stehen!");
     markRed(beginning(string));
     waitBetweenToast(toasts);
     return false;
