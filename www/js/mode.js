@@ -75,7 +75,7 @@ function decCheck() {
       erg = eval(readInput());
 
       if (erg == Infinity) {
-        alert("Teilen durch 0 nicht möglich!");
+        
       } else {
 
         //Runden auf 3 Stellen nach dem Komma
@@ -167,7 +167,7 @@ function RoundAfter3(erg, digit, mode) {
       erg = result.toString(16).toUpperCase();
 
       if (erg == "INFINITY") {
-        alert("Teilen durch 0 nicht möglich!");
+       
       } else {
         writeOutput(erg);
       }
