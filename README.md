@@ -9,7 +9,7 @@ Lade das Projekt mit einer Software deiner Wahl runter. In Sourcetree einfach de
 
 Außerdem musst du [Node.JS](https://nodejs.org/en/) runtergeladen und installiert haben.
 
-Danach musst du alle Dependencies runterladen. Gehe dazu mit der Kommandozeile in den Projektordner und gebe  _**npm install**_ ein. 
+Danach musst du alle Dependencies runterladen. Gehe dazu mit der Kommandozeile in den Projektordner und gebe  _**npm install**_ ein.
 
 
 ### Entwickeln eines Features
@@ -35,7 +35,7 @@ Führe _**npm run electron**_ aus und Electron sollte sich öffnen
 
 ### Wie Schreibe ich die Tests?
 
-1. Werdet vertraut mit unserem Testing Framework [Jest](https://facebook.github.io/jest/docs/en/getting-started.html) 
+1. Werdet vertraut mit unserem Testing Framework [Jest](https://facebook.github.io/jest/docs/en/getting-started.html)
 
 2. Eure Tests werdet ihr in der app.test.js Datei schreiben, welche sich im Root Verzeichnis des Projekts befindet.
 
@@ -52,8 +52,35 @@ Führe _**npm run electron**_ aus und Electron sollte sich öffnen
 
 Führe _**npm run exe**_ aus und ein Ordner mit dem Namen "Alekulator-win32-x64" sollte erstellt worden sein. In diesem Ordner ist eine .exe Datei die du ausführen kannst.
 
+### Unterstützte Geräte
+
+Auf folgenden Geräten kann der Alekulator genutzt werden:
+
+1. Im Webbrowser (PC/MAC):
+
+- Microsoft Edge Version: 16 - 18
+- Firefox Version: 59 - 62
+- Chrome Version: 65 - 69
+- Safari Version: 11.1, 12, TP
+
+2. Smartphones & Tablets:
+
+- Apple:
+  Safari Version: 10.3, 11.2, 11.3
+
+- Android:
+  Chrome Version: 66
+  UC Browser Version: 11.8
+  Samsung Internet Version: 6.2
+
+
 ### Team Mitglieder
 
-Bich Duyen Diep
-Japhet Fetewi
-Kelvin Petry
+- Marc Bambey
+- Bich Duyen Diep
+- Japhet Fetewi
+- Kelvin Petry
+- Hengameh Renner
+- Philipp Rothaug
+- Gursharn Virdi
+- Sara Zaghloul
