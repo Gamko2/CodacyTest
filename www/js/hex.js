@@ -10,8 +10,8 @@ function hexDisplayValidator(evt) {
 
   charCode = String.fromCharCode(charCode);
 
-  var patt = /[0-F|+|\-|*|/|(|)|a-f|\.]/;
-  var forbidden = /[@|\||:|;|>|<|?|=]/;
+  var patt = /[0-F|+|\-|*|/|(|)|a-f]/;
+  var forbidden = /[@|\||:|;|>|<|?|=|\.]/;
 
   var c = patt.test(charCode);
   var f = forbidden.test(charCode);
@@ -133,7 +133,7 @@ function hexInputValidator(string) {
   let toastCount = 0;
 
   var j = emptyBrackets(string);
-  if(j == true) {changeColor(); string = removeEmpty(string); changeColorBlack(); writeOutput(removePrefix(string)); displayToastMessage("Bitte keine leeren Klammer eingeben");}
+  if(j == true) {toasts.push("Keine leeren Klammer eingeben"); string = removeEmpty(string); writeOutput(removePrefix(string)); waitBetweenToast(toasts);}
 
   var e = emptyString(string);
   if (e == true) { toasts.push("Bitte keinen leeren Ausdruck eingeben"); return false; }
@@ -155,7 +155,7 @@ function hexInputValidator(string) {
   var order = checkBracketsOrder(string);
   if(order !== -1) {
     displayToastMessage("Die Klammernfolge ist nicht richtig!");
-    
+
   return false;}
 
   var after = afteroperator(string);
@@ -182,7 +182,7 @@ function hexInputValidator(string) {
     return false;
   }
 
-  
+
   return true;
 }
 

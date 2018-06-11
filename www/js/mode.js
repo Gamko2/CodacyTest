@@ -75,7 +75,7 @@ function decCheck() {
       erg = eval(readInput());
 
       if (erg == Infinity) {
-        
+
       } else {
 
         //Runden auf 3 Stellen nach dem Komma
@@ -132,17 +132,10 @@ function hexCheck() {
 //3 Nachkommastellen für Bin/Hex
 function RoundAfter3(erg, digit, mode) {
   var index = 0;
-  var vierteStelle;
   var patternRoundUp = /[8-F|8-f]/;
   var hex = false;
   var bin = false;
   var num;
-  //Leere Klammern entfernen
-  if (emptyBrackets(readInput()) !== false) {
-    string = removeEmpty(readInput());
-    displayToastMessage("Leere Klammern entfernt");
-    writeOutput(string);
-  }
 
   if (erg.includes('.')) {
     console.log(erg);
@@ -162,12 +155,10 @@ function RoundAfter3(erg, digit, mode) {
       num = String.fromCharCode(erg.charAt(index + 3).charCodeAt(0) + 1);
       erg = erg.slice(0, index + digit) + num;
     } else {
-      console.log(string);
-      var result = eval(string);
-      erg = result.toString(16).toUpperCase();
+      erg = erg.slice(0, index+digit+1);
 
       if (erg == "INFINITY") {
-       
+
       } else {
         writeOutput(erg);
       }
