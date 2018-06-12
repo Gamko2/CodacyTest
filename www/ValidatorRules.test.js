@@ -163,7 +163,7 @@ test('(10-6+4) equals false', () => {
  //Überprüft, ob die Klammeranzahl stimmt
 
   test('adds ((((()))) equals false', () =>{
-  expect(valRules.bracketsCheck('((((())))')).toBe(4);
+  expect(valRules.bracketsCheck('((((())))')).toBe(0);
 });
   test('adds ((())) equals true', () =>{
   expect(valRules.bracketsCheck('((()))')).toBe(-1);
