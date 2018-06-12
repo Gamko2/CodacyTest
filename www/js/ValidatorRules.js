@@ -56,22 +56,18 @@ function bracketsCheck(string) {
       openIndexes.push(i);
     }
     else if (closedBracketsPattern.test(c)) {
-      closedIndexes.push(i);
+      if (openIndexes.length == 0) {
+        return i;
+      } else {
+        openIndexes.pop();
+      }
     }
   }
-
-  if (openIndexes.length == closedIndexes.length) {
+  let returnValue = openIndexes.pop();
+  if (returnValue === undefined) {
     return -1
-  }
-  else {
-    if (openIndexes.length > closedIndexes.length) {
-      return openIndexes[openIndexes.length - 1]
-    } else {
-      return closedIndexes[closedIndexes.length - 1]
-    }
-
-    if (brackets == 0) { return true; }
-    else { return false; }
+  } else {
+    return returnValue;
   }
 }
 
