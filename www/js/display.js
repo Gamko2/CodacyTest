@@ -1,3 +1,13 @@
+document.onkeydown = pressEnter;
+
+function pressEnter(evt){
+  let charCode = (evt.which) ? evt.which : event.keyCode;
+  if (charCode === 13) {
+    evt.preventDefault();
+    document.getElementById("equal").click();
+  }
+}
+
 //Ließt das Eingabefeld
 function readInput() {
   var inp = document.getElementById('input').innerHTML;
@@ -84,21 +94,21 @@ function setValidator(x) {
   if(mode === "dec") {
     //document.getElementById("equal").addEventListener("click", inputValidator);
     document.addEventListener("paste", decPaste);
-    document.getElementById("input").addEventListener("keypress", decDisplayValidator);
+    //document.getElementById("input").addEventListener("keypress", decDisplayValidator);
     document.getElementById("equal").addEventListener("click", decCheck);
     //console.log("Decimal Validator Successful!");
 
   } else if(mode === "hex") {
     //document.getElementById("equal").addEventListener("click", hexInputValidator);
     document.addEventListener("paste", hexPaste);
-    document.getElementById("input").addEventListener("keypress", hexDisplayValidator);
+    //document.getElementById("input").addEventListener("keypress", hexDisplayValidator);
     document.getElementById("equal").addEventListener("click", hexCheck);
     //console.log("Hexadecimal Validator Successful!");
 
   } else if(mode === "bin") {
     //document.getElementById("equal").addEventListener("click", binInputValidator);
     document.addEventListener("paste", binPaste);
-    document.getElementById("input").addEventListener("keypress", binDisplayValidator);
+    //document.getElementById("input").addEventListener("keypress", binDisplayValidator);
     document.getElementById("equal").addEventListener("click", binCheck);
     //console.log("Binary Validator Successful!");
   }

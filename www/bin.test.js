@@ -1,6 +1,6 @@
 const bin = require('./js/bin.js');
 
-//Allte Tests enthalten einen positiven und negativen Test
+//Alte Tests enthalten einen positiven und negativen Test
 //Korriegiere alle binären Zahlen denen die 0B-Marker fehlt
 test('101010101 to 0B101010101', () => {
   expect(bin.korrigieren('101010101')).toBe('0B101010101');
@@ -30,14 +30,6 @@ test('(100)100 to (100)*100', () => {
 test('(01010+0101)*(0101010*010100) to (no change))', () => {
   expect(bin.binModifizieren('(01010+0101)*(0101010*010100)')).toBe('(01010+0101)*(0101010*010100)');
 });
-
-/*test('01010*(01010+0101) equals false', () => {
-  expect(bin.checkCloseOpenBrackets('01010*(01010+0101)')).toBe(false);
-});
-
-test('(01010+0101)(0101010*010100) equals true', () => {
-  expect(bin.checkCloseOpenBrackets('(01010+0101)(0101010*010100)')).toBe(true);
-});*/
 
 test('(01010+0101)*(0101010*010100) to (no change))', () => {
   expect(bin.binModifizieren('(01010+0101)*(0101010*010100)')).toBe('(01010+0101)*(0101010*010100)');

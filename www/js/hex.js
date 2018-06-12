@@ -20,26 +20,23 @@ function hexDisplayValidator(evt) {
   }
 }
 
+//Paste event fürs Hexadezimalsystem
 function hexPaste(event) {
-  var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
+  var inputText = event.clipboardData.getData('Text');
   var fail = 0;
   var i = 0;
 
-  /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
-  keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
   for (i = 0; i < inputText.length; i++) {
     if (!((inputText.charAt(i) >= '0' && inputText.charAt(i) <= '9') || (inputText.charAt(i) >= 'A' && inputText.charAt(i) <= 'F') || (inputText.charAt(i) >= 'a' && inputText.charAt(i) <= 'f') || (inputText.charAt(i) == '+') || (inputText.charAt(i) == '-') ||
       (inputText.charAt(i) == '/') || (inputText.charAt(i) == '*') || (inputText.charAt(i) == ')') || (inputText.charAt(i) == '('))) {
-      //console.log(inputText.charAt(i));
       fail = 1;
       break;
     }
   }
 
-  //console.log(correct);
-  if (fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
+  if (fail == 1) {
     displayToastMessage("Es dürfen per Paste nur Hexzahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
-    event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
+    event.preventDefault();
     return false;
   } else {
     return true;
@@ -93,8 +90,7 @@ function hexaCheckBrackets(string) {
 }
 
 /*Der Modifizierer ist dafür zuständig ein Malzeichen zwischen einer Hexadezimalzahl und einer geöffneten Klammer
-oder sich schließenden und öffnenden Klammer hinzuzufügen.
-*/
+oder sich schließenden und öffnenden Klammer hinzuzufügen.*/
 function hexaModifizieren(string) {
   var binaryPattern = /[0-F|a-f]/;
 
@@ -119,9 +115,7 @@ function hexaModifizieren(string) {
 
 /*Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben
 und eine Fehlermeldung ausgegeben*/
-
 function hexInputValidator(string) {
-  //string = korrigieren(string);
   if (readInput().includes("font")){
     return false;
   }
@@ -181,7 +175,6 @@ function hexInputValidator(string) {
     markRed(afterBracketsNoMulDiv(string));
     return false;
   }
-
 
   return true;
 }

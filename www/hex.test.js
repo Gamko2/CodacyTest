@@ -50,16 +50,3 @@ test('(2+2)9(A+C)(10+10) equals (2+2)*9*(A+C)*(10+10)', () => {
 test('9+(A+C) equals 9+(A+C)', () => {
   expect(hex.hexaModifizieren('9+(A+C)')).toBe('9+(A+C)');
 });
-
-//hexaInputValidator als Ganzes (manueller Test hat geklappt bevor Auslagerung, wegen späterer displayToastMessage ausgeschaltet)
-/*test('(1+A+B) equals true', () => {
-  expect(hex.hexInputValidator('(1+A+B)')).toBe(true);
-});
-
-test('1+A+B) equals false', () => {
-  expect(hex.hexInputValidator('1+A+B)')).toBe(false);
-});
-
-test('((10+29)+19/AB-(27+DE)/(78-AF)) equals true', () => {
-  expect(hex.hexInputValidator('((10+29)+19/AB-(27+DE)/(78-AF))')).toBe(true);
-});*/
