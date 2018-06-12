@@ -123,8 +123,6 @@ function bracketsCheck(string) {
 
   }
 
-
-
   module.exports = {
     operators: operators,
     beginning: beginning,

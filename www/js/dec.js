@@ -24,45 +24,27 @@ function markRed(index) {
   let cut1 = inputString.substring(0, index);
   let toBeColored = inputString.substring(index, index + 1);
   let cut2 = inputString.substring(index + 1, inputString.length);
-  console.log(cut1);
-  console.log(toBeColored);
-  console.log(cut2);
-  console.log(toBeColored.fontcolor("red"));
   let coloredResult = cut1 + toBeColored.fontcolor("red") + cut2;
-  console.log(coloredResult);
   writeOutput(coloredResult);
 }
 
-
-//3 Nachkommastellen dürfen nur eingegeben werden
-/*function checkAfterPoint(string) {
-  var pattern = /([0-9]+)([.][0-9][0-9][0-9][0-9]+)/
-  var c = pattern.test(string);
-  return c;
-}*/
-
 //Überprüfung der Eingabe per Paste
 function decPaste(event) {
-  var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
+  var inputText = event.clipboardData.getData('Text');
   var fail = 0;
   var i = 0;
-  console.log(inputText);
 
-  /*Der String wird überprüft, wenn ein Fehler auftaucht, d.h
-  keine Zahl, +, -, /, *, ( und ) vorzufinden ist, wird fail = 1 gesetzt und die Schleife durch break unterbrochen*/
   for (i = 0; i < inputText.length; i++) {
     if (!((inputText.charAt(i) >= '0' && inputText.charAt(i) <= '9') || (inputText.charAt(i) == '+') || (inputText.charAt(i) == '-') ||
       (inputText.charAt(i) == '/') || (inputText.charAt(i) == '*') || (inputText.charAt(i) == ')') || (inputText.charAt(i) == '('))) {
-      //console.log(inputText.charAt(i));
       fail = 1;
       break;
     }
   }
 
-  //console.log(correct);
-  if (fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
+  if (fail == 1) {
     displayToastMessage("Es dürfen per Paste nur Zahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
-    event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
+    event.preventDefault();
     return false;
   } else {
     return true;
@@ -130,24 +112,18 @@ function adjustKommaRedMark(index, string) {
 
 /*Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben
 und eine Fehlermeldung ausgegeben*/
-
 function decInputValidator(string) {
   let toasts = [];
-
 
   if (readInput().includes("font")) {
     return false;
   }
-
-
 
   var j = emptyBrackets(string);
   if (j == true) {toasts.push("Keine leeren Klammer eingeben\n"); string = removeEmpty(string); writeOutput(string); waitBetweenToast(toasts);}
 
   var e = emptyString(string);
   if(e == true) {toasts.push("Bitte keinen leeren Ausdruck eingeben");waitBetweenToast(toasts);  return false;}
-
-
 
   var b = bracketsCheck(readInput());
   if (b !== -1) {
@@ -157,13 +133,13 @@ function decInputValidator(string) {
     return false;
   }
 
-
   if (operators(string) !== -1) {
     toasts.push("Operatoren hintereinander");
     markRed(operators(string));
     waitBetweenToast(toasts);
     return false;
   }
+
   var order = checkBracketsOrder(string);
   if (order !== -1) {
     toasts.push("Die Klammernfolge ist nicht richtig!");
@@ -202,8 +178,6 @@ function decInputValidator(string) {
     waitBetweenToast(toasts);
     return false;
   }
-
-
 
   return true;
 }

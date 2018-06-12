@@ -1,6 +1,4 @@
-
-/*Die Enumeration dient später zum Vergleichscheck bei der Funktion setMode(m)
-*/
+/*Die Enumeration dient später zum Vergleichscheck bei der Funktion setMode(m)*/
 var mode = {
   binary: "bin",
   hexadecimal: "hex",
@@ -10,16 +8,12 @@ var mode = {
 /*Die Funktion setMode(m) übergibt den jeweiligen Mode an die Funktion setValidator, die
 später den richtigen display Validator und die richtigen checkMethoden auswählt.*/
 function setMode(m) {
-  //console.log("Start to setMode!");
   if (m == mode.binary) {
     setValidator(m);
-    //console.log("Binary Validator + Evaluator");
   } else if (m == mode.hexadecimal) {
     setValidator(m);
-    //console.log("Hexadecimal Validator + Evaluator");
   } else if (m == mode.decimal) {
     setValidator(m);
-    //console.log("Decimal Validator + Evaluator");
   }
 }
 
@@ -43,14 +37,12 @@ function emptyInput(){
   }
 }
 
-
 function decCheck() {
-  var ausdruck = readInput(); //OX anhängen
+  var ausdruck = readInput();
   var ergebnis = 0;
   errorInInput();
 
   if (decInputValidator(ausdruck) === true) {
-    //var number1 = checkBinBrackets(string);
     ausdruck = decModifizieren(readInput());
     ergebnis = eval(ausdruck);
     ergebnis = (Math.round(ergebnis * 1000) / 1000);
@@ -61,12 +53,9 @@ function decCheck() {
 
   if (decInputValidator(readInput()) === true) {
     var number1 = checkDecBrackets(readInput);
-    //var number2 = checkCloseOpenBrackets(readInput);
 
     if (number1 == true) {
-      //console.log("Push");
       string = decModifizieren(string);
-      //console.log(string);
     }
 
     if (readInput() == "") {
@@ -79,8 +68,6 @@ function decCheck() {
       } else {
 
         //Runden auf 3 Stellen nach dem Komma
-        /*Funktionsbeispiel: number = 1.2345 -> 1.2345 * 1000 -> 1234.5 -> durch Math.round -> 1235 und durch 1000 -> erg = 1.235
-        */
         if (erg.toString().includes(".")) {
           number = erg;
           erg = (Math.round(number * 1000) / 1000);
@@ -94,15 +81,12 @@ function decCheck() {
   }
 }
 
-
-//binCheck funktioniert ebenfalls wie decCheck
 function binCheck() {
   errorInInput();
   var ausdruck = korrigieren(readInput()); //OB anhängen
   var ergebnis = 0;
 
   if (binInputValidator(ausdruck) === true) {
-    //var number1 = checkBinBrackets(string);
     ausdruck = binModifizieren(korrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(2);
@@ -112,14 +96,12 @@ function binCheck() {
   }
 }
 
-//hexCheck funktioniert ebenfalls wie decCheck
 function hexCheck() {
   errorInInput();
-  var ausdruck = hexaKorrigieren(readInput()); //OX anhängen
+  var ausdruck = hexaKorrigieren(readInput());
   var ergebnis = 0;
 
   if (hexInputValidator(ausdruck) === true) {
-    //var number1 = checkBinBrackets(string);
     ausdruck = hexaModifizieren(hexaKorrigieren(readInput()));
     ergebnis = eval(ausdruck);
     ergebnis = ergebnis.toString(16).toUpperCase();
@@ -138,10 +120,8 @@ function RoundAfter3(erg, digit, mode) {
   var num;
 
   if (erg.includes('.')) {
-    console.log(erg);
     index = erg.indexOf(".");
     if (mode == "hex") {
-      //console.log("Hex-Mode");
       hex = patternRoundUp.test(erg.charAt(index + 4));
     }
 

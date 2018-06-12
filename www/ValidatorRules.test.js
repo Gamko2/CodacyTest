@@ -1,7 +1,7 @@
 ﻿const valRules = require('./js/ValidatorRules.js');
 
 
-//Allte Tests enthalten einen positiven und negativen Test
+//Alte Tests enthalten einen positiven und negativen Test
 //Richtige Klammersetzung, wenn die Klammern nicht richtig gesetzt sind, wird false zurückgegeben
 test('((A+1)+(B-C))/(10+2)) equals false', () => {
   expect(valRules.bracketsCheck('((A+1)+(B-C))/(10+2))')).toBe(20);
@@ -83,51 +83,6 @@ test('(10-B+34) equals false', () => {
   expect(valRules.beginning('(10-B+34)')).toBe(-1);
 });
 
-//Nach einer Klammer darf kein * oder / stehen, wenn's eintrifft true
-/*
-test('(*10) equals true', () => {
-  expect(valRules.afterBracketsNoMulDiv('(*10)')).toBe(1);
-});
-*/
-
-/*
-test('(/AB) equals true', () => {
-  expect(valRules.afterBracketsNoMulDiv('(/AB)')).toBe(1);
-});
-*/
-
-/*
-test('(+CDE) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('(+CDE)')).toBe(-1);
-});
-*/
-
-/*
-test('(-100) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('(-100)')).toBe(false);
-});
-*/
-
-/*
-test('((-100)) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('((-100))')).toBe(false);
-});
-*/
-
-/*//Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
-test('(A+1)(B+10) equals true', () => {
-  expect(valRules.checkCloseOpenBrackets('(A+1)(B+10)')).toBe(true);
-});
-
-test('F+34 equals false', () => {
-  expect(valRules.checkCloseOpenBrackets('F+34')).toBe(false);
-});
-
-
-test('(F+34) equals false', () => {
-  expect(valRules.checkCloseOpenBrackets('(F+34)')).toBe(false);
-});*/
-
 //Leere Klammer löschen
 test('A+1() equals A+1', () => {
   expect(valRules.removeEmpty('A+1()')).toBe('A+1');
@@ -199,41 +154,6 @@ test('(10-6+4) equals false', () => {
   expect(valRules.beginning('(10-6+4)')).toBe(-1);
 });
 
-
-//Nach einer Klammer darf kein * oder / stehen, wenn's eintrifft true
-/*
-test('(*4) equals true', () => {
-  expect(valRules.afterBracketsNoMulDiv('(*4)')).toBe(true);
-});
-
-test('(/4) equals true', () => {
-  expect(valRules.afterBracketsNoMulDiv('(/4)')).toBe(true);
-});
-
-test('(+12) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('(+12)')).toBe(false);
-});
-
-test('(-100) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('(-100)')).toBe(false);
-});
-
-test('((-100)) equals false', () => {
-  expect(valRules.afterBracketsNoMulDiv('((-100))')).toBe(false);
-});
-*/
-
-//Nach einer geschlossenen Klammer folgt eine geöffnete, wenn's zutrifft true
-
-/*test('(6+1)(4+10) equals true', () => {
-  expect(valRules.checkCloseOpenBrackets('(6+1)(4+10)')).toBe(true);
-});
-
-test('3+4 equals false', () => {
-  expect(valRules.checkCloseOpenBrackets('3+4')).toBe(false);
-});*/
-
-
 //Überprüft, ob die Klammern leer sind
 
   test('adds () equals true', () =>{
@@ -255,7 +175,6 @@ test('AF*(4532929)/A*(3443344)(482938) equals false', () => {
   expect(valRules.checkBracketsOrder('AF*(4532929)/A*(3443344)(482938)')).toBe(-1);
 });
 
-//123))((123 -> 123)123)(123(123 ->
 test('(123)(123) equals false', () => {
   expect(valRules.checkBracketsOrder('(123)(123)')).toBe(-1);
 });

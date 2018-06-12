@@ -20,6 +20,7 @@ function binDisplayValidator(evt) {
   }
 }
 
+//Paste event fürs Binärsystem
 function binPaste(event) {
     var inputText = event.clipboardData.getData('Text'); //Speichert das, was bei Copy Paste im Zwischenlager war in inputText
     var fail = 0;
@@ -30,13 +31,11 @@ function binPaste(event) {
     for(i = 0; i < inputText.length; i++) {
       if(!((inputText.charAt(i) >= '0' && inputText.charAt(i) <= '1') || (inputText.charAt(i) == '+') || (inputText.charAt(i) == '-') ||
       (inputText.charAt(i) == '/') || (inputText.charAt(i) == '*') || (inputText.charAt(i) == ')') || (inputText.charAt(i) == '('))) {
-        //console.log(inputText.charAt(i));
         fail = 1;
         break;
     }
-}
+  }
 
-    //console.log(correct);
     if(fail == 1) { //Wenn fail == 1, ein Fehler wurde im Paste String gefunden, wenn nicht ist fail = 0 und geht in den else Block
       displayToastMessage("Es dürfen per Paste nur Binärzahlen, die Operatoren +, -, *, / und die Klammern übergeben werden!");
       event.preventDefault(); //Unterbindet das Paste Event und somit auch das Hinzufügen eines unerlaubten Strings in das Eingabefeld
@@ -45,6 +44,7 @@ function binPaste(event) {
       return true;
     }
 }
+
 /*Die Funktion ist dafür verantwortlich, dass sie an die Hexadezimalzahl ein 0X dranhängt, damit die eval()
 Funktion diese berechnen kann.Solange binary.test(c) true zurückgibt und number false ist, handelt es sich
 um eine Hexadezimalzahl von 0 oder 1 und ein 0B wird drangehängt = 0B[0-1]. Ist das eingetreten wird, wenn
@@ -117,10 +117,11 @@ function binModifizieren(string) {
 
 //Hier werden die Kontrollfunktionen aufgerufen und wenn ein Fehler auftaucht, false zurückgegeben und eine Fehlermeldung ausgegeben
 function binInputValidator(string) {
- //string = korrigieren(string);
+  
  if (readInput().includes("font")){
-  return false;
-}
+   return false;
+  }
+
 emptyInput();
  let toasts = [];
  var message1 = "";
